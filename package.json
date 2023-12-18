@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mist3rbru",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Mist3rBru extended ESLint rules",
   "author": {
@@ -15,7 +15,7 @@
   },
   "bugs": "https://github.com/Mist3rBru/eslint-plugin-mist3rbru/issues",
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index.js",
   "files": [
     "dist"

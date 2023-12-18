@@ -2,7 +2,7 @@
   "compilerOptions": {
     /* Build */
     "outDir": "dist",
-    "target": "ESNext",
+    "target": "ES2015",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "lib": ["es2022"],
@@ -15,7 +15,7 @@
 
     /* Strictness */
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "forceConsistentCasingInFileNames": true
   }
 }
