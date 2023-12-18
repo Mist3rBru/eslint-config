@@ -1,0 +1,15 @@
+__tests__/
+.git/
+.changeset/
+.github/
+.vscode/
+scripts/
+src/
+
+.editorconfig
+.gitattributes
+.gitignore
+.prettierignore
+.prettierrc.json
+pnpm-lock.yaml
+tsconfig.json
