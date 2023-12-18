@@ -28,6 +28,7 @@ export default {
     ...shared,
 
     // Typescript
+    '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/method-signature-style': ['error', 'property'],
@@ -43,6 +44,7 @@ export default {
     // React
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-curly-newline': 'off',
+    'react/jsx-indent': 'off',
 
     // JSX
     'jsx-quotes': ['error', 'prefer-double'],

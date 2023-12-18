@@ -30,8 +30,8 @@ export default {
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/consistent-type-assertions': 'warn',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',
 
     'no-extra-semi': 'off',
