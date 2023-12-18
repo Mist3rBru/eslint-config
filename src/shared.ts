@@ -1,22 +1,19 @@
 export default {
   // Stylistic
+  'no-multi-spaces': 'off',
+  'no-multiple-empty-lines': 'off',
+  'no-trailing-spaces': 'off',
+  'multiline-ternary': 'off',
+  'operator-linebreak': 'off',
+
   '@typescript-eslint/indent': 'off',
   '@typescript-eslint/comma-dangle': 'off',
   '@typescript-eslint/brace-style': 'off',
   '@typescript-eslint/space-before-function-paren': 'off',
-  '@typescript-eslint/consistent-type-imports': [
-    'error',
-    {
-      prefer: 'type-imports',
-      disallowTypeAnnotations: true,
-      fixStyle: 'separate-type-imports',
-    },
-  ],
   '@typescript-eslint/method-signature-style': ['error', 'method'],
 
   // Javascript
   'no-void': 'error',
-  'multiline-ternary': 'off',
   'prefer-template': 'error',
   'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
 

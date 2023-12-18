@@ -11,6 +11,11 @@ export default {
     node: true,
     'jest/globals': true,
   },
+  settings: {
+    jest: {
+      version: 29,
+    },
+  },
   rules: {
     'jest/prefer-lowercase-title': ['error', { ignore: ['describe'] }],
     'jest/prefer-expect-assertions': 'off',
@@ -24,6 +29,10 @@ export default {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/consistent-type-assertions': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    '@typescript-eslint/no-unsafe-argument': 'off',
 
     'no-extra-semi': 'off',
   },

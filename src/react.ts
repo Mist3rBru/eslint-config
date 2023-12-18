@@ -30,6 +30,15 @@ export default {
     // Typescript
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/method-signature-style': ['error', 'property'],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        disallowTypeAnnotations: true,
+        fixStyle: 'inline-type-imports',
+      },
+    ],
 
     // React
     'react-hooks/exhaustive-deps': 'warn',
