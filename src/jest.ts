@@ -4,7 +4,7 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'jest'],
+  plugins: ['jest'],
   extends: ['plugin:jest/all'],
   env: {
     es2022: true,
@@ -13,7 +13,7 @@ export default {
   },
   settings: {
     jest: {
-      version: 29,
+      version: require('jest/package.json').version,
     },
   },
   rules: {
@@ -21,13 +21,14 @@ export default {
     'jest/prefer-expect-assertions': 'off',
     'jest/require-to-throw-message': 'off',
     'jest/no-untyped-mock-factory': 'off',
-    'jest/unbound-method': 'off',
     'jest/no-hooks': 'off',
-    'jest/max-expects': ['error', { max: 10 }],
+    'jest/max-expects': ['warn', { max: 10 }],
     'jest/no-disabled-tests': 'warn',
 
-    '@typescript-eslint/ban-ts-comment': 'off',
+    'jest/unbound-method': 'error',
     '@typescript-eslint/unbound-method': 'off',
+
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/consistent-type-assertions': 'warn',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
