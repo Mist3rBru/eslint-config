@@ -5,7 +5,7 @@ import vitest from './vitest.js'
 
 import { name as packageName, version as packageVersion } from '../package.json'
 
-module.exports = {
+export = {
   meta: {
     name: packageName,
     version: packageVersion,

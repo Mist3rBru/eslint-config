@@ -1,0 +1,9 @@
+{
+  "extends": "plugin:mist3rbru/node",
+  "overrides": [
+    {
+      "files": ["__tests__/**"],
+      "extends": "plugin:mist3rbru/jest"
+    }
+  ]
+}
