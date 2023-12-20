@@ -1,23 +1,8 @@
 export default {
-  // Stylistic
-  'no-multi-spaces': 'off',
-  'no-multiple-empty-lines': 'off',
-  'no-trailing-spaces': 'off',
-  'multiline-ternary': 'off',
-  'operator-linebreak': 'off',
-
-  '@typescript-eslint/indent': 'off',
-  '@typescript-eslint/comma-dangle': 'off',
-  '@typescript-eslint/brace-style': 'off',
-  '@typescript-eslint/space-before-function-paren': 'off',
-  '@typescript-eslint/method-signature-style': ['error', 'method'],
-
-  // Javascript
   'no-void': 'error',
   'prefer-template': 'error',
   'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
 
-  // Typescript
   '@typescript-eslint/no-namespace': 'off',
   '@typescript-eslint/prefer-readonly': 'off',
   '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -38,4 +23,12 @@ export default {
     'error',
     { allowTypedFunctionExpressions: true, allowHigherOrderFunctions: true },
   ],
-} as const
+
+  'unicorn/no-keyword-prefix': 'error',
+  'unicorn/consistent-function-scoping': 'warn',
+  'unicorn/no-array-callback-reference': 'error',
+  'unicorn/switch-case-braces': ['error', 'avoid'],
+  'unicorn/prevent-abbreviations': 'off',
+  'unicorn/no-array-reduce': 'off',
+  'unicorn/no-null': 'off',
+}

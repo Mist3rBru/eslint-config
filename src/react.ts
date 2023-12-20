@@ -9,8 +9,14 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint'],
-  extends: ['standard-with-typescript', 'standard-jsx', 'standard-react'],
+  plugins: ['@typescript-eslint', 'unicorn'],
+  extends: [
+    'standard-with-typescript',
+    'standard-jsx',
+    'standard-react',
+    'plugin:unicorn/all',
+    'prettier',
+  ],
   env: {
     browser: true,
     es2022: true,
@@ -27,7 +33,6 @@ export default {
   rules: {
     ...shared,
 
-    // Typescript
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
@@ -41,12 +46,8 @@ export default {
       },
     ],
 
-    // React
     'react-hooks/exhaustive-deps': 'warn',
-    'react/jsx-curly-newline': 'off',
-    'react/jsx-indent': 'off',
 
-    // JSX
     'jsx-quotes': ['error', 'prefer-double'],
   },
   overrides: [
@@ -54,6 +55,8 @@ export default {
       files: ['*.tsx'],
       rules: {
         'no-undef': 'off',
+
+        'unicorn/no-keyword-prefix': 'off',
       },
     },
   ],

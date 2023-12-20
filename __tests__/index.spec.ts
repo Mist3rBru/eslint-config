@@ -12,9 +12,9 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     const files = await readdir(resolve('src'))
-    const ignoreList = ['index.ts', 'shared.ts']
+    const ignoreList = new Set(['index.ts', 'shared.ts'])
     const expectedKeys = files
-      .filter(f => !ignoreList.includes(f))
+      .filter(f => !ignoreList.has(f))
       .map(f => f.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
