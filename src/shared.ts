@@ -37,4 +37,6 @@ export default {
   'unicorn/prevent-abbreviations': 'off',
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
+
+  'no-secrets/no-secrets': 'error',
 }

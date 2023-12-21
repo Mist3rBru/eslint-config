@@ -25,6 +25,9 @@ dependencies:
   eslint-plugin-jest-dom:
     specifier: ^5.1.0
     version: 5.1.0(eslint@8.56.0)
+  eslint-plugin-no-secrets:
+    specifier: ^0.8.9
+    version: 0.8.9(eslint@8.56.0)
   eslint-plugin-unicorn:
     specifier: ^49.0.0
     version: 49.0.0(eslint@8.56.0)
@@ -1713,6 +1716,15 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.8
       semver: 7.5.4
+    dev: false
+
+  /eslint-plugin-no-secrets@0.8.9(eslint@8.56.0):
+    resolution: {integrity: sha512-CqaBxXrImABCtxMWspAnm8d5UKkpNylC7zqVveb+fJHEvsSiNGJlSWzdSIvBUnW1XhJXkzifNIZQC08rEII5Ng==}
+    engines: {node: '>=10.0.0', npm: '>=6.9.0'}
+    peerDependencies:
+      eslint: '>=3.0.0'
+    dependencies:
+      eslint: 8.56.0
     dev: false
 
   /eslint-plugin-promise@6.1.1(eslint@8.56.0):

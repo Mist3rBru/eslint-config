@@ -9,7 +9,7 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'unicorn'],
+  plugins: ['@typescript-eslint', 'unicorn', 'no-secrets'],
   extends: [
     'standard-with-typescript',
     'standard-jsx',

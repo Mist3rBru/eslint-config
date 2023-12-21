@@ -35,6 +35,8 @@ export default {
 
     'unicorn/error-message': 'off',
 
+    'no-secrets/no-secrets': 'off',
+
     'no-extra-semi': 'off',
   },
 }
