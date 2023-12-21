@@ -55,8 +55,6 @@ export default {
       files: ['*.tsx'],
       rules: {
         'no-undef': 'off',
-
-        'unicorn/no-keyword-prefix': 'off',
       },
     },
   ],

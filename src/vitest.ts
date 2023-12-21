@@ -33,6 +33,8 @@ export default {
     '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
 
+    'unicorn/error-message': 'off',
+
     'no-extra-semi': 'off',
   },
 }
