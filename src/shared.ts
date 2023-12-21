@@ -6,6 +6,7 @@ export const sharedRules = {
   '@typescript-eslint/no-namespace': 'off',
   '@typescript-eslint/prefer-readonly': 'off',
   '@typescript-eslint/strict-boolean-expressions': 'off',
+  '@typescript-eslint/no-explicit-any': 'error',
   '@typescript-eslint/no-non-null-assertion': 'error',
   '@typescript-eslint/no-confusing-void-expression': [
     'error',
@@ -37,6 +38,8 @@ export const sharedRules = {
   'unicorn/prevent-abbreviations': 'off',
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
+
+  'promise/always-return': ['error', { ignoreLastCallback: true }],
 
   'no-secrets/no-secrets': 'error',
 }
