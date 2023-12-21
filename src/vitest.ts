@@ -1,3 +1,5 @@
+import { sharedTestRules } from './shared.js'
+
 export default {
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -11,6 +13,8 @@ export default {
     node: true,
   },
   rules: {
+    ...sharedTestRules,
+
     'vitest/no-hooks': 'off',
     'vitest/no-done-callback': 'off',
     'vitest/prefer-expect-assertions': 'off',
@@ -24,19 +28,5 @@ export default {
       'error',
       { pattern: '.*\\.spec\\.[tj]sx?$' },
     ],
-
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/consistent-type-assertions': 'warn',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unsafe-argument': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-
-    'unicorn/error-message': 'off',
-
-    'no-secrets/no-secrets': 'off',
-
-    'no-extra-semi': 'off',
   },
 }

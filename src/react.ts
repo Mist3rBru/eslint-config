@@ -1,4 +1,4 @@
-import shared from './shared.js'
+import { sharedRules } from './shared.js'
 
 export default {
   parser: '@typescript-eslint/parser',
@@ -9,11 +9,12 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'unicorn', 'no-secrets'],
+  plugins: ['@typescript-eslint', 'promise', 'unicorn', 'no-secrets'],
   extends: [
     'standard-with-typescript',
     'standard-jsx',
     'standard-react',
+    'plugin:promise/recommended',
     'plugin:unicorn/all',
     'prettier',
   ],
@@ -31,7 +32,7 @@ export default {
     },
   },
   rules: {
-    ...shared,
+    ...sharedRules,
 
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-misused-promises': 'off',

@@ -1,3 +1,5 @@
+import { sharedTestRules } from './shared.js'
+
 export default {
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,6 +19,8 @@ export default {
     },
   },
   rules: {
+    ...sharedTestRules,
+
     'jest/prefer-lowercase-title': ['error', { ignore: ['describe'] }],
     'jest/prefer-expect-assertions': 'off',
     'jest/require-to-throw-message': 'off',
@@ -28,18 +32,5 @@ export default {
 
     'jest/unbound-method': 'error',
     '@typescript-eslint/unbound-method': 'off',
-
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/consistent-type-assertions': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unsafe-argument': 'off',
-
-    'unicorn/error-message': 'off',
-
-    'no-secrets/no-secrets': 'off',
-
-    'no-extra-semi': 'off',
   },
 }
