@@ -9,13 +9,15 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'promise', 'unicorn', 'no-secrets'],
+  plugins: ['@typescript-eslint', 'promise', 'unicorn', 'no-secrets', 'import'],
   extends: [
     'standard-with-typescript',
     'standard-jsx',
     'standard-react',
     'plugin:promise/recommended',
     'plugin:unicorn/all',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'prettier',
   ],
   env: {
@@ -34,18 +36,11 @@ export default {
   rules: {
     ...sharedRules,
 
+    '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/method-signature-style': ['error', 'property'],
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        prefer: 'type-imports',
-        disallowTypeAnnotations: true,
-        fixStyle: 'inline-type-imports',
-      },
-    ],
 
     'react-hooks/exhaustive-deps': 'warn',
 

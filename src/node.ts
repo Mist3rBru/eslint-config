@@ -12,12 +12,15 @@ export default {
     'security',
     'unicorn',
     'no-secrets',
+    'import',
   ],
   extends: [
     'standard-with-typescript',
     'plugin:promise/recommended',
     'plugin:security/recommended-legacy',
     'plugin:unicorn/all',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'prettier',
   ],
   env: {
@@ -27,13 +30,12 @@ export default {
   rules: {
     ...sharedRules,
 
+    '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/method-signature-style': ['error', 'method'],
-    '@typescript-eslint/consistent-type-imports': [
+    '@typescript-eslint/parameter-properties': [
       'error',
       {
-        prefer: 'type-imports',
-        disallowTypeAnnotations: true,
-        fixStyle: 'separate-type-imports',
+        allow: ['private', 'private readonly', 'public', 'public readonly'],
       },
     ],
   },

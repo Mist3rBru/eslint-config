@@ -18,6 +18,7 @@ describe('exports', () => {
       .map(f => f.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
+
     for (const key of expectedKeys) {
       expect(configKeys).toContain(key)
     }
@@ -27,6 +28,7 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     expect.assertions(configKeys.length * 5)
+
     for (const key of configKeys) {
       const config = plugin.configs[key as keyof typeof plugin.configs]
       expect(config.parser).toBeDefined()
