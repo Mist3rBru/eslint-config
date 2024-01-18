@@ -1,71 +1,73 @@
 lockfileVersion: '6.0'
 
-dependencies:
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^6.15.0
-    version: 6.15.0(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
-  '@typescript-eslint/parser':
-    specifier: ^6.15.0
-    version: 6.15.0(eslint@8.56.0)(typescript@5.3.3)
-  eslint-config-prettier:
-    specifier: ^9.1.0
-    version: 9.1.0(eslint@8.56.0)
-  eslint-config-standard-jsx:
-    specifier: ^11.0.0
-    version: 11.0.0(eslint-plugin-react@7.33.2)(eslint@8.56.0)
-  eslint-config-standard-react:
-    specifier: ^13.0.0
-    version: 13.0.0(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.33.2)(eslint@8.56.0)
-  eslint-config-standard-with-typescript:
-    specifier: ^43.0.0
-    version: 43.0.0(@typescript-eslint/eslint-plugin@6.15.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.4.0)(eslint-plugin-promise@6.1.1)(eslint@8.56.0)(typescript@5.3.3)
-  eslint-plugin-import:
-    specifier: ^2.29.1
-    version: 2.29.1(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)
-  eslint-plugin-jest:
-    specifier: ^27.6.0
-    version: 27.6.0(@typescript-eslint/eslint-plugin@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
-  eslint-plugin-no-secrets:
-    specifier: ^0.8.9
-    version: 0.8.9(eslint@8.56.0)
-  eslint-plugin-promise:
-    specifier: ^6.1.1
-    version: 6.1.1(eslint@8.56.0)
-  eslint-plugin-security:
-    specifier: ^2.1.0
-    version: 2.1.0
-  eslint-plugin-unicorn:
-    specifier: ^49.0.0
-    version: 49.0.0(eslint@8.56.0)
-  eslint-plugin-vitest:
-    specifier: ^0.3.18
-    version: 0.3.18(@typescript-eslint/eslint-plugin@6.15.0)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.1.0)
+importers:
 
-devDependencies:
-  '@changesets/cli':
-    specifier: ^2.27.1
-    version: 2.27.1
-  '@types/node':
-    specifier: ^20.10.5
-    version: 20.10.5
-  eslint:
-    specifier: ^8.56.0
-    version: 8.56.0
-  eslint-plugin-mist3rbru:
-    specifier: workspace:.
-    version: 'link:'
-  npm-run-all2:
-    specifier: ^6.1.1
-    version: 6.1.1
-  prettier:
-    specifier: ^3.1.1
-    version: 3.1.1
-  typescript:
-    specifier: ^5.3.3
-    version: 5.3.3
-  vitest:
-    specifier: ^1.1.0
-    version: 1.1.0(@types/node@20.10.5)
+  .:
+    dependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.15.0
+        version: 6.15.0(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
+      '@typescript-eslint/parser':
+        specifier: ^6.15.0
+        version: 6.15.0(eslint@8.56.0)(typescript@5.3.3)
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.0(eslint@8.56.0)
+      eslint-config-standard-jsx:
+        specifier: ^11.0.0
+        version: 11.0.0(eslint-plugin-react@7.33.2)(eslint@8.56.0)
+      eslint-config-standard-react:
+        specifier: ^13.0.0
+        version: 13.0.0(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.33.2)(eslint@8.56.0)
+      eslint-config-standard-with-typescript:
+        specifier: ^43.0.0
+        version: 43.0.0(@typescript-eslint/eslint-plugin@6.15.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.4.0)(eslint-plugin-promise@6.1.1)(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-import:
+        specifier: ^2.29.1
+        version: 2.29.1(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)
+      eslint-plugin-jest:
+        specifier: ^27.6.0
+        version: 27.6.0(@typescript-eslint/eslint-plugin@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-no-secrets:
+        specifier: ^0.8.9
+        version: 0.8.9(eslint@8.56.0)
+      eslint-plugin-promise:
+        specifier: ^6.1.1
+        version: 6.1.1(eslint@8.56.0)
+      eslint-plugin-security:
+        specifier: ^2.1.0
+        version: 2.1.0
+      eslint-plugin-unicorn:
+        specifier: ^49.0.0
+        version: 49.0.0(eslint@8.56.0)
+      eslint-plugin-vitest:
+        specifier: ^0.3.18
+        version: 0.3.18(@typescript-eslint/eslint-plugin@6.15.0)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.1.0)
+    devDependencies:
+      '@changesets/cli':
+        specifier: ^2.27.1
+        version: 2.27.1
+      '@types/node':
+        specifier: ^20.10.5
+        version: 20.10.5
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
+      eslint-plugin-mist3rbru:
+        specifier: workspace:*
+        version: 'link:'
+      npm-run-all2:
+        specifier: ^6.1.1
+        version: 6.1.1
+      prettier:
+        specifier: ^3.1.1
+        version: 3.1.1
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+      vitest:
+        specifier: ^1.1.0
+        version: 1.1.0(@types/node@20.10.5)
 
 packages:
 
