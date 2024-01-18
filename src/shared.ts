@@ -2,6 +2,7 @@ export const sharedRules = {
   'no-void': 'error',
   'prefer-template': 'error',
   'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+  'no-duplicate-imports': 'error',
 
   '@typescript-eslint/no-namespace': 'off',
   '@typescript-eslint/prefer-readonly': 'off',
@@ -24,6 +25,42 @@ export const sharedRules = {
     'error',
     { allowTypedFunctionExpressions: true, allowHigherOrderFunctions: true },
   ],
+  '@typescript-eslint/consistent-type-imports': [
+    'error',
+    {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: true,
+      fixStyle: 'inline-type-imports',
+    },
+  ],
+  '@typescript-eslint/array-type': ['error', { default: 'array' }],
+  '@typescript-eslint/switch-exhaustiveness-check': 'error',
+  '@typescript-eslint/padding-line-between-statements': [
+    'error',
+    {
+      blankLine: 'always',
+      prev: '*',
+      next: [
+        'interface',
+        'type',
+        'block',
+        'block-like',
+        'class',
+        'export',
+        'for',
+        'function',
+        'if',
+        'do',
+        'iife',
+        'continue',
+        'return',
+        'switch',
+        'try',
+        'while',
+      ],
+    },
+  ],
+  '@typescript-eslint/no-unnecessary-condition': 'error',
 
   'unicorn/no-keyword-prefix': 'off',
   'unicorn/consistent-function-scoping': 'warn',
@@ -40,6 +77,13 @@ export const sharedRules = {
   'unicorn/no-null': 'off',
 
   'promise/always-return': ['error', { ignoreLastCallback: true }],
+
+  'import/no-cycle': 'error',
+  'import/no-unused-modules': 'error',
+  'import/no-useless-path-segments': 'error',
+  'import/no-namespace': 'off',
+  'import/exports-last': 'off',
+  'import/no-unresolved': 'off',
 
   'no-secrets/no-secrets': 'error',
 }
