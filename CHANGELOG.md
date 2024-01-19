@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.2.0
+
+### Minor Changes
+
+- 43edd07: feat: add eslint-plugin-deprecation
+
 ## 0.1.0
 
 ### Minor Changes
