@@ -13,6 +13,7 @@ export default {
     'unicorn',
     'no-secrets',
     'import',
+    'deprecation',
   ],
   extends: [
     'standard-with-typescript',
@@ -21,6 +22,7 @@ export default {
     'plugin:unicorn/all',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:deprecation/recommended',
     'prettier',
   ],
   env: {

@@ -57,6 +57,7 @@ export const sharedRules = {
         'switch',
         'try',
         'while',
+        'throw',
       ],
     },
   ],
@@ -86,6 +87,8 @@ export const sharedRules = {
   'import/no-unresolved': 'off',
 
   'no-secrets/no-secrets': 'error',
+
+  'deprecation/deprecation': 'error',
 }
 
 export const sharedTestRules = {
