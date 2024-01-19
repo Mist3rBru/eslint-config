@@ -9,7 +9,14 @@ export default {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'promise', 'unicorn', 'no-secrets', 'import'],
+  plugins: [
+    '@typescript-eslint',
+    'promise',
+    'unicorn',
+    'no-secrets',
+    'import',
+    'deprecation',
+  ],
   extends: [
     'standard-with-typescript',
     'standard-jsx',
@@ -18,6 +25,7 @@ export default {
     'plugin:unicorn/all',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:deprecation/recommended',
     'prettier',
   ],
   env: {
