@@ -11,6 +11,7 @@ export default {
   env: {
     es2022: true,
     node: true,
+    vitest: true,
   },
   rules: {
     ...sharedTestRules,
