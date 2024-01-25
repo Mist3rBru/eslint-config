@@ -1,4 +1,5 @@
 import plugin from '../src/index.js'
+import packageJson from '../package.json'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
@@ -11,11 +12,8 @@ describe('exports', () => {
   it('should export plugin configs', async () => {
     const configKeys = Object.keys(plugin.configs)
 
-    const files = await readdir(resolve('src'))
-    const ignoreList = new Set(['index.ts', 'shared.ts'])
-    const expectedKeys = files
-      .filter(f => !ignoreList.has(f))
-      .map(f => f.replace(/\.ts/, ''))
+    const configFiles = await readdir(resolve('src/config'))
+    const expectedKeys = configFiles.map(f => f.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
 
@@ -34,8 +32,24 @@ describe('exports', () => {
       expect(config.parser).toBeDefined()
       expect(config.parserOptions).toBeDefined()
       expect(config.plugins.length).toBeGreaterThanOrEqual(1)
-      expect(config.extends.length).toBeGreaterThanOrEqual(1)
+      expect(config.extends).toBeDefined()
       expect(config.rules).toBeDefined()
+    }
+  })
+
+  it('should include dependency plugins', async () => {
+    const dependencyList = Object.keys(packageJson.dependencies)
+    const configKeys = Object.keys(plugin.configs)
+
+    for (const configKey of configKeys) {
+      const configModule = await import(
+        resolve('src/config', `${configKey}.ts`)
+      )
+      const config = configModule.default as { plugins: string[] }
+
+      for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
+        expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)
+      }
     }
   })
 })

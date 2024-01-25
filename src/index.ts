@@ -1,8 +1,8 @@
-import jest from './jest.js'
-import react from './react.js'
-import node from './node.js'
-import vitest from './vitest.js'
-import jestDom from './jest-dom.js'
+import jest from './config/jest.js'
+import react from './config/react.js'
+import node from './config/node.js'
+import vitest from './config/vitest.js'
+import jestDom from './config/jest-dom.js'
 
 import { name as packageName, version as packageVersion } from '../package.json'
 

@@ -1,4 +1,5 @@
-import { sharedTestRules } from './shared.js'
+import { sharedTestRules } from '../utils/shared-rules'
+import { type EslintConfig } from '../utils/types'
 
 export default {
   parser: '@typescript-eslint/parser',
@@ -19,7 +20,5 @@ export default {
       version: 29,
     },
   },
-  rules: {
-    ...sharedTestRules,
-  },
-}
+  rules: sharedTestRules,
+} satisfies EslintConfig

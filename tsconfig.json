@@ -20,6 +20,6 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
 
-    "types": ["vitest/globals"]
-  }
+    "types": ["vitest/globals"],
+  },
 }
