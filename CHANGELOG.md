@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.1
+
+### Patch Changes
+
+- 3ea7c64: fix: add missing dependencies
+
 ## 0.3.0
 
 ### Minor Changes
