@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.0
+
+### Minor Changes
+
+- b0dfa14: feat: add eslint-plugin-jest-dom
+
 ## 0.2.0
 
 ### Minor Changes
