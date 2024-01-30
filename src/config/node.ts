@@ -1,4 +1,5 @@
-import { sharedRules } from './shared.js'
+import { sharedRules } from '../utils/shared-rules.js'
+import { type EslintConfig } from '../utils/types.js'
 
 export default {
   parser: '@typescript-eslint/parser',
@@ -11,9 +12,9 @@ export default {
     'promise',
     'security',
     'unicorn',
-    'no-secrets',
     'import',
     'deprecation',
+    'no-secrets',
   ],
   extends: [
     'standard-with-typescript',
@@ -41,4 +42,4 @@ export default {
       },
     ],
   },
-}
+} satisfies EslintConfig

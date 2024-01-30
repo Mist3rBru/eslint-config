@@ -1,4 +1,6 @@
-export const sharedRules = {
+import { type EslintRules } from './types'
+
+export const sharedRules: EslintRules = {
   'no-void': 'error',
   'prefer-template': 'error',
   'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
@@ -91,7 +93,9 @@ export const sharedRules = {
   'deprecation/deprecation': 'error',
 }
 
-export const sharedTestRules = {
+export const sharedTestRules: EslintRules = {
+  'no-extra-semi': 'off',
+
   '@typescript-eslint/no-explicit-any': 'off',
   '@typescript-eslint/ban-ts-comment': 'off',
   '@typescript-eslint/consistent-type-assertions': 'off',
@@ -101,8 +105,6 @@ export const sharedTestRules = {
   '@typescript-eslint/no-unsafe-argument': 'off',
 
   'unicorn/error-message': 'off',
-
-  'no-secrets/no-secrets': 'off',
 
   'security/detect-buffer-noassert': 'off',
   'security/detect-child-process': 'off',
@@ -119,5 +121,5 @@ export const sharedTestRules = {
   'security/detect-unsafe-regex': 'off',
   'security/detect-bidi-characters': 'off',
 
-  'no-extra-semi': 'off',
+  'no-secrets/no-secrets': 'off',
 }

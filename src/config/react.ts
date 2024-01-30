@@ -1,16 +1,32 @@
-import { sharedRules } from './shared.js'
+import { sharedRules } from '../utils/shared-rules.js'
+import { type EslintConfig } from '../utils/types.js'
 
 export default {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 'latest',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 'latest',
     sourceType: 'module',
+  },
+  env: {
+    browser: true,
+    es2022: true,
+  },
+  globals: {
+    React: true,
+    JSX: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   plugins: [
     '@typescript-eslint',
+    'react',
+    'react-hooks',
     'promise',
     'unicorn',
     'no-secrets',
@@ -28,29 +44,17 @@ export default {
     'plugin:deprecation/recommended',
     'prettier',
   ],
-  env: {
-    browser: true,
-    es2022: true,
-  },
-  globals: {
-    React: true,
-    JSX: true,
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   rules: {
     ...sharedRules,
 
+    /**
+     * React conflicted rules
+     */
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/method-signature-style': ['error', 'property'],
-
-    'react-hooks/exhaustive-deps': 'warn',
 
     'jsx-quotes': ['error', 'prefer-double'],
   },
@@ -62,4 +66,4 @@ export default {
       },
     },
   ],
-}
+} satisfies EslintConfig
