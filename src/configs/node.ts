@@ -1,3 +1,4 @@
+import { importPlugin } from '../plugins/import.js'
 import { sharedRules } from '../utils/shared-rules.js'
 import { type EslintConfig } from '../utils/types.js'
 
@@ -21,8 +22,6 @@ export default {
     'plugin:promise/recommended',
     'plugin:security/recommended-legacy',
     'plugin:unicorn/all',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
     'plugin:deprecation/recommended',
     'prettier',
   ],
@@ -30,8 +29,10 @@ export default {
     es2022: true,
     node: true,
   },
+  settings: importPlugin.settings,
   rules: {
     ...sharedRules,
+    ...importPlugin.rules,
 
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/method-signature-style': ['error', 'method'],

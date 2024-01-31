@@ -81,13 +81,6 @@ export const sharedRules: EslintRules = {
 
   'promise/always-return': ['error', { ignoreLastCallback: true }],
 
-  'import/no-cycle': 'error',
-  'import/no-unused-modules': 'error',
-  'import/no-useless-path-segments': 'error',
-  'import/no-namespace': 'off',
-  'import/exports-last': 'off',
-  'import/no-unresolved': 'off',
-
   'no-secrets/no-secrets': 'error',
 
   'deprecation/deprecation': 'error',

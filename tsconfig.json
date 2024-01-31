@@ -1,26 +1,24 @@
 {
   "compilerOptions": {
-    /* Build */
     "outDir": "dist",
     "target": "ES5",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "moduleDetection": "force",
-    "lib": ["es2022"],
-    "declaration": true,
 
-    /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "declaration": true,
+    "removeComments": true,
 
-    /* Strictness */
     "strict": true,
     "verbatimModuleSyntax": false,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
 
+    "lib": ["es2022"],
     "types": ["vitest/globals"],
   },
 }

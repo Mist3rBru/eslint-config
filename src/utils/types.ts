@@ -4,6 +4,16 @@ export type EslintRuleOption = EslintRuleLevel | [EslintRuleLevel, ...unknown[]]
 
 export type EslintRules = Record<string, EslintRuleOption>
 
+export interface EslintSettings {
+  jest?: {
+    version: number
+  }
+  react?: {
+    version: 'detect'
+  }
+  [key: string]: unknown
+}
+
 export interface EslintConfig {
   parser: '@typescript-eslint/parser'
   parserOptions: {
@@ -13,14 +23,7 @@ export interface EslintConfig {
       jsx?: true
     }
   }
-  settings?: {
-    jest?: {
-      version: number
-    }
-    react?: {
-      version: 'detect'
-    }
-  }
+  settings?: EslintSettings
   env: {
     es2022: true
     browser?: true

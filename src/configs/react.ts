@@ -1,3 +1,4 @@
+import { importPlugin } from '../plugins/import.js'
 import { sharedRules } from '../utils/shared-rules.js'
 import { type EslintConfig } from '../utils/types.js'
 
@@ -19,6 +20,7 @@ export default {
     JSX: true,
   },
   settings: {
+    ...importPlugin.settings,
     react: {
       version: 'detect',
     },
@@ -39,13 +41,12 @@ export default {
     'standard-react',
     'plugin:promise/recommended',
     'plugin:unicorn/all',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
     'plugin:deprecation/recommended',
     'prettier',
   ],
   rules: {
     ...sharedRules,
+    ...importPlugin.rules,
 
     /**
      * React conflicted rules
@@ -55,6 +56,8 @@ export default {
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/method-signature-style': ['error', 'property'],
+
+    'import/no-nodejs-modules': 'error',
 
     'jsx-quotes': ['error', 'prefer-double'],
   },
