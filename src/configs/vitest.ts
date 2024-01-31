@@ -1,4 +1,4 @@
-import { sharedTestRules } from '../utils/shared-rules.js'
+import { shared } from '../utils/shared.js'
 import { type EslintConfig } from '../utils/types.js'
 
 export default {
@@ -12,7 +12,7 @@ export default {
     vitest: true,
   },
   rules: {
-    ...sharedTestRules,
+    ...shared.testRules,
 
     /**
      * Rules: https://github.com/veritem/eslint-plugin-vitest/tree/main/docs/rules

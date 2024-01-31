@@ -1,5 +1,4 @@
-import { importPlugin } from '../plugins/import.js'
-import { sharedRules } from '../utils/shared-rules.js'
+import { shared } from '../utils/shared.js'
 import { type EslintConfig } from '../utils/types.js'
 
 export default {
@@ -29,10 +28,9 @@ export default {
     es2022: true,
     node: true,
   },
-  settings: importPlugin.settings,
+  settings: shared.settings,
   rules: {
-    ...sharedRules,
-    ...importPlugin.rules,
+    ...shared.rules,
 
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/method-signature-style': ['error', 'method'],

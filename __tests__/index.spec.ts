@@ -12,7 +12,7 @@ describe('exports', () => {
   it('should export plugin configs', async () => {
     const configKeys = Object.keys(plugin.configs)
 
-    const configFiles = await readdir(resolve('src/config'))
+    const configFiles = await readdir(resolve('src/configs'))
     const expectedKeys = configFiles.map(f => f.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
@@ -43,7 +43,7 @@ describe('exports', () => {
 
     for (const configKey of configKeys) {
       const configModule = await import(
-        resolve('src/config', `${configKey}.ts`)
+        resolve('src/configs', `${configKey}.ts`)
       )
       const config = configModule.default as { plugins: string[] }
 

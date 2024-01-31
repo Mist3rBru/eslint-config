@@ -1,4 +1,4 @@
-import { sharedTestRules } from '../utils/shared-rules'
+import { shared } from '../utils/shared'
 import { type EslintConfig } from '../utils/types'
 
 export default {
@@ -20,5 +20,5 @@ export default {
       version: 29,
     },
   },
-  rules: sharedTestRules,
+  rules: shared.testRules,
 } satisfies EslintConfig

@@ -1,4 +1,4 @@
-import { sharedTestRules } from '../utils/shared-rules.js'
+import { shared } from '../utils/shared.js'
 import { type EslintConfig } from '../utils/types.js'
 
 export default {
@@ -21,7 +21,7 @@ export default {
     },
   },
   rules: {
-    ...sharedTestRules,
+    ...shared.testRules,
 
     /**
      * Rules: https://github.com/jest-community/eslint-plugin-jest/tree/main/docs/rules

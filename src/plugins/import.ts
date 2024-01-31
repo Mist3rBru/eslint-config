@@ -78,7 +78,4 @@ const rules: EslintRules = {
   'import/no-amd': 'off',
 }
 
-export const importPlugin = {
-  settings,
-  rules,
-}
+export const importPlugin = { settings, rules }

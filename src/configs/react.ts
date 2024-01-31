@@ -1,5 +1,4 @@
-import { importPlugin } from '../plugins/import.js'
-import { sharedRules } from '../utils/shared-rules.js'
+import { shared } from '../utils/shared.js'
 import { type EslintConfig } from '../utils/types.js'
 
 export default {
@@ -20,7 +19,7 @@ export default {
     JSX: true,
   },
   settings: {
-    ...importPlugin.settings,
+    ...shared.settings,
     react: {
       version: 'detect',
     },
@@ -45,8 +44,7 @@ export default {
     'prettier',
   ],
   rules: {
-    ...sharedRules,
-    ...importPlugin.rules,
+    ...shared.rules,
 
     /**
      * React conflicted rules
