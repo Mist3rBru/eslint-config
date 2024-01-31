@@ -71,4 +71,4 @@ const testRules: EslintRules = {
   '@typescript-eslint/no-unsafe-argument': 'off',
 }
 
-export const typescriptEslintPlugin = { rules, testRules }
+export const typescriptPlugin = { rules, testRules }

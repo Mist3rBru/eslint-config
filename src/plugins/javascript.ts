@@ -11,4 +11,4 @@ const testRules: EslintRules = {
   'no-extra-semi': 'off',
 }
 
-export const javascriptEslintPlugin = { rules, testRules }
+export const javascriptPlugin = { rules, testRules }

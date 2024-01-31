@@ -1,28 +1,16 @@
 import { importPlugin } from '../plugins/import'
-import { javascriptEslintPlugin } from '../plugins/javascript-eslint'
-import { typescriptEslintPlugin } from '../plugins/typescript-eslint'
+import { javascriptPlugin } from '../plugins/javascript'
+import { typescriptPlugin } from '../plugins/typescript'
+import { unicornPlugin } from '../plugins/unicorn'
 import { type EslintSettings, type EslintRules } from './types'
 
 const settings: EslintSettings = Object.assign({}, importPlugin.settings)
 
 const rules: EslintRules = {
-  ...javascriptEslintPlugin.rules,
-  ...typescriptEslintPlugin.rules,
+  ...javascriptPlugin.rules,
+  ...typescriptPlugin.rules,
   ...importPlugin.rules,
-
-  'unicorn/no-keyword-prefix': 'off',
-  'unicorn/consistent-function-scoping': 'warn',
-  'unicorn/consistent-destructuring': 'error',
-  'unicorn/no-array-callback-reference': 'error',
-  'unicorn/prefer-spread': 'error',
-  'unicorn/prefer-ternary': 'error',
-  'unicorn/prefer-top-level-await': 'off',
-  'unicorn/better-regex': 'error',
-  'unicorn/error-message': 'error',
-  'unicorn/switch-case-braces': ['error', 'avoid'],
-  'unicorn/prevent-abbreviations': 'off',
-  'unicorn/no-array-reduce': 'off',
-  'unicorn/no-null': 'off',
+  ...unicornPlugin.rules,
 
   'promise/always-return': ['error', { ignoreLastCallback: true }],
 
@@ -32,10 +20,9 @@ const rules: EslintRules = {
 }
 
 const testRules: EslintRules = {
-  ...javascriptEslintPlugin.testRules,
-  ...typescriptEslintPlugin.testRules,
-
-  'unicorn/error-message': 'off',
+  ...javascriptPlugin.testRules,
+  ...typescriptPlugin.testRules,
+  ...unicornPlugin.testRules,
 
   'security/detect-buffer-noassert': 'off',
   'security/detect-child-process': 'off',
