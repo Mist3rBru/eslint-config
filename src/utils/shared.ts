@@ -1,17 +1,14 @@
 import { importPlugin } from '../plugins/import'
+import { javascriptEslintPlugin } from '../plugins/javascript-eslint'
 import { typescriptEslintPlugin } from '../plugins/typescript-eslint'
 import { type EslintSettings, type EslintRules } from './types'
 
 const settings: EslintSettings = Object.assign({}, importPlugin.settings)
 
 const rules: EslintRules = {
+  ...javascriptEslintPlugin.rules,
   ...typescriptEslintPlugin.rules,
   ...importPlugin.rules,
-
-  'no-void': 'error',
-  'prefer-template': 'error',
-  'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
-  'no-duplicate-imports': 'error',
 
   'unicorn/no-keyword-prefix': 'off',
   'unicorn/consistent-function-scoping': 'warn',
@@ -35,9 +32,8 @@ const rules: EslintRules = {
 }
 
 const testRules: EslintRules = {
+  ...javascriptEslintPlugin.testRules,
   ...typescriptEslintPlugin.testRules,
-
-  'no-extra-semi': 'off',
 
   'unicorn/error-message': 'off',
 
