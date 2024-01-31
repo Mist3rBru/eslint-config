@@ -1,7 +1,7 @@
 import { shared } from '../utils/shared.js'
 import { type EslintConfig } from '../utils/types.js'
 
-export default {
+export const vitestConfig: EslintConfig = {
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   plugins: ['vitest'],
@@ -108,4 +108,4 @@ export default {
       },
     ],
   },
-} satisfies EslintConfig
+}

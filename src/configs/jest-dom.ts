@@ -1,7 +1,7 @@
 import { shared } from '../utils/shared'
 import { type EslintConfig } from '../utils/types'
 
-export default {
+export const jestDomConfig: EslintConfig = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -21,4 +21,4 @@ export default {
     },
   },
   rules: shared.testRules,
-} satisfies EslintConfig
+}

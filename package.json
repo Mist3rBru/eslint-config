@@ -25,7 +25,7 @@
     "lint": "run-s lint:tsc lint:prettier lint:eslint",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --write .",
-    "lint:eslint": "eslint --fix \"src/**.ts\" \"__tests__/**.ts\"",
+    "lint:eslint": "eslint --fix \"src/**/*.ts\" \"__tests__/**/*.ts\"",
     "test": "vitest --run",
     "ci": "run-s build lint test",
     "release": "run-s ci publish",

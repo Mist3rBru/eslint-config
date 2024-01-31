@@ -1,8 +1,8 @@
-import jest from './configs/jest.js'
-import react from './configs/react.js'
-import node from './configs/node.js'
-import vitest from './configs/vitest.js'
-import jestDom from './configs/jest-dom.js'
+import { jestConfig } from './configs/jest.js'
+import { reactConfig } from './configs/react.js'
+import { nodeConfig } from './configs/node.js'
+import { vitestConfig } from './configs/vitest.js'
+import { jestDomConfig } from './configs/jest-dom.js'
 
 import { name as packageName, version as packageVersion } from '../package.json'
 
@@ -11,5 +11,11 @@ export = {
     name: packageName,
     version: packageVersion,
   },
-  configs: { jest, react, node, vitest, 'jest-dom': jestDom },
+  configs: {
+    jest: jestConfig,
+    react: reactConfig,
+    node: nodeConfig,
+    vitest: vitestConfig,
+    'jest-dom': jestDomConfig,
+  },
 }

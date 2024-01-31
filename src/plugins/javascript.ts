@@ -1,14 +1,16 @@
-import { type EslintRules } from '../utils/types'
+import { type EslintPlugin } from '../utils/types'
 
-const rules: EslintRules = {
-  'no-void': 'error',
-  'prefer-template': 'error',
-  'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
-  'no-duplicate-imports': 'error',
+export const javascriptPlugin: EslintPlugin = {
+  name: undefined,
+  extends: [],
+  settings: {},
+  rules: {
+    'no-void': 'error',
+    'prefer-template': 'error',
+    'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+    'no-duplicate-imports': 'error',
+  },
+  testRules: {
+    'no-extra-semi': 'off',
+  },
 }
-
-const testRules: EslintRules = {
-  'no-extra-semi': 'off',
-}
-
-export const javascriptPlugin = { rules, testRules }

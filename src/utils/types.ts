@@ -44,3 +44,13 @@ export interface EslintConfig {
     rules: EslintRules
   }[]
 }
+
+export type EslintPluginName = `eslint-plugin-${string}` | '@typescript-eslint'
+
+export interface EslintPlugin {
+  name: EslintPluginName | undefined
+  extends: `plugin:${string}`[]
+  settings: EslintSettings
+  rules: EslintRules
+  testRules: EslintRules
+}

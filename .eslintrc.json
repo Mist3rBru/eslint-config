@@ -1,5 +1,9 @@
 {
+  "root": true,
   "extends": "plugin:mist3rbru/node",
+  "rules": {
+    "security/detect-object-injection": "off"
+  },
   "overrides": [
     {
       "files": ["__tests__/**"],
