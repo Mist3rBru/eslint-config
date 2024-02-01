@@ -16,7 +16,15 @@
   "bugs": "https://github.com/Mist3rBru/eslint-plugin-mist3rbru/issues",
   "sideEffects": false,
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -25,7 +33,7 @@
     "lint": "run-s lint:tsc lint:prettier lint:eslint",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --write .",
-    "lint:eslint": "eslint --fix \"src/**.ts\" \"__tests__/**.ts\"",
+    "lint:eslint": "eslint --fix \"src/**/*.ts\" \"__tests__/**/*.ts\"",
     "test": "vitest --run",
     "ci": "run-s build lint test",
     "release": "run-s ci publish",
