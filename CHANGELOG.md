@@ -1,5 +1,13 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.4
+
+### Patch Changes
+
+- 371983f: fix: disable security plugin on shared testing rules
+- a17c1d4: feat: manually config each rule
+- 6009556: refactor: specify security plugin for node config
+
 ## 0.3.3
 
 ### Patch Changes
