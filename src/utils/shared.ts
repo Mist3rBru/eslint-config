@@ -9,6 +9,7 @@ const sharedPlugins = [
   plugins.unicornPlugin,
   plugins.securityPlugin,
   plugins.noSecretsPlugin,
+  plugins.deprecationPlugin,
 ]
 
 function reduce<T, TKey extends keyof T>(data: T[], key: TKey): T[TKey] {
