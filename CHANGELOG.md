@@ -1,5 +1,12 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.3
+
+### Patch Changes
+
+- 5886784: feat: manually config each rule
+- 5886784: refactor: specify security plugin for node config
+
 ## 0.3.2
 
 ### Patch Changes
