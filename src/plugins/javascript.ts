@@ -1,7 +1,7 @@
 import { type EslintPlugin } from '../utils/types'
 
-export const javascriptPlugin: EslintPlugin = {
-  name: undefined,
+export const javascriptPlugin: EslintPlugin<string> = {
+  name: '',
   extends: [],
   settings: {},
   rules: {

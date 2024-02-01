@@ -1,6 +1,6 @@
 import { type EslintPlugin } from '../utils/types'
 
-export const typescriptPlugin: EslintPlugin = {
+export const typescriptPlugin: EslintPlugin<'@typescript-eslint'> = {
   name: '@typescript-eslint',
   settings: {},
   extends: [],

@@ -3,7 +3,7 @@ import { type EslintPlugin } from '../utils/types'
 const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx']
 const allExtensions = [...typeScriptExtensions, '.js', '.jsx']
 
-export const importPlugin: EslintPlugin = {
+export const importPlugin: EslintPlugin<'import'> = {
   name: 'eslint-plugin-import',
   settings: {
     'import/extensions': allExtensions,

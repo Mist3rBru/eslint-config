@@ -1,9 +1,9 @@
 import { type EslintPlugin } from '../utils/types'
 
-export const unicornPlugin: EslintPlugin = {
+export const unicornPlugin: EslintPlugin<'unicorn'> = {
   name: 'eslint-plugin-unicorn',
   settings: {},
-  extends: [],
+  extends: ['plugin:unicorn/all'],
   rules: {
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/consistent-function-scoping': 'warn',

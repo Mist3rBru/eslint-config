@@ -22,23 +22,21 @@ function reduce<T, TKey extends keyof T>(data: T[], key: TKey): T[TKey] {
 
 interface Shared {
   plugins: EslintPluginName[]
+  extends: string[]
   settings: EslintSettings
   rules: EslintRules
   testRules: EslintRules
 }
 
 export const shared: Shared = {
-  plugins: sharedPlugins
-    .map(plugin => plugin.name)
-    .filter(Boolean) as EslintPluginName[],
+  plugins: sharedPlugins.map(plugin => plugin.name).filter(Boolean),
+  extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduce(sharedPlugins, 'settings'),
   rules: reduce(sharedPlugins, 'rules'),
   testRules: reduce(sharedPlugins, 'testRules'),
 }
 
 const rules = {
-  'promise/always-return': ['error', { ignoreLastCallback: true }],
-
   'no-secrets/no-secrets': 'error',
 
   'deprecation/deprecation': 'error',

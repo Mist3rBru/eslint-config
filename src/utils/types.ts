@@ -2,7 +2,10 @@ export type EslintRuleLevel = 'off' | 'warn' | 'error'
 
 export type EslintRuleOption = EslintRuleLevel | [EslintRuleLevel, ...unknown[]]
 
-export type EslintRules = Record<string, EslintRuleOption>
+export type EslintRules<TPluginName extends string = string> = Record<
+  `${string extends TPluginName ? string : `${TPluginName}/`}${string}`,
+  EslintRuleOption
+>
 
 export interface EslintSettings {
   jest?: {
@@ -45,12 +48,17 @@ export interface EslintConfig {
   }[]
 }
 
-export type EslintPluginName = `eslint-plugin-${string}` | '@typescript-eslint'
+export type EslintPluginName<TPluginName extends string = string> =
+  | `eslint-plugin-${TPluginName}`
+  | '@typescript-eslint'
+  | ''
 
-export interface EslintPlugin {
-  name: EslintPluginName | undefined
-  extends: `plugin:${string}`[]
+export type EslintExtendPlugin = `plugin:${string}`
+
+export interface EslintPlugin<TPluginName extends string> {
+  name: EslintPluginName<TPluginName>
+  extends: EslintExtendPlugin[]
   settings: EslintSettings
-  rules: EslintRules
-  testRules: EslintRules
+  rules: EslintRules<TPluginName>
+  testRules: EslintRules<TPluginName>
 }
