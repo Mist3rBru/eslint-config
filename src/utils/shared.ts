@@ -1,15 +1,13 @@
 import * as plugins from '../plugins'
-import {
-  type EslintSettings,
-  type EslintRules,
-  type EslintPluginName,
-} from './types'
+import { type EslintSettings, type EslintRules } from './types'
 
 const sharedPlugins = [
   plugins.javascriptPlugin,
   plugins.typescriptPlugin,
   plugins.importPlugin,
+  plugins.promisePlugin,
   plugins.unicornPlugin,
+  plugins.noSecretsPlugin,
 ]
 
 function reduce<T, TKey extends keyof T>(data: T[], key: TKey): T[TKey] {
@@ -21,7 +19,7 @@ function reduce<T, TKey extends keyof T>(data: T[], key: TKey): T[TKey] {
 }
 
 interface Shared {
-  plugins: EslintPluginName[]
+  plugins: string[]
   extends: string[]
   settings: EslintSettings
   rules: EslintRules
@@ -29,7 +27,9 @@ interface Shared {
 }
 
 export const shared: Shared = {
-  plugins: sharedPlugins.map(plugin => plugin.name).filter(Boolean),
+  plugins: sharedPlugins
+    .map(plugin => plugin.name.replace('eslint-plugin-', ''))
+    .filter(Boolean),
   extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduce(sharedPlugins, 'settings'),
   rules: reduce(sharedPlugins, 'rules'),
@@ -37,8 +37,6 @@ export const shared: Shared = {
 }
 
 const rules = {
-  'no-secrets/no-secrets': 'error',
-
   'deprecation/deprecation': 'error',
 }
 
@@ -57,6 +55,4 @@ const testRules = {
   'security/detect-pseudoRandomBytes': 'off',
   'security/detect-unsafe-regex': 'off',
   'security/detect-bidi-characters': 'off',
-
-  'no-secrets/no-secrets': 'off',
 }
