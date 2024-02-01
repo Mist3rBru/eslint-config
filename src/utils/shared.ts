@@ -7,6 +7,7 @@ const sharedPlugins = [
   plugins.importPlugin,
   plugins.promisePlugin,
   plugins.unicornPlugin,
+  plugins.securityPlugin,
   plugins.noSecretsPlugin,
 ]
 
@@ -34,25 +35,4 @@ export const shared: Shared = {
   settings: reduce(sharedPlugins, 'settings'),
   rules: reduce(sharedPlugins, 'rules'),
   testRules: reduce(sharedPlugins, 'testRules'),
-}
-
-const rules = {
-  'deprecation/deprecation': 'error',
-}
-
-const testRules = {
-  'security/detect-buffer-noassert': 'off',
-  'security/detect-child-process': 'off',
-  'security/detect-disable-mustache-escape': 'off',
-  'security/detect-eval-with-expression': 'off',
-  'security/detect-new-buffer': 'off',
-  'security/detect-no-csrf-before-method-override': 'off',
-  'security/detect-non-literal-fs-filename': 'off',
-  'security/detect-non-literal-regexp': 'off',
-  'security/detect-non-literal-require': 'off',
-  'security/detect-object-injection': 'off',
-  'security/detect-possible-timing-attacks': 'off',
-  'security/detect-pseudoRandomBytes': 'off',
-  'security/detect-unsafe-regex': 'off',
-  'security/detect-bidi-characters': 'off',
 }
