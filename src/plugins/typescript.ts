@@ -1,9 +1,11 @@
-import { type EslintPlugin } from '../utils/types'
+import { type EslintExtendPlugin, type EslintPlugin } from '../utils/types'
 
 export const typescriptPlugin: EslintPlugin<'@typescript-eslint'> = {
   name: '@typescript-eslint',
   settings: {},
-  extends: [],
+  extends: [
+    'standard-with-typescript' as EslintExtendPlugin<'@typescript-eslint'>,
+  ],
   rules: {
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/prefer-readonly': 'off',

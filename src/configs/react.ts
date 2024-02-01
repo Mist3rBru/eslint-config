@@ -14,35 +14,18 @@ export const reactConfig: EslintConfig = {
     browser: true,
     es2022: true,
   },
-  globals: {
-    React: true,
-    JSX: true,
-  },
   settings: {
     ...shared.settings,
     react: {
       version: 'detect',
     },
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-hooks',
-    'promise',
-    'unicorn',
-    'no-secrets',
-    'import',
-    'deprecation',
-  ],
-  extends: [
-    'standard-with-typescript',
-    'standard-jsx',
-    'standard-react',
-    'plugin:promise/recommended',
-    'plugin:unicorn/all',
-    'plugin:deprecation/recommended',
-    'prettier',
-  ],
+  globals: {
+    React: true,
+    JSX: true,
+  },
+  plugins: [...shared.plugins, 'react', 'react-hooks'],
+  extends: [...shared.extends, 'standard-jsx', 'standard-react', 'prettier'],
   rules: {
     ...shared.rules,
 

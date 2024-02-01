@@ -53,11 +53,12 @@ export type EslintPluginName<TPluginName extends string = string> =
   | '@typescript-eslint'
   | ''
 
-export type EslintExtendPlugin = `plugin:${string}`
+export type EslintExtendPlugin<TPluginName extends string = string> =
+  `plugin:${TPluginName}/${string}`
 
 export interface EslintPlugin<TPluginName extends string> {
   name: EslintPluginName<TPluginName>
-  extends: EslintExtendPlugin[]
+  extends: EslintExtendPlugin<TPluginName>[]
   settings: EslintSettings
   rules: EslintRules<TPluginName>
   testRules: EslintRules<TPluginName>

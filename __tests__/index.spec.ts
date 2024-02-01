@@ -3,6 +3,10 @@ import packageJson from '../package.json'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
+function toCamelCase(input: string): string {
+  return input.replaceAll(/[_-]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''))
+}
+
 describe('exports', () => {
   it('should export plugin meta data', async () => {
     expect(plugin.meta.name).toMatchInlineSnapshot('"eslint-plugin-mist3rbru"')
@@ -45,7 +49,9 @@ describe('exports', () => {
       const configModule = await import(
         resolve('src/configs', `${configKey}.ts`)
       )
-      const config = configModule.default as { plugins: string[] }
+      const config = configModule[`${toCamelCase(configKey)}Config`] as {
+        plugins: string[]
+      }
 
       for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)

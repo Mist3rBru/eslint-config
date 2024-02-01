@@ -7,28 +7,13 @@ export const nodeConfig: EslintConfig = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-    'promise',
-    'security',
-    'unicorn',
-    'import',
-    'deprecation',
-    'no-secrets',
-  ],
-  extends: [
-    'standard-with-typescript',
-    'plugin:promise/recommended',
-    'plugin:security/recommended-legacy',
-    'plugin:unicorn/all',
-    'plugin:deprecation/recommended',
-    'prettier',
-  ],
   env: {
     es2022: true,
     node: true,
   },
   settings: shared.settings,
+  plugins: [...shared.plugins],
+  extends: [...shared.extends, 'prettier'],
   rules: {
     ...shared.rules,
 

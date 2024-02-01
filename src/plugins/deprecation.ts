@@ -7,7 +7,5 @@ export const deprecationPlugin: EslintPlugin<'deprecation'> = {
   rules: {
     'deprecation/deprecation': 'error',
   },
-  testRules: {
-    'deprecation/deprecation': 'error',
-  },
+  testRules: {},
 }

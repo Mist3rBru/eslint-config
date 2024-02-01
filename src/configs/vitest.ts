@@ -4,13 +4,13 @@ import { type EslintConfig } from '../utils/types.js'
 export const vitestConfig: EslintConfig = {
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['vitest'],
-  extends: [],
   env: {
     es2022: true,
     node: true,
     vitest: true,
   },
+  plugins: ['vitest'],
+  extends: [],
   rules: {
     ...shared.testRules,
 

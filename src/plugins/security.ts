@@ -21,7 +21,7 @@ function reduce<TRules extends string, TRuleLevel extends EslintRuleLevel>(
   rules: TRules[],
   option: TRuleLevel
 ): Record<TRules, TRuleLevel> {
-  return Object.fromEntries(rules.map(current => [current, option])) as Record<
+  return Object.fromEntries(rules.map(rule => [rule, option])) as Record<
     TRules,
     TRuleLevel
   >

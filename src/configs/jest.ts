@@ -7,8 +7,6 @@ export const jestConfig: EslintConfig = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['jest'],
-  extends: ['plugin:jest/all'],
   env: {
     es2022: true,
     node: true,
@@ -20,6 +18,8 @@ export const jestConfig: EslintConfig = {
       version: 29,
     },
   },
+  plugins: ['jest'],
+  extends: ['plugin:jest/all'],
   rules: {
     ...shared.testRules,
 
