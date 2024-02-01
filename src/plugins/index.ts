@@ -1,4 +1,5 @@
 export * from './import'
 export * from './javascript'
+export * from './promise'
 export * from './typescript'
 export * from './unicorn'
