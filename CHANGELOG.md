@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.2
+
+### Patch Changes
+
+- 12973f0: feat: manually config each rule
+
 ## 0.3.1
 
 ### Patch Changes
