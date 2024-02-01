@@ -1,4 +1,4 @@
-import { type EslintExtendPlugin, type EslintPlugin } from '../types'
+import { type EslintExtendPlugin, type EslintPlugin } from '../types.js'
 
 // https://typescript-eslint.io/getting-started
 export const typescriptPlugin: EslintPlugin<'@typescript-eslint'> = {

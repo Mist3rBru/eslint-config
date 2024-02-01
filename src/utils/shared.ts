@@ -1,6 +1,6 @@
-import * as plugins from '../plugins'
-import { reduceByKey } from './mappers'
-import { type EslintSettings, type EslintRules } from '../types'
+import * as plugins from '../plugins/index.js'
+import { reduceByKey } from './mappers.js'
+import { type EslintSettings, type EslintRules } from '../types.js'
 
 const sharedPlugins = [
   plugins.javascriptPlugin,
@@ -8,7 +8,6 @@ const sharedPlugins = [
   plugins.importPlugin,
   plugins.promisePlugin,
   plugins.unicornPlugin,
-  plugins.securityPlugin,
   plugins.noSecretsPlugin,
   plugins.deprecationPlugin,
 ]
@@ -22,9 +21,7 @@ interface Shared {
 }
 
 export const shared: Shared = {
-  plugins: sharedPlugins
-    .map(plugin => plugin.name.replace('eslint-plugin-', ''))
-    .filter(Boolean),
+  plugins: sharedPlugins.map(plugin => plugin.name).filter(Boolean),
   extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduceByKey(sharedPlugins, 'settings'),
   rules: reduceByKey(sharedPlugins, 'rules'),

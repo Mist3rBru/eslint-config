@@ -1,5 +1,5 @@
-import { mapRules } from '../utils/mappers'
-import { type EslintPlugin } from '../types'
+import { mapRules } from '../utils/mappers.js'
+import { type EslintPlugin } from '../types.js'
 
 const securityPluginRules = [
   // https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/rules/detect-buffer-noassert.md
@@ -47,7 +47,7 @@ const securityPluginRules = [
 
 // https://github.com/eslint-community/eslint-plugin-security#readme
 export const securityPlugin: EslintPlugin<'security'> = {
-  name: 'eslint-plugin-security',
+  name: 'security',
   settings: {},
   extends: [],
   // Only warns because it emits a lot of false positives which need triage by a human.

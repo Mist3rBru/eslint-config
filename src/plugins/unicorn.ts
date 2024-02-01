@@ -1,8 +1,8 @@
-import { type EslintPlugin } from '../types'
+import { type EslintPlugin } from '../types.js'
 
 // https://github.com/sindresorhus/eslint-plugin-unicorn#readme
 export const unicornPlugin: EslintPlugin<'unicorn'> = {
-  name: 'eslint-plugin-unicorn',
+  name: 'unicorn',
   settings: {},
   extends: ['plugin:unicorn/all'],
   // https://github.com/sindresorhus/eslint-plugin-unicorn/tree/main/docs/rules

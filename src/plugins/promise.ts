@@ -1,8 +1,8 @@
-import { type EslintPlugin } from '../types'
+import { type EslintPlugin } from '../types.js'
 
 // //https://github.com/eslint-community/eslint-plugin-promise#readme
 export const promisePlugin: EslintPlugin<'promise'> = {
-  name: 'eslint-plugin-promise',
+  name: 'promise',
   settings: {},
   extends: [],
   // https://github.com/eslint-community/eslint-plugin-promise/tree/main/docs/rules

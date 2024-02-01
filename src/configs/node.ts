@@ -1,4 +1,5 @@
 import { shared } from '../utils/shared.js'
+import { securityPlugin } from '../plugins/security.js'
 import { type EslintConfig } from '../types.js'
 
 export const nodeConfig: EslintConfig = {
@@ -11,10 +12,11 @@ export const nodeConfig: EslintConfig = {
     es2022: true,
     node: true,
   },
-  settings: shared.settings,
-  plugins: shared.plugins,
+  settings: { ...shared.settings, ...securityPlugin.settings },
+  plugins: [...shared.plugins, securityPlugin.name],
   extends: [
     ...shared.extends,
+    ...securityPlugin.extends,
 
     // Turns off all rules that are unnecessary or might conflict with Prettier.
     // https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#readme
@@ -23,6 +25,7 @@ export const nodeConfig: EslintConfig = {
   // https://typescript-eslint.io/rules
   rules: {
     ...shared.rules,
+    ...securityPlugin.rules,
 
     // https://typescript-eslint.io/rules/no-shadow
     '@typescript-eslint/no-shadow': 'error',
