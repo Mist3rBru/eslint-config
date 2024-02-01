@@ -1,5 +1,6 @@
 import * as plugins from '../plugins'
-import { type EslintSettings, type EslintRules } from './types'
+import { reduceByKey } from './mappers'
+import { type EslintSettings, type EslintRules } from '../types'
 
 const sharedPlugins = [
   plugins.javascriptPlugin,
@@ -11,14 +12,6 @@ const sharedPlugins = [
   plugins.noSecretsPlugin,
   plugins.deprecationPlugin,
 ]
-
-function reduce<T, TKey extends keyof T>(data: T[], key: TKey): T[TKey] {
-  return data.reduce(
-    (prev, current) => ({ ...prev, ...current[key] }),
-    // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter, @typescript-eslint/consistent-type-assertions
-    {} as T[TKey]
-  )
-}
 
 interface Shared {
   plugins: string[]
@@ -33,7 +26,7 @@ export const shared: Shared = {
     .map(plugin => plugin.name.replace('eslint-plugin-', ''))
     .filter(Boolean),
   extends: sharedPlugins.flatMap(plugin => plugin.extends),
-  settings: reduce(sharedPlugins, 'settings'),
-  rules: reduce(sharedPlugins, 'rules'),
-  testRules: reduce(sharedPlugins, 'testRules'),
+  settings: reduceByKey(sharedPlugins, 'settings'),
+  rules: reduceByKey(sharedPlugins, 'rules'),
+  testRules: reduceByKey(sharedPlugins, 'testRules'),
 }

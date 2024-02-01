@@ -1,5 +1,6 @@
-import { type EslintPlugin } from '../utils/types'
+import { type EslintPlugin } from '../types'
 
+// https://github.com/gund/eslint-plugin-deprecation#readme
 export const deprecationPlugin: EslintPlugin<'deprecation'> = {
   name: 'eslint-plugin-deprecation',
   settings: {},
