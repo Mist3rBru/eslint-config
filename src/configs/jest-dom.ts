@@ -1,6 +1,6 @@
-import { type EslintConfig } from '../types'
-import { shared } from '../utils/shared'
-import { mapRules } from '../utils/mappers'
+import { type EslintConfig } from '../types.js'
+import { shared } from '../utils/shared.js'
+import { mapRules } from '../utils/mappers.js'
 
 const jestDomRules = [
   // https://github.com/testing-library/eslint-plugin-jest-dom/blob/main/docs/rules/prefer-checked.md

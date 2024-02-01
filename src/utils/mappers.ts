@@ -1,4 +1,4 @@
-import { type EslintRuleLevel } from '../types'
+import { type EslintRuleLevel } from '../types.js'
 
 export function reduceByKey<T, TKey extends keyof T>(
   data: T[],

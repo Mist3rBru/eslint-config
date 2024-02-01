@@ -1,4 +1,4 @@
-import { type EslintPlugin } from '../types'
+import { type EslintPlugin } from '../types.js'
 
 export const javascriptPlugin: EslintPlugin<string> = {
   name: '',

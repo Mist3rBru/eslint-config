@@ -48,16 +48,11 @@ export interface EslintConfig {
   }[]
 }
 
-export type EslintPluginName<TPluginName extends string = string> =
-  | `eslint-plugin-${TPluginName}`
-  | '@typescript-eslint'
-  | ''
-
 export type EslintExtendPlugin<TPluginName extends string = string> =
   `plugin:${TPluginName}/${string}`
 
 export interface EslintPlugin<TPluginName extends string> {
-  name: EslintPluginName<TPluginName>
+  name: TPluginName
   extends: EslintExtendPlugin<TPluginName>[]
   settings: EslintSettings
   rules: EslintRules<TPluginName>

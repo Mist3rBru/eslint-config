@@ -1,11 +1,11 @@
-import { type EslintPlugin } from '../types'
+import { type EslintPlugin } from '../types.js'
 
 const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx']
 const allExtensions = [...typeScriptExtensions, '.js', '.jsx']
 
 // https://github.com/import-js/eslint-plugin-import/tree/main#readme
 export const importPlugin: EslintPlugin<'import'> = {
-  name: 'eslint-plugin-import',
+  name: 'import',
   settings: {
     'import/extensions': allExtensions,
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],

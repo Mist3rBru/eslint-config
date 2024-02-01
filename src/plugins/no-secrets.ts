@@ -1,8 +1,8 @@
-import { type EslintPlugin } from '../types'
+import { type EslintPlugin } from '../types.js'
 
 // https://github.com/nickdeis/eslint-plugin-no-secrets#readme
 export const noSecretsPlugin: EslintPlugin<'no-secrets'> = {
-  name: 'eslint-plugin-no-secrets',
+  name: 'no-secrets',
   settings: {},
   extends: [],
   // https://github.com/nickdeis/eslint-plugin-no-secrets/tree/master/tests/lib/rules
