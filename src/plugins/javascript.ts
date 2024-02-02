@@ -20,6 +20,7 @@ export const javascriptPlugin: EslintPlugin<string> = {
   },
   testRules: {
     // Deprecated and conflicts with jest.Mock infer
+    // https://eslint.org/docs/latest/rules/no-extra-semi
     'no-extra-semi': 'off',
   },
 }

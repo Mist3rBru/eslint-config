@@ -88,6 +88,7 @@ export const importPlugin: EslintPlugin<'import'> = {
     'import/named': 'off',
 
     // Disabled in favor of `tsc` module resolution
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
     'import/extensions': 'off',
 
     // Disabled in favor of `@typescript-eslint/consistent-type-imports`
