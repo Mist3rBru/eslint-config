@@ -15,7 +15,6 @@ pnpm add -D eslint eslint-plugin-mist3rbru
 To use the plugin, create a .eslintrc.json file in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
 
 ```json
-// .eslintrc.json
 {
   "root": true,
   "extends": ["plugin:mist3rbru/node"],
