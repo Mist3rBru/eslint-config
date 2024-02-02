@@ -25,7 +25,6 @@ export const shared: Shared = {
   extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduceByKey(sharedPlugins, 'settings'),
   rules: reduceByKey(sharedPlugins, 'rules'),
-
   testRules: reduceByKey(
     [...sharedPlugins, plugins.securityPlugin],
     'testRules'

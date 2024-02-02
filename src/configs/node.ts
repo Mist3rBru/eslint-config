@@ -41,5 +41,8 @@ export const nodeConfig: EslintConfig = {
         allow: ['private', 'private readonly', 'public', 'public readonly'],
       },
     ],
+
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
+    'import/no-nodejs-modules': 'off',
   },
 }
