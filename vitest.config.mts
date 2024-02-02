@@ -7,6 +7,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
+    coverage: {
+      exclude: ['src/types.ts'],
+    },
   },
   resolve: {
     alias: {

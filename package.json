@@ -61,6 +61,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@types/node": "^20.11.6",
+    "@vitest/coverage-v8": "^1.2.2",
     "eslint": "^8.56.0",
     "eslint-plugin-mist3rbru": "workspace:*",
     "npm-run-all2": "^6.1.1",
