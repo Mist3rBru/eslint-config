@@ -1,5 +1,5 @@
 import { securityPlugin } from '#/plugins/security.js'
-import { shared } from '#/utils/shared.js'
+import { shared, sharedPlugins } from '#/utils/shared.js'
 
 describe('shared', () => {
   it('should not include empty plugin name', () => {
@@ -22,6 +22,30 @@ describe('shared', () => {
     expect.assertions(securityTestRules.length)
 
     for (const [rule, value] of securityTestRules) {
+      expect(shared.testRules).toHaveProperty(rule, value)
+    }
+  })
+
+  it('should not overwrite rules', () => {
+    const ruleEntries = sharedPlugins.flatMap(plugin =>
+      Object.entries(plugin.rules)
+    )
+
+    expect.assertions(ruleEntries.length)
+
+    for (const [rule, value] of ruleEntries) {
+      expect(shared.rules).toHaveProperty(rule, value)
+    }
+  })
+
+  it('should not overwrite test rules', () => {
+    const ruleEntries = sharedPlugins.flatMap(plugin =>
+      Object.entries(plugin.testRules)
+    )
+
+    expect.assertions(ruleEntries.length)
+
+    for (const [rule, value] of ruleEntries) {
       expect(shared.testRules).toHaveProperty(rule, value)
     }
   })
