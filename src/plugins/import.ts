@@ -91,9 +91,8 @@ export const importPlugin: EslintPlugin<'import'> = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
     'import/extensions': 'off',
 
-    // Disabled in favor of `@typescript-eslint/consistent-type-imports`
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/consistent-type-specifier-style.md
-    'import/consistent-type-specifier-style': 'off',
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/exports-last.md
     'import/exports-last': 'off',
