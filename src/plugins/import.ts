@@ -88,11 +88,11 @@ export const importPlugin: EslintPlugin<'import'> = {
     'import/named': 'off',
 
     // Disabled in favor of `tsc` module resolution
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
     'import/extensions': 'off',
 
-    // Disabled in favor of `@typescript-eslint/consistent-type-imports`
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/consistent-type-specifier-style.md
-    'import/consistent-type-specifier-style': 'off',
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/exports-last.md
     'import/exports-last': 'off',
@@ -127,8 +127,9 @@ export const importPlugin: EslintPlugin<'import'> = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-namespace.md
     'import/no-namespace': 'off',
 
+    // Is being assigned individually
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
-    'import/no-nodejs-modules': 'off',
+    // 'import/no-nodejs-modules': 'off',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md
     'import/no-relative-packages': 'off',
@@ -160,5 +161,8 @@ export const importPlugin: EslintPlugin<'import'> = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-amd.md
     'import/no-amd': 'off',
   },
-  testRules: {},
+  testRules: {
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
+    'import/no-nodejs-modules': 'off',
+  },
 }

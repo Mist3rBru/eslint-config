@@ -7,7 +7,7 @@ export const noSecretsPlugin: EslintPlugin<'no-secrets'> = {
   extends: [],
   // https://github.com/nickdeis/eslint-plugin-no-secrets/tree/master/tests/lib/rules
   rules: {
-    // https://github.com/nickdeis/eslint-plugin-no-secrets/blob/master/tests/lib/rules/no-secrets.js
+    // https://github.com/nickdeis/eslint-plugin-no-secrets/blob/master/tests/lib/rules/no-secrets.md
     'no-secrets/no-secrets': [
       'error',
       { ignoreContent: '^(?:ABCDE|abcde|12345)' },

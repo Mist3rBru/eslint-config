@@ -6,6 +6,7 @@ export const deprecationPlugin: EslintPlugin<'deprecation'> = {
   settings: {},
   extends: [],
   rules: {
+    // https://github.com/gund/eslint-plugin-deprecation/blob/master/src/rules/deprecation.md
     'deprecation/deprecation': 'error',
   },
   testRules: {},

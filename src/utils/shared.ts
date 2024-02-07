@@ -2,7 +2,7 @@ import * as plugins from '../plugins/index.js'
 import { reduceByKey } from './mappers.js'
 import { type EslintSettings, type EslintRules } from '../types.js'
 
-const sharedPlugins = [
+export const sharedPlugins = [
   plugins.javascriptPlugin,
   plugins.typescriptPlugin,
   plugins.importPlugin,
@@ -25,7 +25,6 @@ export const shared: Shared = {
   extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduceByKey(sharedPlugins, 'settings'),
   rules: reduceByKey(sharedPlugins, 'rules'),
-
   testRules: reduceByKey(
     [...sharedPlugins, plugins.securityPlugin],
     'testRules'

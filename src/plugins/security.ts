@@ -1,7 +1,7 @@
 import { mapRules } from '../utils/mappers.js'
 import { type EslintPlugin } from '../types.js'
 
-const securityPluginRules = [
+export const securityPluginRules = [
   // https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/rules/detect-buffer-noassert.md
   'security/detect-buffer-noassert',
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type EslintRuleLevel = 'off' | 'warn' | 'error'
 
 export type EslintRuleOption = EslintRuleLevel | [EslintRuleLevel, ...unknown[]]
@@ -14,7 +15,7 @@ export interface EslintSettings {
   react?: {
     version: 'detect'
   }
-  [key: string]: unknown
+  [key: string]: any
 }
 
 export interface EslintConfig {
