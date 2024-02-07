@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.5
+
+### Patch Changes
+
+- 14f8b33: feat: add import/consistent-type-specifier-style rule
+
 ## 0.3.4
 
 ### Patch Changes
