@@ -71,6 +71,9 @@ export const reactConfig: EslintConfig = {
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
     'import/no-nodejs-modules': 'error',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-undefined.md
+    'unicorn/no-useless-undefined': 'off',
   },
   overrides: [
     {
