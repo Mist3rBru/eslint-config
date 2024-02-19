@@ -1,5 +1,12 @@
 # eslint-plugin-mist3rbru
 
+## 0.3.6
+
+### Patch Changes
+
+- 8ee4afc: feat(react): add all react plugin rules
+- 8abc31f: refactor(react): disable unicorn/no-useless-undefined rule
+
 ## 0.3.5
 
 ### Patch Changes
