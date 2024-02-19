@@ -41,8 +41,8 @@ describe('react', () => {
   it('should config react plugin', () => {
     expect(sut.plugins).toContain('react')
     expect(sut.plugins).toContain('react-hooks')
-    expect(sut.extends).toContain('standard-jsx')
-    expect(sut.extends).toContain('standard-react')
+    expect(sut.extends).toContain('plugin:react/all')
+    expect(sut.extends).toContain('plugin:react-hooks/recommended')
   })
 
   it('should disable react conflicted rules', () => {
