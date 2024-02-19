@@ -1,9 +1,9 @@
-import { nodeConfig as sut } from '#/configs/node.js'
-import { securityPlugin } from '#/plugins/security.js'
-
-import { shared } from '#/utils/shared.js'
+import { securityPlugin } from '../plugins/security.js'
+import { shared } from '../utils/shared.js'
+import { nodeConfig as sut } from './node.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _prettierConfig from 'eslint-config-prettier'
 
 describe('node', () => {
   it('should include shared settings', () => {
@@ -18,13 +18,13 @@ describe('node', () => {
     }
   })
 
-  it('should include shared rules', () => {
-    const sharedRules = Object.entries(shared.rules)
+  it('should extend shared rules', () => {
+    const sharedRules = Object.keys(shared.rules)
 
     expect.assertions(sharedRules.length)
 
-    for (const [rule, value] of sharedRules) {
-      expect(sut.rules).toHaveProperty(rule, value)
+    for (const rule of sharedRules) {
+      expect(sut.rules).toHaveProperty(rule)
     }
   })
 
@@ -43,20 +43,20 @@ describe('node', () => {
     }
   })
 
-  it('should include prettier as last extended config', () => {
-    expect(sut.extends.at(-1)).toBe('prettier')
+  it('should extend prettier config', () => {
+    for (const [rule, options] of Object.entries(_prettierConfig.rules!)) {
+      expect(sut.rules).toHaveProperty(rule, options)
+    }
   })
 
   it("should include rule's reference link", async () => {
-    const sharedRules = Object.keys(shared.rules)
-    const expectedReferencedRules = Object.keys(sut.rules)
-      .filter(
-        rule =>
-          rule.startsWith('@typescript-eslint/') && !sharedRules.includes(rule)
-      )
-      .map(rule => rule.replace('@typescript-eslint/', ''))
     const file = await readFile(resolve('src/configs/node.ts'))
     const fileContent = file.toString()
+
+    const expectedReferencedRules = fileContent
+      .split(/\n/g)
+      .filter(line => /^\s*'@typescript-eslint/.test(line))
+      .map(line => line.replace(/^\s*'@typescript-eslint\/([a-z-]+).+/, '$1'))
 
     expect.assertions(expectedReferencedRules.length)
 

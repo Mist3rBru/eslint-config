@@ -1,5 +1,5 @@
-import { vitestConfig as sut } from '#/configs/vitest.js'
-import { shared } from '#/utils/shared.js'
+import { shared } from '../utils/shared.js'
+import { vitestConfig as sut } from './vitest.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
@@ -21,7 +21,6 @@ describe('vitest', () => {
 
   it('should config vitest', () => {
     expect(sut.plugins).toContain('vitest')
-    expect(sut.extends).toHaveLength(0)
   })
 
   it("should include rule's reference link", async () => {

@@ -20,10 +20,5 @@
 
     "lib": ["es2022"],
     "types": ["vitest/globals"],
-
-    "baseUrl": ".",
-    "paths": {
-      "#/*": ["./src/*"]
-    }
-  }
+  },
 }

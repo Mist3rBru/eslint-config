@@ -1,12 +1,15 @@
-import { type EslintPlugin } from '../types.js'
+import { definePlugin } from '../utils/define.js'
+import { extendPluginRules } from '../utils/mappers.js'
+import _unicornPlugin from 'eslint-plugin-unicorn'
 
 // https://github.com/sindresorhus/eslint-plugin-unicorn#readme
-export const unicornPlugin: EslintPlugin<'unicorn'> = {
+export const unicornPlugin = definePlugin({
   name: 'unicorn',
   settings: {},
-  extends: ['plugin:unicorn/all'],
   // https://github.com/sindresorhus/eslint-plugin-unicorn/tree/main/docs/rules
   rules: {
+    ...extendPluginRules('unicorn', _unicornPlugin.configs.all),
+
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-keyword-prefix.md
     'unicorn/no-keyword-prefix': 'off',
 
@@ -50,4 +53,4 @@ export const unicornPlugin: EslintPlugin<'unicorn'> = {
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/error-message.md
     'unicorn/error-message': 'off',
   },
-}
+})

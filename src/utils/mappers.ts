@@ -1,4 +1,4 @@
-import { type EslintRuleLevel } from '../types.js'
+import { type Linter } from 'eslint'
 
 export function reduceByKey<T, TKey extends keyof T>(
   data: T[],
@@ -11,12 +11,15 @@ export function reduceByKey<T, TKey extends keyof T>(
   )
 }
 
-export function mapRules<
-  TRules extends string,
-  TRuleLevel extends EslintRuleLevel,
->(rules: TRules[], option: TRuleLevel): Record<TRules, TRuleLevel> {
-  return Object.fromEntries(rules.map(rule => [rule, option])) as Record<
-    TRules,
-    TRuleLevel
-  >
+export function extendPluginRules<TPlugin extends string>(
+  pluginName: TPlugin,
+  plugin: { rules: Linter.RulesRecord },
+  overwrite?: Linter.StringSeverity
+): Linter.RulesRecord {
+  return Object.fromEntries(
+    Object.entries(plugin.rules).map(([rule, options]) => [
+      rule.startsWith(pluginName) ? rule : `${pluginName}/${rule}`,
+      overwrite ?? options,
+    ])
+  )
 }

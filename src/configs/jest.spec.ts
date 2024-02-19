@@ -1,7 +1,9 @@
-import { jestConfig as sut } from '#/configs/jest.js'
-import { shared } from '#/utils/shared.js'
-import { resolve } from 'node:path'
+import { type EslintRuleMeta } from '../types.js'
+import { shared } from '../utils/shared.js'
+import { jestConfig as sut } from './jest.js'
 import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
+import _jestPlugin from 'eslint-plugin-jest'
 
 describe('jest', () => {
   it('should include shared test rules', () => {
@@ -23,15 +25,24 @@ describe('jest', () => {
 
   it('should config jest', () => {
     expect(sut.plugins).toContain('jest')
-    expect(sut.extends).toContain('plugin:jest/all')
+
+    const jestPluginRules = Object.entries(_jestPlugin.rules!)
+      .filter(([_, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
+      .map(([rule]) => rule)
+
+    for (const rule of jestPluginRules) {
+      expect(sut.rules).toHaveProperty(`jest/${rule}`)
+    }
   })
 
   it("should include rule's reference link", async () => {
-    const expectedReferencedRules = Object.keys(sut.rules)
-      .filter(rule => rule.startsWith('jest/'))
-      .map(rule => rule.replace('jest/', ''))
     const file = await readFile(resolve('src/configs/jest.ts'))
     const fileContent = file.toString()
+
+    const expectedReferencedRules = fileContent
+      .split(/\n/g)
+      .filter(line => /^\s*'jest\//.test(line))
+      .map(line => line.replace(/^\s*'jest\/([a-z-]+).+/, '$1'))
 
     expect.assertions(expectedReferencedRules.length)
 

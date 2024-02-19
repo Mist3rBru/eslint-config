@@ -1,7 +1,9 @@
+import { defineConfig } from '../utils/define.js'
+import { extendPluginRules } from '../utils/mappers.js'
 import { shared } from '../utils/shared.js'
-import { type EslintConfig } from '../types.js'
+import _jestPlugin from 'eslint-plugin-jest'
 
-export const jestConfig: EslintConfig = {
+export const jestConfig = defineConfig({
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -11,6 +13,8 @@ export const jestConfig: EslintConfig = {
     es2022: true,
     node: true,
     jest: true,
+    // CI fixture
+    // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/globals.md
     'jest/globals': true,
   },
   settings: {
@@ -22,13 +26,11 @@ export const jestConfig: EslintConfig = {
     // https://github.com/jest-community/eslint-plugin-jest?tab=readme-ov-file#readme
     'jest',
   ],
-  extends: [
-    // Enables all jest plugin rules, and consider them as errors
-    'plugin:jest/all',
-  ],
   // https://github.com/jest-community/eslint-plugin-jest/tree/main/docs/rules
   rules: {
     ...shared.testRules,
+
+    ...extendPluginRules('jest', _jestPlugin.configs.all),
 
     // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/consistent-test-it.md
     'jest/consistent-test-it': [
@@ -103,4 +105,4 @@ export const jestConfig: EslintConfig = {
       },
     ],
   },
-}
+})

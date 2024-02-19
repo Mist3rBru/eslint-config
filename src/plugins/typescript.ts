@@ -1,16 +1,16 @@
-import { type EslintExtendPlugin, type EslintPlugin } from '../types.js'
+import { definePlugin } from '../utils/define.js'
+import _standardWithTypescriptConfig from 'eslint-config-standard-with-typescript'
 
 // https://typescript-eslint.io/getting-started
-export const typescriptPlugin: EslintPlugin<'@typescript-eslint'> = {
+export const typescriptPlugin = definePlugin({
   name: '@typescript-eslint',
   settings: {},
-  extends: [
-    // Replaces JS linting rules for TS linting rules, and adds `standard` configuration
-    // https://github.com/mightyiam/eslint-config-standard-with-typescript#readme
-    'standard-with-typescript' as EslintExtendPlugin<'@typescript-eslint'>,
-  ],
   // https://typescript-eslint.io/rules
   rules: {
+    // Replaces JS linting rules for TS linting rules, and adds `standard` configuration
+    // https://github.com/mightyiam/eslint-config-standard-with-typescript#readme
+    ..._standardWithTypescriptConfig.rules,
+
     // https://typescript-eslint.io/rules/no-namespace
     '@typescript-eslint/no-namespace': 'off',
 
@@ -119,4 +119,4 @@ export const typescriptPlugin: EslintPlugin<'@typescript-eslint'> = {
     // https://typescript-eslint.io/rules/no-unsafe-argument
     '@typescript-eslint/no-unsafe-argument': 'off',
   },
-}
+})

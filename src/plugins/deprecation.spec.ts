@@ -1,8 +1,17 @@
-import { deprecationPlugin as sut } from '#/plugins/deprecation.js'
+import { deprecationPlugin as sut } from '../plugins/deprecation.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _deprecationPlugin from 'eslint-plugin-deprecation'
 
 describe('deprecation', () => {
+  it('should config deprecation plugin', async () => {
+    const deprecationPluginRules = Object.keys(_deprecationPlugin.rules!)
+
+    for (const rule of deprecationPluginRules) {
+      expect(sut.rules).toHaveProperty(`deprecation/${rule}`)
+    }
+  })
+
   it("should include rule's reference link", async () => {
     const expectedReferencedRules = [
       ...Object.keys(sut.rules),

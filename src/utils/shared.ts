@@ -1,6 +1,6 @@
 import * as plugins from '../plugins/index.js'
+import { type EslintRules, type EslintSettings } from '../types.js'
 import { reduceByKey } from './mappers.js'
-import { type EslintSettings, type EslintRules } from '../types.js'
 
 export const sharedPlugins = [
   plugins.javascriptPlugin,
@@ -14,7 +14,6 @@ export const sharedPlugins = [
 
 interface Shared {
   plugins: string[]
-  extends: string[]
   settings: EslintSettings
   rules: EslintRules
   testRules: EslintRules
@@ -22,7 +21,6 @@ interface Shared {
 
 export const shared: Shared = {
   plugins: sharedPlugins.map(plugin => plugin.name).filter(Boolean),
-  extends: sharedPlugins.flatMap(plugin => plugin.extends),
   settings: reduceByKey(sharedPlugins, 'settings'),
   rules: reduceByKey(sharedPlugins, 'rules'),
   testRules: reduceByKey(

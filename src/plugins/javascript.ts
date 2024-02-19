@@ -1,13 +1,12 @@
-import { type EslintPlugin } from '../types.js'
+import { definePlugin } from '../utils/define.js'
 
-export const javascriptPlugin: EslintPlugin<string> = {
+export const javascriptPlugin = definePlugin<string>({
   name: '',
-  extends: [],
   settings: {},
   // https://eslint.org/docs/latest/rules/
   rules: {
     // https://eslint.org/docs/latest/rules/no-void
-    'no-void': 'error',
+    'no-void': ['error', { allowAsStatement: true }],
 
     // https://eslint.org/docs/latest/rules/prefer-template
     'prefer-template': 'error',
@@ -23,4 +22,4 @@ export const javascriptPlugin: EslintPlugin<string> = {
     // https://eslint.org/docs/latest/rules/no-extra-semi
     'no-extra-semi': 'off',
   },
-}
+})

@@ -8,7 +8,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     coverage: {
-      exclude: ['src/types.ts'],
+      exclude: ['src/@types/*', 'src/types.ts'],
     },
   },
   resolve: {

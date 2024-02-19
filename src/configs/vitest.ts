@@ -1,7 +1,7 @@
+import { defineConfig } from '../utils/define.js'
 import { shared } from '../utils/shared.js'
-import { type EslintConfig } from '../types.js'
 
-export const vitestConfig: EslintConfig = {
+export const vitestConfig = defineConfig({
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   env: {
@@ -13,7 +13,7 @@ export const vitestConfig: EslintConfig = {
     // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
     'vitest',
   ],
-  extends: [],
+
   // https://github.com/veritem/eslint-plugin-vitest/tree/main/docs/rules
   rules: {
     ...shared.testRules,
@@ -217,4 +217,4 @@ export const vitestConfig: EslintConfig = {
       },
     ],
   },
-}
+})

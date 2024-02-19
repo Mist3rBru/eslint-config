@@ -1,16 +1,16 @@
-import {
-  securityPluginRules,
-  securityPlugin as sut,
-} from '#/plugins/security.js'
+import { securityPlugin as sut } from '../plugins/security.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _securityPlugin from 'eslint-plugin-security'
+
+const securityPluginRules = Object.keys(_securityPlugin.rules!)
 
 describe('security', () => {
-  it('should warn all', async () => {
+  it('should config security plugin', async () => {
     expect.assertions(securityPluginRules.length)
 
     for (const rule of securityPluginRules) {
-      expect(sut.rules).toHaveProperty(rule, 'warn')
+      expect(sut.rules).toHaveProperty(`security/${rule}`, 'warn')
     }
   })
 
@@ -18,16 +18,18 @@ describe('security', () => {
     expect.assertions(securityPluginRules.length)
 
     for (const rule of securityPluginRules) {
-      expect(sut.testRules).toHaveProperty(rule, 'off')
+      expect(sut.testRules).toHaveProperty(`security/${rule}`, 'off')
     }
   })
 
   it("should include rule's reference link", async () => {
-    const expectedReferencedRules = securityPluginRules.map(rule =>
-      rule.replace('security/', '')
-    )
     const file = await readFile(resolve('src/plugins/security.ts'))
     const fileContent = file.toString()
+
+    const expectedReferencedRules = fileContent
+      .split(/\n/g)
+      .filter(line => /^\s*'security\//.test(line))
+      .map(line => line.replace(/^\s*'security\/([a-z-]+).+/, '$1'))
 
     expect.assertions(expectedReferencedRules.length)
 

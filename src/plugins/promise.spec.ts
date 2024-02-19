@@ -1,8 +1,17 @@
-import { promisePlugin as sut } from '#/plugins/promise.js'
+import { promisePlugin as sut } from '../plugins/promise.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _promisePlugin from 'eslint-plugin-promise'
 
 describe('promise', () => {
+  it('should config promise plugin', async () => {
+    const promisePluginRules = Object.keys(_promisePlugin.rules!)
+
+    for (const rule of promisePluginRules) {
+      expect(sut.rules).toHaveProperty(`promise/${rule}`)
+    }
+  })
+
   it("should include rule's reference link", async () => {
     const expectedReferencedRules = [
       ...Object.keys(sut.rules),

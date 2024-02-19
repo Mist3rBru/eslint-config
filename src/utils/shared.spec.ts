@@ -1,5 +1,5 @@
-import { securityPlugin } from '#/plugins/security.js'
-import { shared, sharedPlugins } from '#/utils/shared.js'
+import { securityPlugin } from '../plugins/security.js'
+import { shared, sharedPlugins } from '../utils/shared.js'
 
 describe('shared', () => {
   it('should not include empty plugin name', () => {

@@ -1,5 +1,5 @@
-import plugin from '../src/index.js'
 import packageJson from '../package.json'
+import plugin from './index.js'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
@@ -17,7 +17,9 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     const configFiles = await readdir(resolve('src/configs'))
-    const expectedKeys = configFiles.map(f => f.replace(/\.ts/, ''))
+    const expectedKeys = configFiles
+      .filter(file => !file.endsWith('.spec.ts'))
+      .map(file => file.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
 
@@ -29,14 +31,13 @@ describe('exports', () => {
   it('should export min required keys', async () => {
     const configKeys = Object.keys(plugin.configs)
 
-    expect.assertions(configKeys.length * 5)
+    expect.assertions(configKeys.length * 4)
 
     for (const key of configKeys) {
       const config = plugin.configs[key as keyof typeof plugin.configs]
       expect(config.parser).toBeDefined()
       expect(config.parserOptions).toBeDefined()
       expect(config.plugins.length).toBeGreaterThanOrEqual(1)
-      expect(config.extends).toBeDefined()
       expect(config.rules).toBeDefined()
     }
   })

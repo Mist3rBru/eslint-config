@@ -1,21 +1,31 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export type EslintRuleLevel = 'off' | 'warn' | 'error'
-
-export type EslintRuleOption = EslintRuleLevel | [EslintRuleLevel, ...unknown[]]
+import { type Linter } from 'eslint'
 
 export type EslintRules<TPluginName extends string = string> = Record<
   `${string extends TPluginName ? string : `${TPluginName}/`}${string}`,
-  EslintRuleOption
+  Linter.RuleEntry
 >
+
+export interface EslintRuleMeta {
+  meta: {
+    deprecated?: boolean
+  }
+}
 
 export interface EslintSettings {
   jest?: {
-    version: number
+    version?: number
   }
   react?: {
-    version: 'detect'
+    version?: 'detect'
   }
-  [key: string]: any
+  [k: string]: unknown
+}
+
+export interface EslintPlugin<TPluginName extends string> {
+  name: TPluginName
+  settings: EslintSettings
+  rules: EslintRules<TPluginName>
+  testRules: EslintRules<TPluginName>
 }
 
 export interface EslintConfig {
@@ -41,21 +51,9 @@ export interface EslintConfig {
     JSX?: true
   }
   plugins: string[]
-  extends: string[]
   rules: EslintRules
   overrides?: {
     files: string[]
     rules: EslintRules
   }[]
-}
-
-export type EslintExtendPlugin<TPluginName extends string = string> =
-  `plugin:${TPluginName}/${string}`
-
-export interface EslintPlugin<TPluginName extends string> {
-  name: TPluginName
-  extends: EslintExtendPlugin<TPluginName>[]
-  settings: EslintSettings
-  rules: EslintRules<TPluginName>
-  testRules: EslintRules<TPluginName>
 }

@@ -1,7 +1,11 @@
+import { defineConfig } from '../utils/define.js'
+import { extendPluginRules } from '../utils/mappers.js'
 import { shared } from '../utils/shared.js'
-import  { type EslintConfig } from '#/types.js'
+import _prettierConfig from 'eslint-config-prettier'
+import _reactPlugin from 'eslint-plugin-react'
+import _reactHooksPlugin from 'eslint-plugin-react-hooks'
 
-export const reactConfig: EslintConfig = {
+export const reactConfig = defineConfig({
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -33,16 +37,14 @@ export const reactConfig: EslintConfig = {
     // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#readme
     'react-hooks',
   ],
-  extends: [
-    'plugin:react/all',
-    'plugin:react-hooks/recommended',
-
-    // Turns off all rules that are unnecessary or might conflict with Prettier.
-    // https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#readme
-    'prettier',
-  ],
   rules: {
     ...shared.rules,
+
+    ...extendPluginRules('react', _reactPlugin.configs.all),
+
+    ...extendPluginRules('react-hooks', _reactHooksPlugin.configs.recommended),
+
+    ..._prettierConfig.rules,
 
     'jsx-quotes': ['error', 'prefer-double'],
 
@@ -140,4 +142,4 @@ export const reactConfig: EslintConfig = {
       },
     },
   ],
-}
+})

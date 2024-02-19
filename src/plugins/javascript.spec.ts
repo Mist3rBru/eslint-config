@@ -1,10 +1,10 @@
-import { noSecretsPlugin as sut } from '#/plugins/no-secrets.js'
+import { javascriptPlugin as sut } from '../plugins/javascript.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-describe('no-secrets', () => {
+describe('javascript', () => {
   it('should disable rules for test environment', async () => {
-    const testRules: string[] = ['no-secrets/no-secrets']
+    const testRules: string[] = ['no-extra-semi']
 
     expect.assertions(testRules.length + 1)
 
@@ -18,15 +18,15 @@ describe('no-secrets', () => {
     const expectedReferencedRules = [
       ...Object.keys(sut.rules),
       ...Object.keys(sut.testRules),
-    ].map(rule => rule.replace('no-secrets/', ''))
-    const file = await readFile(resolve('src/plugins/no-secrets.ts'))
+    ]
+    const file = await readFile(resolve('src/plugins/javascript.ts'))
     const fileContent = file.toString()
 
     expect.assertions(expectedReferencedRules.length)
 
     for (const rule of expectedReferencedRules) {
       expect(fileContent, rule).toMatch(
-        `https://github.com/nickdeis/eslint-plugin-no-secrets/blob/master/tests/lib/rules/${rule}.md`
+        `https://eslint.org/docs/latest/rules/${rule}`
       )
     }
   })

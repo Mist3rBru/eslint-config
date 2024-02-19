@@ -1,25 +1,13 @@
-import { importPlugin as sut } from '#/plugins/import.js'
+import { importPlugin as sut } from '../plugins/import.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-
-const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx']
-const allExtensions = [...typeScriptExtensions, '.js', '.jsx']
+import * as _importPlugin from 'eslint-plugin-import'
 
 describe('import', () => {
-  it('should config import plugin settings', () => {
-    expect(sut.settings['import/extensions']).toStrictEqual(allExtensions)
-    expect(sut.settings['import/external-module-folders']).toStrictEqual([
-      'node_modules',
-      'node_modules/@types',
-    ])
-    expect(sut.settings['import/parsers']).toStrictEqual({
-      '@typescript-eslint/parser': typeScriptExtensions,
-    })
-    expect(sut.settings['import/resolver']).toStrictEqual({
-      node: {
-        extensions: allExtensions,
-      },
-    })
+  it('should config import plugin', () => {
+    expect(sut.settings).toStrictEqual(
+      _importPlugin.configs.typescript.settings
+    )
   })
 
   it('should disable rules for test environment', async () => {
