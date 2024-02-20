@@ -1,16 +1,21 @@
 import { typescriptPlugin as sut } from '../plugins/typescript.js'
+import { type EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import _standardWithTypescriptConfig from 'eslint-config-standard-with-typescript'
+import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
 describe('typescript', () => {
-  it('should extend standard-with-typescript config', async () => {
-    for (const rule of Object.keys(_standardWithTypescriptConfig.rules!)) {
-      expect(sut.rules).toHaveProperty(rule)
+  it('should config typescript plugin', () => {
+    const typescriptPluginRules = Object.entries(_typescriptPlugin.rules!)
+      .filter(([_, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
+      .map(([rule]) => rule)
+
+    for (const rule of typescriptPluginRules) {
+      expect(sut.rules).toHaveProperty(`@typescript-eslint/${rule}`)
     }
   })
 
-  it('should disable rules for test environment', async () => {
+  it('should disable rules for test environment', () => {
     const testRules: string[] = [
       '@typescript-eslint/no-explicit-any',
       '@typescript-eslint/ban-ts-comment',
@@ -35,7 +40,7 @@ describe('typescript', () => {
 
     const expectedReferencedRules = fileContent
       .split(/\n/g)
-      .filter(line => /^\s*'@typescript-eslint/.test(line))
+      .filter(line => /^\s*'@typescript-eslint\//.test(line))
       .map(line => line.replace(/^\s*'@typescript-eslint\/([a-z-]+).+/, '$1'))
 
     expect.assertions(expectedReferencedRules.length)
