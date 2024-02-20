@@ -17,12 +17,15 @@ To use the plugin, create a .eslintrc.json file in your project and extend the d
 ```json
 {
   "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": ["plugin:mist3rbru/node"],
   "rules": {},
   "overrides": [
     {
-      "files": ["__tests__/**/*.spec.ts"],
-      "extends": "plugin:mist3rbru/jest",
+      "files": ["src/**/*.spec.ts"],
+      "extends": ["plugin:mist3rbru/jest"],
       "rules": {}
     }
   ]
