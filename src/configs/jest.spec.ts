@@ -17,17 +17,19 @@ describe('jest', () => {
   })
 
   it('should config jest environment', () => {
+    const jestVersion = 29
+
     expect(sut.env.node).toBe(true)
     expect(sut.env.jest).toBe(true)
     expect(sut.env['jest/globals']).toBe(true)
-    expect(sut.settings?.jest?.version).toBeGreaterThanOrEqual(29)
+    expect(sut.settings?.jest?.version).toBe(jestVersion)
   })
 
   it('should config jest', () => {
     expect(sut.plugins).toContain('jest')
 
     const jestPluginRules = Object.entries(_jestPlugin.rules!)
-      .filter(([_, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
+      .filter(([, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
 
     for (const rule of jestPluginRules) {

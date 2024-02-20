@@ -5,9 +5,9 @@ import { resolve } from 'node:path'
 import _unicornPlugin from 'eslint-plugin-unicorn'
 
 describe('unicorn', () => {
-  it('should config unicorn plugin', async () => {
+  it('should config unicorn plugin', () => {
     const unicornPluginRules = Object.entries(_unicornPlugin.rules!)
-      .filter(([_, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
+      .filter(([, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
 
     for (const rule of unicornPluginRules) {
@@ -15,7 +15,7 @@ describe('unicorn', () => {
     }
   })
 
-  it('should disable rules for test environment', async () => {
+  it('should disable rules for test environment', () => {
     const testRules: string[] = ['unicorn/error-message']
 
     expect.assertions(testRules.length + 1)

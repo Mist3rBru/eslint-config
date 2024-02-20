@@ -6,7 +6,7 @@ import _securityPlugin from 'eslint-plugin-security'
 const securityPluginRules = Object.keys(_securityPlugin.rules!)
 
 describe('security', () => {
-  it('should config security plugin', async () => {
+  it('should config security plugin', () => {
     expect.assertions(securityPluginRules.length)
 
     for (const rule of securityPluginRules) {
@@ -14,7 +14,7 @@ describe('security', () => {
     }
   })
 
-  it('should disabled all for tests', async () => {
+  it('should disabled all for tests', () => {
     expect.assertions(securityPluginRules.length)
 
     for (const rule of securityPluginRules) {

@@ -10,7 +10,7 @@ describe('import', () => {
     )
   })
 
-  it('should disable rules for test environment', async () => {
+  it('should disable rules for test environment', () => {
     const testRules: string[] = ['import/no-nodejs-modules']
 
     expect.assertions(testRules.length + 1)
@@ -38,7 +38,7 @@ describe('import', () => {
     }
   })
 
-  it('should not include environment related rules', async () => {
+  it('should not include environment related rules', () => {
     const avoidedRules: string[] = ['import/no-nodejs-modules']
     expect.assertions(avoidedRules.length)
 

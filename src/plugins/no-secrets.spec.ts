@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import _noSecretsPlugin from 'eslint-plugin-no-secrets'
 
 describe('no-secrets', () => {
-  it('should config no-secrets plugin', async () => {
+  it('should config no-secrets plugin', () => {
     const noSecretsPluginRules = Object.keys(_noSecretsPlugin.rules!)
 
     for (const rule of noSecretsPluginRules) {
@@ -12,7 +12,7 @@ describe('no-secrets', () => {
     }
   })
 
-  it('should disable rules for test environment', async () => {
+  it('should disable rules for test environment', () => {
     const testRules: string[] = ['no-secrets/no-secrets']
 
     expect.assertions(testRules.length + 1)

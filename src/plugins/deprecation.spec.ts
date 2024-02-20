@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import _deprecationPlugin from 'eslint-plugin-deprecation'
 
 describe('deprecation', () => {
-  it('should config deprecation plugin', async () => {
+  it('should config deprecation plugin', () => {
     const deprecationPluginRules = Object.keys(_deprecationPlugin.rules!)
 
     for (const rule of deprecationPluginRules) {

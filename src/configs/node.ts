@@ -21,10 +21,6 @@ export const nodeConfig = defineConfig({
     ...securityPlugin.rules,
     ..._prettierConfig.rules,
 
-    // Type `method` for consistent function scoping
-    // https://typescript-eslint.io/rules/method-signature-style
-    '@typescript-eslint/method-signature-style': ['error', 'method'],
-
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
     'import/no-nodejs-modules': 'off',
   },

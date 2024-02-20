@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
 describe('javascript', () => {
-  it('should disable rules for test environment', async () => {
+  it('should disable rules for test environment', () => {
     const testRules: string[] = ['no-extra-semi']
 
     expect.assertions(testRules.length + 1)
