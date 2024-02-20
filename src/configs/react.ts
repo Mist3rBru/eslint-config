@@ -1,9 +1,7 @@
+import { reactHooksPlugin, reactPlugin } from '../plugins/index.js'
 import { defineConfig } from '../utils/define.js'
-import { extendPluginRules } from '../utils/mappers.js'
 import { shared } from '../utils/shared.js'
 import _prettierConfig from 'eslint-config-prettier'
-import _reactPlugin from 'eslint-plugin-react'
-import _reactHooksPlugin from 'eslint-plugin-react-hooks'
 
 export const reactConfig = defineConfig({
   parser: '@typescript-eslint/parser',
@@ -24,89 +22,17 @@ export const reactConfig = defineConfig({
   },
   settings: {
     ...shared.settings,
-    react: {
-      version: 'detect',
-    },
+    ...reactPlugin.settings,
+    ...reactHooksPlugin.settings,
   },
-  plugins: [
-    ...shared.plugins,
-
-    // https://github.com/jsx-eslint/eslint-plugin-react#readme
-    'react',
-
-    // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#readme
-    'react-hooks',
-  ],
+  plugins: [...shared.plugins, reactPlugin.name, reactHooksPlugin.name],
   rules: {
     ...shared.rules,
-
-    ...extendPluginRules('react', _reactPlugin.configs.all),
-
-    ...extendPluginRules('react-hooks', _reactHooksPlugin.configs.recommended),
-
+    ...reactPlugin.rules,
+    ...reactHooksPlugin.rules,
     ..._prettierConfig.rules,
 
     'jsx-quotes': ['error', 'prefer-double'],
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-    'react/jsx-filename-extension': ['error', { extensions: ['.ts', '.tsx'] }],
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
-    'react/forbid-component-props': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
-    'react/jsx-no-literals': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
-    'react/prefer-read-only-props': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
-    'react/jsx-sort-props': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-default-props.md
-    'react/jsx-sort-default-props': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
-    'react/require-default-props': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
-    'react/no-array-index-key': 'warn',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-depth.md
-    'react/jsx-max-depth': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
-    'react/jsx-props-no-spreading': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
-    'react/destructuring-assignment': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-leaked-render.md
-    'react/jsx-no-leaked-render': 'error',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
-    'react/button-has-type': 'error',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-constructed-context-values.md
-    'react/jsx-no-constructed-context-values': 'error',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/hook-use-state.md
-    'react/hook-use-state': 'error',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-    'react/function-component-definition': [
-      'error',
-      {
-        namedComponents: 'function-declaration',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
-    'react/display-name': 'off',
-
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
-    'react/no-danger': 'error',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
     'import/no-nodejs-modules': 'error',
@@ -117,7 +43,6 @@ export const reactConfig = defineConfig({
     /**
      * React conflicted rules
      */
-
     // https://typescript-eslint.io/rules/no-shadow
     '@typescript-eslint/no-shadow': 'off',
 
