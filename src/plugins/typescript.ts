@@ -1,6 +1,5 @@
 import { definePlugin } from '../utils/define.js'
 import { extendPluginRules } from '../utils/mappers.js'
-// https://typescript-eslint.io/rules/'@
 import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
 // https://typescript-eslint.io/getting-started

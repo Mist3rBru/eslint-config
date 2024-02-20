@@ -20,8 +20,5 @@ export const nodeConfig = defineConfig({
     ...shared.rules,
     ...securityPlugin.rules,
     ..._prettierConfig.rules,
-
-    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
-    'import/no-nodejs-modules': 'off',
   },
 })

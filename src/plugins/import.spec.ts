@@ -1,4 +1,5 @@
 import { importPlugin as sut } from '../plugins/import.js'
+import { type EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as _importPlugin from 'eslint-plugin-import'
@@ -8,6 +9,14 @@ describe('import', () => {
     expect(sut.settings).toStrictEqual(
       _importPlugin.configs.typescript.settings
     )
+
+    const importPluginRules = Object.entries(_importPlugin.rules!)
+      .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
+      .map(([rule]) => rule)
+
+    for (const rule of importPluginRules) {
+      expect(sut.rules).toHaveProperty(`import/${rule}`)
+    }
   })
 
   it('should disable rules for test environment', () => {
@@ -35,15 +44,6 @@ describe('import', () => {
       expect(fileContent, rule).toMatch(
         `https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/${rule}.md`
       )
-    }
-  })
-
-  it('should not include environment related rules', () => {
-    const avoidedRules: string[] = ['import/no-nodejs-modules']
-    expect.assertions(avoidedRules.length)
-
-    for (const avoidedRule of avoidedRules) {
-      expect(sut.rules).not.toHaveProperty(avoidedRule)
     }
   })
 })
