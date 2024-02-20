@@ -1,6 +1,23 @@
 /* eslint-disable no-duplicate-imports */
 /* eslint-disable import/no-default-export */
 
+declare module '@eslint/js' {
+  import { type Linter } from 'eslint'
+
+  declare const plugin: {
+    configs: {
+      all: {
+        rules: Linter.RulesRecord
+      }
+      recommended: {
+        rules: Linter.RulesRecord
+      }
+    }
+  }
+
+  export default plugin
+}
+
 declare module '@typescript-eslint/eslint-plugin' {
   import { type ESLint, type Linter } from 'eslint'
 
