@@ -14,6 +14,9 @@ export const typescriptPlugin = definePlugin({
       _typescriptPlugin.configs['strict-type-checked']
     ),
 
+    // https://typescript-eslint.io/rules/prefer-find
+    '@typescript-eslint/prefer-find': 'error',
+
     // https://typescript-eslint.io/rules/no-inferrable-types
     '@typescript-eslint/no-inferrable-types': 'off',
 
