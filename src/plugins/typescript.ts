@@ -1,10 +1,10 @@
 import { definePlugin } from '../utils/define.js'
 import { extendPluginRules } from '../utils/mappers.js'
+// https://typescript-eslint.io/rules/'@
 import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
-import _standardWithTypescriptConfig from 'eslint-config-standard-with-typescript'
 
 // https://typescript-eslint.io/getting-started
-export const typescriptPlugin = definePlugin<string>({
+export const typescriptPlugin = definePlugin({
   name: '@typescript-eslint',
   settings: {},
   // https://typescript-eslint.io/rules
@@ -14,19 +14,13 @@ export const typescriptPlugin = definePlugin<string>({
       _typescriptPlugin.configs['strict-type-checked']
     ),
 
-    // Replaces JS linting rules for TS linting rules, and adds `standard` configuration
-    // https://github.com/mightyiam/eslint-config-standard-with-typescript#readme
-    ..._standardWithTypescriptConfig.rules,
-
     // https://typescript-eslint.io/rules/no-inferrable-types
     '@typescript-eslint/no-inferrable-types': 'off',
 
     // https://typescript-eslint.io/rules/default-param-last
-    'default-param-last': 'off',
     '@typescript-eslint/default-param-last': 'error',
 
     // https://typescript-eslint.io/rules/class-methods-use-this
-    'class-methods-use-this': 'off',
     '@typescript-eslint/class-methods-use-this': [
       'error',
       { ignoreClassesThatImplementAnInterface: true },
@@ -39,11 +33,9 @@ export const typescriptPlugin = definePlugin<string>({
     '@typescript-eslint/explicit-member-accessibility': 'off',
 
     // https://typescript-eslint.io/rules/init-declarations
-    'init-declarations': 'off',
     '@typescript-eslint/init-declarations': 'off',
 
     // https://typescript-eslint.io/rules/max-params
-    'max-params': 'off',
     '@typescript-eslint/max-params': 'error',
 
     // https://typescript-eslint.io/rules/member-ordering
@@ -53,23 +45,21 @@ export const typescriptPlugin = definePlugin<string>({
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
 
     // https://typescript-eslint.io/rules/no-empty-function
-    'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'error',
 
+    // https://typescript-eslint.io/rules/favor of `@typescript-
     // Disabled in favor of `@typescript-eslint/consistent-type-imports`
+
     // https://typescript-eslint.io/rules/no-import-type-side-effects
     '@typescript-eslint/no-import-type-side-effects': 'off',
 
     // https://typescript-eslint.io/rules/no-invalid-this
-    'no-invalid-this': 'off',
     '@typescript-eslint/no-invalid-this': 'off',
 
     // https://typescript-eslint.io/rules/no-loop-func
-    'no-loop-func': 'off',
     '@typescript-eslint/no-loop-func': 'error',
 
     // https://typescript-eslint.io/rules/no-magic-numbers
-    'no-magic-numbers': 'off',
     '@typescript-eslint/no-magic-numbers': [
       'warn',
       {
@@ -84,8 +74,7 @@ export const typescriptPlugin = definePlugin<string>({
     // https://typescript-eslint.io/rules/no-require-imports
     '@typescript-eslint/no-require-imports': 'error',
 
-    // https://typescript-eslint.io/rules/no-restricted-imports/
-    'no-restricted-imports': 'off',
+    // https://typescript-eslint.io/rules/no-restricted-imports
     '@typescript-eslint/no-restricted-imports': 'off',
 
     // https://typescript-eslint.io/rules/no-shadow
@@ -110,7 +99,6 @@ export const typescriptPlugin = definePlugin<string>({
     ],
 
     // https://typescript-eslint.io/rules/prefer-destructuring
-    'prefer-destructuring': 'off',
     '@typescript-eslint/prefer-destructuring': [
       'error',
       {
@@ -162,7 +150,7 @@ export const typescriptPlugin = definePlugin<string>({
     // https://typescript-eslint.io/rules/restrict-template-expressions
     '@typescript-eslint/restrict-template-expressions': [
       'error',
-      { allowNullish: true, allowAny: true },
+      { allowNullish: true, allowAny: true, allowNumber: true },
     ],
 
     // https://typescript-eslint.io/rules/prefer-nullish-coalescing
@@ -174,7 +162,12 @@ export const typescriptPlugin = definePlugin<string>({
     // https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': [
       'error',
-      { allowTypedFunctionExpressions: true, allowHigherOrderFunctions: true },
+      {
+        allowExpressions: false,
+        allowTypedFunctionExpressions: true,
+        allowHigherOrderFunctions: true,
+        allowDirectConstAssertionInArrowFunctions: true,
+      },
     ],
 
     // https://typescript-eslint.io/rules/consistent-type-imports
@@ -220,6 +213,199 @@ export const typescriptPlugin = definePlugin<string>({
         ],
       },
     ],
+
+    // https://typescript-eslint.io/rules/no-use-before-define
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: false,
+        enums: false,
+        variables: false,
+        typedefs: false, // Only the TypeScript rule has this option.
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/adjacent-overload-signatures
+    '@typescript-eslint/adjacent-overload-signatures': 'error',
+
+    // https://typescript-eslint.io/rules/ban-ts-comment
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': 'allow-with-description',
+        'ts-ignore': true,
+        'ts-nocheck': true,
+        'ts-check': false,
+        minimumDescriptionLength: 3,
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/ban-tslint-comment
+    '@typescript-eslint/ban-tslint-comment': 'error',
+
+    // https://typescript-eslint.io/rules/ban-types
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        extendDefaults: false,
+        types: {
+          String: {
+            message: 'Use string instead',
+            fixWith: 'string',
+          },
+          Boolean: {
+            message: 'Use boolean instead',
+            fixWith: 'boolean',
+          },
+          Number: {
+            message: 'Use number instead',
+            fixWith: 'number',
+          },
+          Symbol: {
+            message: 'Use symbol instead',
+            fixWith: 'symbol',
+          },
+          BigInt: {
+            message: 'Use bigint instead',
+            fixWith: 'bigint',
+          },
+          Function: {
+            message: [
+              'The `Function` type accepts any function-like value.',
+              'It provides no type safety when calling the function, which can be a common source of bugs.',
+              'It also accepts things like class declarations, which will throw at runtime as they will not be called with `new`.',
+              'If you are expecting the function to accept certain arguments, you should explicitly define the function shape.',
+            ].join('\n'),
+          },
+          // object typing
+          Object: {
+            message: [
+              'The `Object` type actually means "any non-nullish value", so it is marginally better than `unknown`.',
+              '- If you want a type meaning "any object", you probably want `Record<string, unknown>` instead.',
+              '- If you want a type meaning "any value", you probably want `unknown` instead.',
+            ].join('\n'),
+          },
+          '{}': {
+            message: [
+              '`{}` actually means "any non-nullish value".',
+              '- If you want a type meaning "any object", you probably want `Record<string, unknown>` instead.',
+              '- If you want a type meaning "any value", you probably want `unknown` instead.',
+            ].join('\n'),
+          },
+        },
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/class-literal-property-style
+    '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
+
+    // https://typescript-eslint.io/rules/consistent-generic-constructors
+    '@typescript-eslint/consistent-generic-constructors': [
+      'error',
+      'constructor',
+    ],
+
+    // https://typescript-eslint.io/rules/consistent-indexed-object-style
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
+
+    // https://typescript-eslint.io/rules/consistent-type-assertions
+    '@typescript-eslint/consistent-type-assertions': [
+      'error',
+      {
+        assertionStyle: 'as',
+        objectLiteralTypeAssertions: 'never',
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/consistent-type-definitions
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+
+    // https://typescript-eslint.io/rules/consistent-type-exports
+    '@typescript-eslint/consistent-type-exports': [
+      'error',
+      {
+        fixMixedExportsWithInlineTypeSpecifier: true,
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/dot-notation
+    '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
+
+    // Type `method` for consistent function scoping
+    // https://typescript-eslint.io/rules/method-signature-style
+    '@typescript-eslint/method-signature-style': ['error', 'method'],
+
+    // https://typescript-eslint.io/rules/naming-convention
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'variableLike',
+        leadingUnderscore: 'allow',
+        trailingUnderscore: 'allow',
+        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/no-dupe-class-members
+    '@typescript-eslint/no-dupe-class-members': 'off',
+
+    // https://typescript-eslint.io/rules/no-empty-interface
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      { allowSingleExtends: true },
+    ],
+
+    // https://typescript-eslint.io/rules/no-redeclare
+    '@typescript-eslint/no-redeclare': 'off',
+
+    // https://typescript-eslint.io/rules/no-unused-expressions
+    '@typescript-eslint/no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/no-extraneous-class
+    '@typescript-eslint/no-extraneous-class': [
+      'error',
+      { allowWithDecorator: true },
+    ],
+
+    // https://typescript-eslint.io/rules/no-unused-vars
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        caughtErrors: 'none',
+        ignoreRestSiblings: false,
+      },
+    ],
+
+    // https://typescript-eslint.io/rules/non-nullable-type-assertion-style
+    '@typescript-eslint/non-nullable-type-assertion-style': 'error',
+
+    // https://typescript-eslint.io/rules/prefer-function-type
+    '@typescript-eslint/prefer-function-type': 'error',
+
+    // https://typescript-eslint.io/rules/prefer-optional-chain
+    '@typescript-eslint/prefer-optional-chain': 'error',
+
+    // https://typescript-eslint.io/rules/promise-function-async
+    '@typescript-eslint/promise-function-async': 'error',
+
+    // https://typescript-eslint.io/rules/require-array-sort-compare
+    '@typescript-eslint/require-array-sort-compare': [
+      'error',
+      { ignoreStringArrays: true },
+    ],
+
+    // https://typescript-eslint.io/rules/return-await
+    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any

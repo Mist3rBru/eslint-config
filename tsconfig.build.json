@@ -3,5 +3,6 @@
   "compilerOptions": {
     "rootDir": "src"
   },
-  "exclude": ["src/**/*.spec.ts", "vitest.config.mts"]
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.ts"]
 }
