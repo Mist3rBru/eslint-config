@@ -36,6 +36,7 @@ export interface EslintConfig {
     ecmaFeatures?: {
       jsx?: true
     }
+    [key: string]: unknown
   }
   settings?: EslintSettings
   env: {

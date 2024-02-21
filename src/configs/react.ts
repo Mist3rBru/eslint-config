@@ -24,6 +24,7 @@ export const reactConfig = defineConfig({
   rules: {
     ..._prettierConfig.rules,
 
+    // https://eslint.org/docs/latest/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
