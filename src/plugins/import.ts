@@ -1,24 +1,10 @@
-import { type EslintPlugin } from '../types.js'
-
-const typeScriptExtensions = ['.ts', '.cts', '.mts', '.tsx']
-const allExtensions = [...typeScriptExtensions, '.js', '.jsx']
+import { definePlugin } from '../utils/define-plugin.js'
+import * as _importPlugin from 'eslint-plugin-import'
 
 // https://github.com/import-js/eslint-plugin-import/tree/main#readme
-export const importPlugin: EslintPlugin<'import'> = {
+export const importPlugin = definePlugin({
   name: 'import',
-  settings: {
-    'import/extensions': allExtensions,
-    'import/external-module-folders': ['node_modules', 'node_modules/@types'],
-    'import/parsers': {
-      '@typescript-eslint/parser': typeScriptExtensions,
-    },
-    'import/resolver': {
-      node: {
-        extensions: allExtensions,
-      },
-    },
-  },
-  extends: [],
+  settings: _importPlugin.configs.typescript.settings,
   // https://github.com/import-js/eslint-plugin-import/tree/main/docs/rules
   rules: {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default.md
@@ -37,7 +23,7 @@ export const importPlugin: EslintPlugin<'import'> = {
     'import/no-default-export': 'error',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
-    'import/no-duplicates': 'error',
+    'import/no-duplicates': ['error', { 'prefer-inline': true }],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-dynamic-require.md
     'import/no-dynamic-require': 'warn',
@@ -127,9 +113,8 @@ export const importPlugin: EslintPlugin<'import'> = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-namespace.md
     'import/no-namespace': 'off',
 
-    // Is being assigned individually
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
-    // 'import/no-nodejs-modules': 'off',
+    'import/no-nodejs-modules': 'off',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md
     'import/no-relative-packages': 'off',
@@ -165,4 +150,4 @@ export const importPlugin: EslintPlugin<'import'> = {
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
     'import/no-nodejs-modules': 'off',
   },
-}
+})

@@ -1,9 +1,18 @@
-import { noSecretsPlugin as sut } from '#/plugins/no-secrets.js'
+import { noSecretsPlugin as sut } from '../plugins/no-secrets.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _noSecretsPlugin from 'eslint-plugin-no-secrets'
 
 describe('no-secrets', () => {
-  it('should disable rules for test environment', async () => {
+  it('should config no-secrets plugin rules', () => {
+    const noSecretsPluginRules = Object.keys(_noSecretsPlugin.rules!)
+
+    for (const rule of noSecretsPluginRules) {
+      expect(sut.rules).toHaveProperty(`no-secrets/${rule}`)
+    }
+  })
+
+  it('should disable rules for test environment', () => {
     const testRules: string[] = ['no-secrets/no-secrets']
 
     expect.assertions(testRules.length + 1)

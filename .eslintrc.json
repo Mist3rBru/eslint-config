@@ -1,12 +1,15 @@
 {
   "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "extends": "plugin:mist3rbru/node",
   "rules": {
     "security/detect-object-injection": "off"
   },
   "overrides": [
     {
-      "files": ["__tests__/**"],
+      "files": ["src/**/*.spec.ts"],
       "extends": "plugin:mist3rbru/jest"
     }
   ]

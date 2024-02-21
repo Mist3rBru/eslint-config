@@ -1,10 +1,9 @@
-import { type EslintPlugin } from '../types.js'
+import { definePlugin } from '../utils/define-plugin.js'
 
 // //https://github.com/eslint-community/eslint-plugin-promise#readme
-export const promisePlugin: EslintPlugin<'promise'> = {
+export const promisePlugin = definePlugin({
   name: 'promise',
   settings: {},
-  extends: [],
   // https://github.com/eslint-community/eslint-plugin-promise/tree/main/docs/rules
   rules: {
     // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/always-return.md
@@ -59,4 +58,4 @@ export const promisePlugin: EslintPlugin<'promise'> = {
     'promise/no-multiple-resolved': 'error',
   },
   testRules: {},
-}
+})

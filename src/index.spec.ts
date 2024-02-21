@@ -1,14 +1,17 @@
-import plugin from '../src/index.js'
 import packageJson from '../package.json'
+import plugin from './index.js'
+import { type EslintConfig } from './types.js'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
 function toCamelCase(input: string): string {
-  return input.replaceAll(/[_-]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''))
+  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
+    c ? c.toUpperCase() : ''
+  )
 }
 
 describe('exports', () => {
-  it('should export plugin meta data', async () => {
+  it('should export plugin meta data', () => {
     expect(plugin.meta.name).toMatchInlineSnapshot('"eslint-plugin-mist3rbru"')
     expect(plugin.meta.version).toMatch(/^\d+\.\d+\.\d+$/)
   })
@@ -17,7 +20,9 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     const configFiles = await readdir(resolve('src/configs'))
-    const expectedKeys = configFiles.map(f => f.replace(/\.ts/, ''))
+    const expectedKeys = configFiles
+      .filter(file => !file.endsWith('.spec.ts'))
+      .map(file => file.replace(/\.ts/, ''))
 
     expect.assertions(expectedKeys.length)
 
@@ -26,17 +31,20 @@ describe('exports', () => {
     }
   })
 
-  it('should export min required keys', async () => {
-    const configKeys = Object.keys(plugin.configs)
+  it('should export min required keys', () => {
+    const configKeys = Object.keys(
+      plugin.configs
+    ) as (keyof typeof plugin.configs)[]
 
-    expect.assertions(configKeys.length * 5)
+    const expectedAssertions = 4
+    expect.assertions(configKeys.length * expectedAssertions)
 
     for (const key of configKeys) {
-      const config = plugin.configs[key as keyof typeof plugin.configs]
+      // eslint-disable-next-line @typescript-eslint/prefer-destructuring
+      const config = plugin.configs[key]
       expect(config.parser).toBeDefined()
       expect(config.parserOptions).toBeDefined()
       expect(config.plugins.length).toBeGreaterThanOrEqual(1)
-      expect(config.extends).toBeDefined()
       expect(config.rules).toBeDefined()
     }
   })
@@ -46,12 +54,10 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     for (const configKey of configKeys) {
-      const configModule = await import(
+      const configModule = (await import(
         resolve('src/configs', `${configKey}.ts`)
-      )
-      const config = configModule[`${toCamelCase(configKey)}Config`] as {
-        plugins: string[]
-      }
+      )) as Record<string, EslintConfig>
+      const config = configModule[`${toCamelCase(configKey)}Config`]
 
       for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)

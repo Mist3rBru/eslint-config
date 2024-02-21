@@ -1,4 +1,3 @@
-import { resolve } from 'node:path'
 import { defineConfig } from 'vitest/config'
 
 // https://vitest.dev/config/
@@ -8,12 +7,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     coverage: {
-      exclude: ['src/types.ts'],
-    },
-  },
-  resolve: {
-    alias: {
-      '#': resolve('src'),
+      exclude: ['src/@types/*', 'src/types.ts'],
     },
   },
 })
