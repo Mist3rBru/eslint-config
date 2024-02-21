@@ -1,13 +1,11 @@
-import { reactHooksPlugin, reactPlugin } from '../plugins/index.js'
-import { defineConfig } from '../utils/define.js'
-import { shared } from '../utils/shared.js'
+import { reactHooksPlugin } from '../plugins/react-hooks.js'
+import { reactPlugin } from '../plugins/react.js'
+import { sharedPlugins } from '../utils/constants.js'
+import { defineConfig } from '../utils/define-config.js'
 import _prettierConfig from 'eslint-config-prettier'
 
 export const reactConfig = defineConfig({
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
@@ -20,16 +18,9 @@ export const reactConfig = defineConfig({
     React: true,
     JSX: true,
   },
-  settings: {
-    ...shared.settings,
-    ...reactPlugin.settings,
-    ...reactHooksPlugin.settings,
-  },
-  plugins: [...shared.plugins, reactPlugin.name, reactHooksPlugin.name],
+  plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin],
+  extendPlugins: 'rules',
   rules: {
-    ...shared.rules,
-    ...reactPlugin.rules,
-    ...reactHooksPlugin.rules,
     ..._prettierConfig.rules,
 
     'jsx-quotes': ['error', 'prefer-double'],

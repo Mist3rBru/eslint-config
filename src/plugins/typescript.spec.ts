@@ -24,6 +24,7 @@ describe('typescript', () => {
       '@typescript-eslint/no-non-null-asserted-optional-chain',
       '@typescript-eslint/explicit-function-return-type',
       '@typescript-eslint/no-unsafe-argument',
+      '@typescript-eslint/unbound-method',
     ]
 
     expect.assertions(testRules.length + 1)

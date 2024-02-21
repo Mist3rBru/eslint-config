@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 import { extendPluginRules } from '../utils/mappers.js'
 import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
@@ -430,5 +430,8 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/no-unsafe-argument
     '@typescript-eslint/no-unsafe-argument': 'off',
+
+    // https://typescript-eslint.io/rules/unbound-method
+    '@typescript-eslint/unbound-method': 'off',
   },
 })

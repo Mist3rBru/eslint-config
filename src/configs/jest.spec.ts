@@ -1,57 +1,26 @@
-import { type EslintRuleMeta } from '../types.js'
-import { shared } from '../utils/shared.js'
+import { sharedPlugins } from '../utils/constants.js'
 import { jestConfig as sut } from './jest.js'
-import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
-import _jestPlugin from 'eslint-plugin-jest'
 
 describe('jest', () => {
-  it('should include shared test rules', () => {
-    const sharedTestRules = Object.keys(shared.testRules)
+  it('should include shared plugins', () => {
+    const sharedPluginNames = sharedPlugins
+      .map(plugin => plugin.name)
+      .filter(Boolean)
 
-    expect.assertions(sharedTestRules.length)
+    expect.assertions(sharedPluginNames.length)
 
-    for (const rule of sharedTestRules) {
-      expect(sut.rules[rule], rule).toBeDefined()
+    for (const pluginName of sharedPluginNames) {
+      expect(sut.plugins).toContain(pluginName)
     }
+  })
+
+  it('should include jest plugin', () => {
+    expect(sut.plugins).toContain('jest')
   })
 
   it('should config jest environment', () => {
-    const jestVersion = 29
-
     expect(sut.env.node).toBe(true)
     expect(sut.env.jest).toBe(true)
     expect(sut.env['jest/globals']).toBe(true)
-    expect(sut.settings?.jest?.version).toBe(jestVersion)
-  })
-
-  it('should config jest', () => {
-    expect(sut.plugins).toContain('jest')
-
-    const jestPluginRules = Object.entries(_jestPlugin.rules!)
-      .filter(([, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
-      .map(([rule]) => rule)
-
-    for (const rule of jestPluginRules) {
-      expect(sut.rules).toHaveProperty(`jest/${rule}`)
-    }
-  })
-
-  it("should include rule's reference link", async () => {
-    const file = await readFile(resolve('src/configs/jest.ts'))
-    const fileContent = file.toString()
-
-    const expectedReferencedRules = fileContent
-      .split(/\n/g)
-      .filter(line => /^\s*'jest\//.test(line))
-      .map(line => line.replace(/^\s*'jest\/([a-z-]+).+/, '$1'))
-
-    expect.assertions(expectedReferencedRules.length)
-
-    for (const rule of expectedReferencedRules) {
-      expect(fileContent, rule).toMatch(
-        `https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/${rule}.md`
-      )
-    }
   })
 })

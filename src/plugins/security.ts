@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 import { extendPluginRules } from '../utils/mappers.js'
 import _securityPlugin from 'eslint-plugin-security'
 

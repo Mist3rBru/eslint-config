@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 
 // //https://github.com/eslint-community/eslint-plugin-promise#readme
 export const promisePlugin = definePlugin({

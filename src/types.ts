@@ -21,7 +21,7 @@ export interface EslintSettings {
   [k: string]: unknown
 }
 
-export interface EslintPlugin<TPluginName extends string> {
+export interface EslintPlugin<TPluginName extends string = string> {
   name: TPluginName
   settings: EslintSettings
   rules: EslintRules<TPluginName>

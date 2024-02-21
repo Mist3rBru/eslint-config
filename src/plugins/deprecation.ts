@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 
 // https://github.com/gund/eslint-plugin-deprecation#readme
 export const deprecationPlugin = definePlugin({

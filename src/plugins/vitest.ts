@@ -7,6 +7,7 @@ export const vitestPlugin = definePlugin({
   name: 'vitest',
   settings: {},
   rules: {},
+  // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules
   testRules: {
     ...extendPluginRules('vitest', _vitestPlugin.configs.all),
 

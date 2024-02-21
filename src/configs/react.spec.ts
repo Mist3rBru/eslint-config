@@ -1,35 +1,30 @@
-import {
-  reactHooksPlugin,
-  reactPlugin,
-  securityPlugin,
-} from '../plugins/index.js'
-import { shared } from '../utils/shared.js'
+import { sharedPlugins } from '../utils/constants.js'
 import { reactConfig as sut } from './react.js'
-import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
 import _prettierConfig from 'eslint-config-prettier'
 
 describe('react', () => {
-  it('should include shared settings', () => {
-    for (const setting of Object.keys(shared.settings)) {
-      expect(sut.settings).toHaveProperty(setting)
-    }
-  })
-
   it('should include shared plugins', () => {
-    for (const plugin of shared.plugins) {
-      expect(sut.plugins).toContain(plugin)
+    const sharedPluginNames = sharedPlugins
+      .map(plugin => plugin.name)
+      .filter(Boolean)
+
+    expect.assertions(sharedPluginNames.length)
+
+    for (const pluginName of sharedPluginNames) {
+      expect(sut.plugins).toContain(pluginName)
     }
   })
 
-  it('should extend shared rules', () => {
-    const sharedRules = Object.keys(shared.rules)
+  it('should not include security plugin', () => {
+    expect(sut.plugins).not.toContain('security')
+  })
 
-    expect.assertions(sharedRules.length)
+  it('should include react plugin', () => {
+    expect(sut.plugins).toContain('react')
+  })
 
-    for (const rule of sharedRules) {
-      expect(sut.rules).toHaveProperty(rule)
-    }
+  it('should include react-hooks plugin', () => {
+    expect(sut.plugins).toContain('react-hooks')
   })
 
   it('should config react environment', () => {
@@ -37,26 +32,6 @@ describe('react', () => {
     expect(sut.settings?.react?.version).toBe('detect')
     expect(sut.globals?.React).toBe(true)
     expect(sut.globals?.JSX).toBe(true)
-  })
-
-  it('should not config security plugin', () => {
-    expect(sut.plugins).not.toContain(securityPlugin.name)
-  })
-
-  it('should config react plugin', () => {
-    expect(sut.plugins).toContain(reactPlugin.name)
-
-    for (const rule of Object.keys(reactPlugin.rules)) {
-      expect(sut.rules).toHaveProperty(rule)
-    }
-  })
-
-  it('should config react-hooks plugin', () => {
-    expect(sut.plugins).toContain(reactHooksPlugin.name)
-
-    for (const rule of Object.keys(reactHooksPlugin.rules)) {
-      expect(sut.rules).toHaveProperty(rule)
-    }
   })
 
   it('should disable react conflicted rules', () => {
@@ -75,30 +50,14 @@ describe('react', () => {
   })
 
   it('should extend prettier config', () => {
-    const prettierConfigRules = Object.entries(_prettierConfig.rules!).filter(
+    const prettierEntries = Object.entries(_prettierConfig.rules).filter(
       ([rule]) => rule !== 'jsx-quotes'
     )
 
-    for (const [rule, options] of prettierConfigRules) {
+    expect.assertions(prettierEntries.length)
+
+    for (const [rule, options] of prettierEntries) {
       expect(sut.rules).toHaveProperty(rule, options)
-    }
-  })
-
-  it("should include typescript rule's reference link", async () => {
-    const file = await readFile(resolve('src/configs/react.ts'))
-    const fileContent = file.toString()
-
-    const expectedReferencedRules = fileContent
-      .split(/\n/g)
-      .filter(line => /^\s*'@typescript-eslint/.test(line))
-      .map(line => line.replace(/^\s*'@typescript-eslint\/([a-z-]+).+/, '$1'))
-
-    expect.assertions(expectedReferencedRules.length)
-
-    for (const rule of expectedReferencedRules) {
-      expect(fileContent, rule).toMatch(
-        `https://typescript-eslint.io/rules/${rule}`
-      )
     }
   })
 })

@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 
 // https://github.com/nickdeis/eslint-plugin-no-secrets#readme
 export const noSecretsPlugin = definePlugin({

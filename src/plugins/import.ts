@@ -1,4 +1,4 @@
-import { definePlugin } from '../utils/define.js'
+import { definePlugin } from '../utils/define-plugin.js'
 import * as _importPlugin from 'eslint-plugin-import'
 
 // https://github.com/import-js/eslint-plugin-import/tree/main#readme
