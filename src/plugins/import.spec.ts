@@ -6,10 +6,6 @@ import * as _importPlugin from 'eslint-plugin-import'
 
 describe('import', () => {
   it('should config import plugin rules', () => {
-    expect(sut.settings).toStrictEqual(
-      _importPlugin.configs.typescript.settings
-    )
-
     const importPluginRules = Object.entries(_importPlugin.rules!)
       .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
@@ -17,6 +13,12 @@ describe('import', () => {
     for (const rule of importPluginRules) {
       expect(sut.rules).toHaveProperty(`import/${rule}`)
     }
+  })
+
+  it('should config import settings', () => {
+    expect(sut.settings).toStrictEqual(
+      _importPlugin.configs.typescript.settings
+    )
   })
 
   it('should disable rules for test environment', () => {

@@ -27,6 +27,10 @@ describe('react', () => {
     expect(sut.plugins).toContain('react-hooks')
   })
 
+  it('should not include jsx-a11y plugin', () => {
+    expect(sut.plugins).toContain('jsx-a11y')
+  })
+
   it('should config react environment', () => {
     expect(sut.parserOptions.ecmaFeatures?.jsx).toBe(true)
     expect(sut.settings?.react?.version).toBe('detect')

@@ -1,3 +1,4 @@
+import { jsxA11yPlugin } from '../plugins/jsx-a11y.js'
 import { reactHooksPlugin } from '../plugins/react-hooks.js'
 import { reactPlugin } from '../plugins/react.js'
 import { sharedPlugins } from '../utils/constants.js'
@@ -18,7 +19,7 @@ export const reactConfig = defineConfig({
     React: true,
     JSX: true,
   },
-  plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin],
+  plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin, jsxA11yPlugin],
   extendPlugins: 'rules',
   rules: {
     ..._prettierConfig.rules,
@@ -31,9 +32,6 @@ export const reactConfig = defineConfig({
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-undefined.md
     'unicorn/no-useless-undefined': 'off',
 
-    /**
-     * React conflicted rules
-     */
     // https://typescript-eslint.io/rules/no-shadow
     '@typescript-eslint/no-shadow': 'off',
 
