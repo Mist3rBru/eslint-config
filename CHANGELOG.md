@@ -1,5 +1,14 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.0
+
+### Minor Changes
+
+- 4ab5a82: feat: manually config all rules
+- b142038: feat(next): add next config
+- 94c570c: feat(react): add jsx-a11y plugin
+- 8ee4afc: feat(react): add all react plugin rules
+
 ## 0.3.6
 
 ### Patch Changes
