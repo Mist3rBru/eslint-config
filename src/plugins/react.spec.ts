@@ -1,11 +1,14 @@
-import { readFile } from 'node:fs/promises'
+import { type EslintRuleMeta } from '../types.js'
 import { reactPlugin as sut } from './react.js'
-import _reactPlugin from 'eslint-plugin-react'
+import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import _reactPlugin from 'eslint-plugin-react'
 
 describe('react', () => {
-  it('should config react plugin rules rules', () => {
-    const reactPluginRules = Object.keys(_reactPlugin.rules!)
+  it('should config react plugin rules', () => {
+    const reactPluginRules = Object.entries(_reactPlugin.rules!)
+      .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
+      .map(([rule]) => rule)
 
     expect.assertions(reactPluginRules.length)
 
@@ -23,7 +26,7 @@ describe('react', () => {
   })
 
   it("should include react rule's reference link", async () => {
-    const file = await readFile(resolve('src/configs/react.ts'))
+    const file = await readFile(resolve('src/plugins/react.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent

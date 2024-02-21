@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import _noSecretsPlugin from 'eslint-plugin-no-secrets'
 
 describe('no-secrets', () => {
-  it('should config no-secrets plugin', () => {
+  it('should config no-secrets plugin rules', () => {
     const noSecretsPluginRules = Object.keys(_noSecretsPlugin.rules!)
 
     for (const rule of noSecretsPluginRules) {

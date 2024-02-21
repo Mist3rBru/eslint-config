@@ -8,7 +8,7 @@ import { resolve } from 'node:path'
 import _javascriptPlugin from '@eslint/js'
 
 describe('javascript', () => {
-  it('should config javascript plugin', () => {
+  it('should config javascript plugin rules', () => {
     const javascriptPluginRules = Object.keys(
       _javascriptPlugin.configs.all.rules
     )

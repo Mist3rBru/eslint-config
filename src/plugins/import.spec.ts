@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import * as _importPlugin from 'eslint-plugin-import'
 
 describe('import', () => {
-  it('should config import plugin', () => {
+  it('should config import plugin rules', () => {
     expect(sut.settings).toStrictEqual(
       _importPlugin.configs.typescript.settings
     )

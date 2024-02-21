@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
 describe('typescript', () => {
-  it('should config typescript plugin', () => {
+  it('should config typescript plugin rules', () => {
     const typescriptPluginRules = Object.entries(_typescriptPlugin.rules!)
       .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)

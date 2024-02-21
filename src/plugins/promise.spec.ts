@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import _promisePlugin from 'eslint-plugin-promise'
 
 describe('promise', () => {
-  it('should config promise plugin', () => {
+  it('should config promise plugin rules', () => {
     const promisePluginRules = Object.keys(_promisePlugin.rules!)
 
     for (const rule of promisePluginRules) {

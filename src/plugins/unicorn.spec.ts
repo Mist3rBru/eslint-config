@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import _unicornPlugin from 'eslint-plugin-unicorn'
 
 describe('unicorn', () => {
-  it('should config unicorn plugin', () => {
+  it('should config unicorn plugin rules', () => {
     const unicornPluginRules = Object.entries(_unicornPlugin.rules!)
       .filter(([, meta]) => !(meta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
