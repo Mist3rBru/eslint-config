@@ -247,3 +247,20 @@ declare module 'eslint-plugin-react-hooks' {
 
   export default plugin
 }
+
+declare module 'eslint-plugin-jsx-a11y' {
+  import { type Linter, type ESLint } from 'eslint'
+
+  declare const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: {
+        rules: Linter.RulesRecord
+      }
+      strict: {
+        rules: Linter.RulesRecord
+      }
+    }
+  }
+
+  export default plugin
+}
