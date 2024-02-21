@@ -264,3 +264,20 @@ declare module 'eslint-plugin-jsx-a11y' {
 
   export default plugin
 }
+
+declare module '@next/eslint-plugin-next' {
+  import { type Linter, type ESLint } from 'eslint'
+
+  declare const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: {
+        rules: Linter.RulesRecord
+      }
+      'core-web-vitals': {
+        rules: Linter.RulesRecord
+      }
+    }
+  }
+
+  export default plugin
+}
