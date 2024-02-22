@@ -85,6 +85,9 @@ export const nextConfig = defineConfig({
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-undefined.md
     'unicorn/no-useless-undefined': 'off',
 
+    // https://typescript-eslint.io/rules/no-empty-function
+    "@typescript-eslint/no-empty-function":"off",
+    
     // https://typescript-eslint.io/rules/no-shadow
     '@typescript-eslint/no-shadow': 'off',
 
