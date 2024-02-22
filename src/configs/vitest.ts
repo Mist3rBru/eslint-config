@@ -1,3 +1,4 @@
+import { securityPlugin } from '../plugins/security.js'
 import { vitestPlugin } from '../plugins/vitest.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
@@ -8,7 +9,7 @@ export const vitestConfig = defineConfig({
     node: true,
     vitest: true,
   },
-  plugins: [...sharedPlugins, vitestPlugin],
+  plugins: [...sharedPlugins, securityPlugin, vitestPlugin],
   extendPlugins: 'testRules',
   rules: {},
 })

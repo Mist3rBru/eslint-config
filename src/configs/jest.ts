@@ -1,4 +1,5 @@
 import { jestPlugin } from '../plugins/jest.js'
+import { securityPlugin } from '../plugins/security.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
 
@@ -9,7 +10,7 @@ export const jestConfig = defineConfig({
     jest: true,
     'jest/globals': true,
   },
-  plugins: [...sharedPlugins, jestPlugin],
+  plugins: [...sharedPlugins, securityPlugin, jestPlugin],
   extendPlugins: 'testRules',
   rules: {},
 })

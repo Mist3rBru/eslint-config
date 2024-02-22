@@ -13,6 +13,9 @@ export const typescriptPlugin = definePlugin({
       _typescriptPlugin.configs['strict-type-checked']
     ),
 
+    // https://typescript-eslint.io/rules/require-await
+    '@typescript-eslint/require-await': 'warn',
+
     // https://typescript-eslint.io/rules/prefer-find
     '@typescript-eslint/prefer-find': 'error',
 
@@ -24,7 +27,7 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/class-methods-use-this
     '@typescript-eslint/class-methods-use-this': [
-      'error',
+      'warn',
       { ignoreClassesThatImplementAnInterface: true },
     ],
 
@@ -67,7 +70,7 @@ export const typescriptPlugin = definePlugin({
       {
         ignore: [0, 1],
         ignoreEnums: true,
-        ignoreNumericLiteralTypes: false,
+        ignoreNumericLiteralTypes: true,
         ignoreReadonlyClassProperties: true,
         ignoreTypeIndexes: true,
       },
@@ -101,17 +104,7 @@ export const typescriptPlugin = definePlugin({
     ],
 
     // https://typescript-eslint.io/rules/prefer-destructuring
-    '@typescript-eslint/prefer-destructuring': [
-      'error',
-      {
-        object: true,
-        array: true,
-      },
-      {
-        enforceForRenamedProperties: false,
-        enforceForDeclarationWithTypeAnnotation: true,
-      },
-    ],
+    '@typescript-eslint/prefer-destructuring': 'off',
 
     // https://typescript-eslint.io/rules/prefer-enum-initializers
     '@typescript-eslint/prefer-enum-initializers': 'error',
@@ -383,6 +376,7 @@ export const typescriptPlugin = definePlugin({
       {
         vars: 'all',
         args: 'after-used',
+        argsIgnorePattern: '^_',
         caughtErrors: 'none',
         ignoreRestSiblings: false,
       },
@@ -434,7 +428,13 @@ export const typescriptPlugin = definePlugin({
     // https://typescript-eslint.io/rules/no-unsafe-argument
     '@typescript-eslint/no-unsafe-argument': 'off',
 
+    // https://typescript-eslint.io/rules/no-unsafe-assignment
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+
     // https://typescript-eslint.io/rules/unbound-method
     '@typescript-eslint/unbound-method': 'off',
+
+    // https://typescript-eslint.io/rules/no-magic-numbers
+    '@typescript-eslint/no-magic-numbers': 'off',
   },
 })
