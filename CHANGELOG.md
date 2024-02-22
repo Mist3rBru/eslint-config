@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.3
+
+### Patch Changes
+
+- b94c27b: refactor(plugins): disable no-unsafe-\* typescript rules for test environments
+
 ## 0.4.2
 
 ### Patch Changes
