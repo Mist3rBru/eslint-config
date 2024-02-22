@@ -18,6 +18,10 @@ describe('vitest', () => {
     expect(sut.plugins).toContain('vitest')
   })
 
+  it('should include security plugin', () => {
+    expect(sut.plugins).toContain('security')
+  })
+
   it('should config vitest environment', () => {
     expect(sut.env.node).toBe(true)
     expect(sut.env.vitest).toBe(true)
