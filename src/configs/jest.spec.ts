@@ -18,6 +18,10 @@ describe('jest', () => {
     expect(sut.plugins).toContain('jest')
   })
 
+  it('should include security plugin', () => {
+    expect(sut.plugins).toContain('security')
+  })
+
   it('should config jest environment', () => {
     expect(sut.env.node).toBe(true)
     expect(sut.env.jest).toBe(true)
