@@ -45,7 +45,6 @@ describe('react', () => {
       '@typescript-eslint/no-misused-promises',
       '@typescript-eslint/no-floating-promises',
       '@typescript-eslint/no-empty-function',
-      
     ]
     expect.assertions(expectedDisabledRules.length + 1)
 
