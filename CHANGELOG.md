@@ -1,5 +1,13 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.2
+
+### Patch Changes
+
+- f0a0bdd: fix(jest): disable security plugin rules
+- 0ed751b: refactor(plugins): ignore some typescript error cases
+- 35dca91: fix(vitest): disable security plugin rules
+
 ## 0.4.1
 
 ### Patch Changes
