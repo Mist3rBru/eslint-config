@@ -410,6 +410,9 @@ export const typescriptPlugin = definePlugin({
     // https://typescript-eslint.io/rules/no-explicit-any
     '@typescript-eslint/no-explicit-any': 'off',
 
+    // https://typescript-eslint.io/rules/no-empty-function
+    '@typescript-eslint/no-empty-function': 'off',
+
     // https://typescript-eslint.io/rules/ban-ts-comment
     '@typescript-eslint/ban-ts-comment': 'off',
 
