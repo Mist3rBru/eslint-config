@@ -1,5 +1,13 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.1
+
+### Patch Changes
+
+- 2e839bf: fix(react): disable @typescript-eslint/no-empty-function rule
+- 3f34b77: fix(next): disable @typescript-eslint/no-empty-function rule
+- 4c3c3be: fix(plugins): disable @typescript-eslint/no-namespace rule
+
 ## 0.4.0
 
 ### Minor Changes
