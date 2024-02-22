@@ -38,7 +38,7 @@ export const typescriptPlugin = definePlugin({
     '@typescript-eslint/init-declarations': 'off',
 
     // https://typescript-eslint.io/rules/max-params
-    '@typescript-eslint/max-params': 'error',
+    '@typescript-eslint/max-params': 'warn',
 
     // https://typescript-eslint.io/rules/member-ordering
     '@typescript-eslint/member-ordering': 'off',
@@ -408,6 +408,9 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/return-await
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+
+    // https://typescript-eslint.io/rules/no-namespace
+    '@typescript-eslint/no-namespace': 'off',
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any
