@@ -425,16 +425,37 @@ export const typescriptPlugin = definePlugin({
     // https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': 'off',
 
+    // https://typescript-eslint.io/rules/unbound-method
+    '@typescript-eslint/unbound-method': 'off',
+
+    // https://typescript-eslint.io/rules/no-magic-numbers
+    '@typescript-eslint/no-magic-numbers': 'off',
+
     // https://typescript-eslint.io/rules/no-unsafe-argument
     '@typescript-eslint/no-unsafe-argument': 'off',
 
     // https://typescript-eslint.io/rules/no-unsafe-assignment
     '@typescript-eslint/no-unsafe-assignment': 'off',
 
-    // https://typescript-eslint.io/rules/unbound-method
-    '@typescript-eslint/unbound-method': 'off',
+    // https://typescript-eslint.io/rules/no-unsafe-call
+    '@typescript-eslint/no-unsafe-call': 'off',
 
-    // https://typescript-eslint.io/rules/no-magic-numbers
-    '@typescript-eslint/no-magic-numbers': 'off',
+    // https://typescript-eslint.io/rules/no-unsafe-declaration-merging
+    '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+
+    // https://typescript-eslint.io/rules/no-unsafe-enum-comparison
+    '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+
+    // https://typescript-eslint.io/rules/no-unsafe-member-access
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+
+    // https://typescript-eslint.io/rules/no-unsafe-return
+    '@typescript-eslint/no-unsafe-return': 'off',
+
+    // https://typescript-eslint.io/rules/no-unsafe-unary-minus
+    '@typescript-eslint/no-unsafe-unary-minus': 'off',
+
+    // https://typescript-eslint.io/rules/no-unused-expressions
+    '@typescript-eslint/no-unused-expressions': 'off',
   },
 })
