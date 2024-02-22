@@ -10,7 +10,7 @@ export const jestConfig = defineConfig({
     jest: true,
     'jest/globals': true,
   },
-  plugins: [...sharedPlugins,securityPlugin, jestPlugin],
+  plugins: [...sharedPlugins, securityPlugin, jestPlugin],
   extendPlugins: 'testRules',
   rules: {},
 })
