@@ -1,14 +1,9 @@
 import packageJson from '../package.json'
 import plugin from './index.js'
 import { type EslintConfig } from './types.js'
+import { toCamelCase } from './utils/mappers.js'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
-
-function toCamelCase(input: string): string {
-  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
-    c ? c.toUpperCase() : ''
-  )
-}
 
 describe('exports', () => {
   it('should export plugin meta data', () => {

@@ -23,3 +23,9 @@ export function extendPluginRules<TPluginName extends string>(
     ])
   ) as Record<`${TPluginName}/${string}`, Linter.RuleEntry>
 }
+
+export function toCamelCase(input: string): string {
+  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
+    c ? c.toUpperCase() : ''
+  )
+}
