@@ -68,7 +68,7 @@ export const typescriptPlugin = definePlugin({
     '@typescript-eslint/no-magic-numbers': [
       'warn',
       {
-        ignore: [0, 1],
+        ignore: [-1, 0, 1],
         ignoreEnums: true,
         ignoreNumericLiteralTypes: true,
         ignoreReadonlyClassProperties: true,
@@ -405,6 +405,9 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/no-namespace
     '@typescript-eslint/no-namespace': 'off',
+
+    // https://typescript-eslint.io/rules/consistent-return
+    '@typescript-eslint/consistent-return': 'off',
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any
