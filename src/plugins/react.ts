@@ -38,6 +38,9 @@ export const reactPlugin = definePlugin({
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
     'react/no-array-index-key': 'warn',
 
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
+    'react/jsx-no-bind': 'warn',
+
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-depth.md
     'react/jsx-max-depth': 'off',
 
