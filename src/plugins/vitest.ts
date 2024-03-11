@@ -1,16 +1,16 @@
 import { definePlugin } from '../utils/define-plugin.js'
-import { extendPluginRules } from '../utils/mappers.js'
-import _vitestPlugin from 'eslint-plugin-vitest'
 
 // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
 export const vitestPlugin = definePlugin({
   name: 'vitest',
-  settings: {},
+  settings: {
+    vitest: {
+      typecheck: true,
+    },
+  },
   rules: {},
   // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules
   testRules: {
-    ...extendPluginRules('vitest', _vitestPlugin.configs.all),
-
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/assertion-type.md
     'vitest/assertion-type': 'error',
 
