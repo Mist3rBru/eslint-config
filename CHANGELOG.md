@@ -1,5 +1,13 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.4
+
+### Patch Changes
+
+- a91da87: feat(typescript): add @typescript-eslint/consistent-return rule
+- 9ca22eb: refactor(react): add warn to react/jsx-no-bind rule
+- 7b2c13e: feat(vitest): enable typescheck
+
 ## 0.4.3
 
 ### Patch Changes
