@@ -1,4 +1,5 @@
 import { definePlugin } from '../utils/define-plugin.js'
+import { updateGlobalValues } from '../utils/mappers.js'
 import _vitestPlugin from 'eslint-plugin-vitest'
 
 // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
@@ -10,7 +11,10 @@ export const vitestPlugin = definePlugin({
       typecheck: true,
     },
   },
-  globals: _vitestPlugin.environments.env.globals,
+  globals: updateGlobalValues(
+    _vitestPlugin.environments.env.globals,
+    'readonly'
+  ),
   rules: {},
   // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules
   testRules: {

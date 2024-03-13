@@ -1,15 +1,15 @@
 import type { ESLint, Linter } from 'eslint'
 
-export type EslintRules<TPluginName extends string = string> = Record<
-  `${string extends TPluginName ? string : '' extends TPluginName ? string : `${TPluginName}/`}${string}`,
-  Linter.RuleEntry
->
-
 export interface EslintRuleMeta {
   meta: {
     deprecated?: boolean
   }
 }
+
+export type EslintRules<TPluginName extends string = string> = Record<
+  `${string extends TPluginName ? string : '' extends TPluginName ? string : `${TPluginName}/`}${string}`,
+  Linter.RuleEntry
+>
 
 export interface EslintSettings {
   jest?: {
@@ -21,11 +21,13 @@ export interface EslintSettings {
   [k: string]: unknown
 }
 
+export type EslintGlobals = Record<string, 'writable' | 'readonly' | 'off'>
+
 export interface EslintPlugin<TPluginName extends string = string> {
   name: TPluginName
   source: ESLint.Plugin
   settings?: EslintSettings
-  globals?: Record<string, unknown>
+  globals?: EslintGlobals
   rules: EslintRules<TPluginName>
   testRules: EslintRules<TPluginName>
 }
@@ -35,7 +37,7 @@ export interface EslintConfig<TPluginName extends string = string>
   languageOptions: {
     sourceType: 'module'
     ecmaVersion: 'latest'
-    globals: NonNullable<ESLint.Environment['globals']>
+    globals: EslintGlobals
     parser: Linter.FlatConfigParserModule
     parserOptions: {
       sourceType: 'module'

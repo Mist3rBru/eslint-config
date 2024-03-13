@@ -28,7 +28,10 @@ export function defineConfig<TPluginName extends string>(
         project: './tsconfig.json',
         ...config.parserOptions,
       },
-      globals: config.globals ?? {},
+      globals: {
+        ...reduceByKey(config.plugins, 'globals'),
+        ...config.globals,
+      },
     },
     settings: {
       ...reduceByKey(config.plugins, 'settings'),
