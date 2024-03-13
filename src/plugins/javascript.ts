@@ -478,8 +478,9 @@ export const javascriptPlugin = definePlugin<string>({
     // https://eslint.org/docs/latest/rules/prefer-regex-literals
     'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
 
+    // Disabled in favor of @typescript-eslint/consistent-type-imports and import/consistent-type-specifier-style
     // https://eslint.org/docs/latest/rules/no-duplicate-imports
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': 'off',
 
     // https://eslint.org/docs/latest/rules/no-console
     'no-console': ['error', { allow: ['error'] }],

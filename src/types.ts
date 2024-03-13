@@ -1,4 +1,4 @@
-import { type Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 export type EslintRules<TPluginName extends string = string> = Record<
   `${string extends TPluginName ? string : `${TPluginName}/`}${string}`,

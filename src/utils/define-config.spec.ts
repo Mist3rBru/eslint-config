@@ -1,8 +1,6 @@
-import { type EslintConfig, type EslintPlugin } from '../types.js'
-import {
-  type DefinePartialEslintConfig,
-  defineConfig,
-} from './define-config.js'
+import type { EslintConfig, EslintPlugin } from '../types.js'
+import { defineConfig } from './define-config.js'
+import type { DefinePartialEslintConfig } from './define-config.js'
 
 const makeConfig = (
   config?: Partial<DefinePartialEslintConfig>

@@ -1,4 +1,4 @@
-import { type EslintRuleMeta } from '../types.js'
+import type { EslintRuleMeta } from '../types.js'
 import { jestDomPlugin as sut } from './jest-dom.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

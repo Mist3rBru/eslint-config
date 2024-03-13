@@ -1,4 +1,4 @@
-import { type EslintRuleMeta } from '../types.js'
+import type { EslintRuleMeta } from '../types.js'
 import { reactPlugin as sut } from './react.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

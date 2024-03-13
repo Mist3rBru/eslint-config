@@ -1,4 +1,4 @@
-import { type Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 export function reduceByKey<T, TKey extends keyof T>(
   data: T[],

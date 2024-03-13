@@ -22,9 +22,6 @@ export const importPlugin = definePlugin({
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-default-export.md
     'import/no-default-export': 'error',
 
-    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
-    'import/no-duplicates': ['error', { 'prefer-inline': true }],
-
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-dynamic-require.md
     'import/no-dynamic-require': 'warn',
 
@@ -78,7 +75,11 @@ export const importPlugin = definePlugin({
     'import/extensions': 'off',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/consistent-type-specifier-style.md
-    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+
+    // Disabled in favor of @typescript-eslint/consistent-type-imports and import/consistent-type-specifier-style
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
+    'import/no-duplicates': 'off',
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/exports-last.md
     'import/exports-last': 'off',

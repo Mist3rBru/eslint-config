@@ -52,9 +52,7 @@ export const typescriptPlugin = definePlugin({
     // https://typescript-eslint.io/rules/no-empty-function
     '@typescript-eslint/no-empty-function': 'error',
 
-    // https://typescript-eslint.io/rules/favor of `@typescript-
     // Disabled in favor of `@typescript-eslint/consistent-type-imports`
-
     // https://typescript-eslint.io/rules/no-import-type-side-effects
     '@typescript-eslint/no-import-type-side-effects': 'off',
 
@@ -171,7 +169,7 @@ export const typescriptPlugin = definePlugin({
       {
         prefer: 'type-imports',
         disallowTypeAnnotations: true,
-        fixStyle: 'inline-type-imports',
+        fixStyle: 'separate-type-imports',
       },
     ],
 

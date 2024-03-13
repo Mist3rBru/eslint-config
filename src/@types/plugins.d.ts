@@ -2,7 +2,7 @@
 /* eslint-disable import/no-default-export */
 
 declare module '@eslint/js' {
-  import { type Linter } from 'eslint'
+  import type { Linter } from 'eslint'
 
   declare const plugin: {
     configs: {
@@ -19,7 +19,7 @@ declare module '@eslint/js' {
 }
 
 declare module '@typescript-eslint/eslint-plugin' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -63,7 +63,7 @@ declare module '@typescript-eslint/eslint-plugin' {
 }
 
 declare module 'eslint-plugin-deprecation' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -77,7 +77,7 @@ declare module 'eslint-plugin-deprecation' {
 }
 
 declare module 'eslint-plugin-jest-dom' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -94,7 +94,7 @@ declare module 'eslint-plugin-jest-dom' {
 }
 
 declare module 'eslint-plugin-jest' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -114,7 +114,7 @@ declare module 'eslint-plugin-jest' {
 }
 
 declare module 'eslint-plugin-import' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -150,7 +150,7 @@ declare module 'eslint-plugin-import' {
 }
 
 declare module 'eslint-plugin-no-secrets' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -164,7 +164,7 @@ declare module 'eslint-plugin-no-secrets' {
 }
 
 declare module 'eslint-plugin-promise' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -178,7 +178,7 @@ declare module 'eslint-plugin-promise' {
 }
 
 declare module 'eslint-plugin-unicorn' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -201,7 +201,7 @@ declare module 'eslint-plugin-unicorn' {
 }
 
 declare module 'eslint-plugin-security' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -215,7 +215,7 @@ declare module 'eslint-plugin-security' {
 }
 
 declare module 'eslint-plugin-react' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -235,7 +235,7 @@ declare module 'eslint-plugin-react' {
 }
 
 declare module 'eslint-plugin-react-hooks' {
-  import { type ESLint, type Linter } from 'eslint'
+  import type { ESLint, Linter } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -249,7 +249,7 @@ declare module 'eslint-plugin-react-hooks' {
 }
 
 declare module 'eslint-plugin-jsx-a11y' {
-  import { type Linter, type ESLint } from 'eslint'
+  import type { Linter, ESLint } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {
@@ -266,7 +266,7 @@ declare module 'eslint-plugin-jsx-a11y' {
 }
 
 declare module '@next/eslint-plugin-next' {
-  import { type Linter, type ESLint } from 'eslint'
+  import type { Linter, ESLint } from 'eslint'
 
   declare const plugin: ESLint.Plugin & {
     configs: {

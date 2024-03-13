@@ -1,4 +1,4 @@
-import { type EslintConfig, type EslintPlugin } from '../types.js'
+import type { EslintConfig, EslintPlugin } from '../types.js'
 import { reduceByKey } from './mappers.js'
 
 export interface DefinePartialEslintConfig {
