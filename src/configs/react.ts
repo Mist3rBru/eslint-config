@@ -11,10 +11,6 @@ export const reactConfig = defineConfig({
       jsx: true,
     },
   },
-  env: {
-    es2022: true,
-    browser: true,
-  },
   globals: {
     React: true,
     JSX: true,
@@ -51,13 +47,4 @@ export const reactConfig = defineConfig({
     // https://typescript-eslint.io/rules/method-signature-style
     '@typescript-eslint/method-signature-style': ['error', 'property'],
   },
-  overrides: [
-    {
-      files: ['*.tsx'],
-      rules: {
-        // https://eslint.org/docs/latest/rules/no-undef
-        'no-undef': 'off',
-      },
-    },
-  ],
 })

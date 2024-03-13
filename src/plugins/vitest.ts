@@ -1,13 +1,16 @@
 import { definePlugin } from '../utils/define-plugin.js'
+import _vitestPlugin from 'eslint-plugin-vitest'
 
 // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
 export const vitestPlugin = definePlugin({
   name: 'vitest',
+  source: _vitestPlugin,
   settings: {
     vitest: {
       typecheck: true,
     },
   },
+  globals: _vitestPlugin.environments.env.globals,
   rules: {},
   // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules
   testRules: {

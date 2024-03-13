@@ -23,8 +23,6 @@ describe('jest', () => {
   })
 
   it('should config jest environment', () => {
-    expect(sut.env.node).toBe(true)
-    expect(sut.env.jest).toBe(true)
-    expect(sut.env['jest/globals']).toBe(true)
+    expect(sut.languageOptions.globals).toHaveProperty('test', true)
   })
 })

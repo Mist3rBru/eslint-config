@@ -17,10 +17,4 @@ describe('jest-dom', () => {
   it('should include jest-dom plugin', () => {
     expect(sut.plugins).toContain('jest-dom')
   })
-
-  it('should config jest-dom environment', () => {
-    expect(sut.env.node).toBe(true)
-    expect(sut.env.jest).toBe(true)
-    expect(sut.env['jest/globals']).toBe(true)
-  })
 })

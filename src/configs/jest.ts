@@ -4,13 +4,7 @@ import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
 
 export const jestConfig = defineConfig({
-  env: {
-    es2022: true,
-    node: true,
-    jest: true,
-    'jest/globals': true,
-  },
-  plugins: [...sharedPlugins, securityPlugin, jestPlugin],
+  plugins: [...sharedPlugins, securityPlugin, jestPlugin] as const,
   extendPlugins: 'testRules',
   rules: {},
 })

@@ -6,9 +6,6 @@ const makeConfig = (
   config?: Partial<DefinePartialEslintConfig>
 ): EslintConfig => {
   return defineConfig({
-    env: {
-      es2022: true,
-    },
     plugins: [],
     rules: {},
     extendPlugins: 'rules',
@@ -19,7 +16,7 @@ const makeConfig = (
 const makePlugin = (plugin?: Partial<EslintPlugin>): EslintPlugin => {
   return {
     name: '',
-    settings: {},
+    source: {},
     rules: {},
     testRules: {},
     ...plugin,
@@ -36,7 +33,7 @@ describe('defineConfig()', () => {
       },
     })
 
-    expect(config.parserOptions).toStrictEqual({
+    expect(config.languageOptions.parserOptions).toStrictEqual({
       ecmaVersion: 'latest',
       sourceType: 'module',
       ecmaFeatures: {

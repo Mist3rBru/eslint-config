@@ -5,11 +5,13 @@ import _jestPlugin from 'eslint-plugin-jest'
 // https://github.com/jest-community/eslint-plugin-jest?tab=readme-ov-file#readme
 export const jestPlugin = definePlugin({
   name: 'jest',
+  source: _jestPlugin,
   settings: {
     jest: {
       version: 29,
     },
   },
+  globals: _jestPlugin.environments.globals.globals,
   rules: {},
   // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules
   testRules: {

@@ -19,10 +19,6 @@ describe('node', () => {
     expect(sut.plugins).toContain('security')
   })
 
-  it('should config node environment', () => {
-    expect(sut.env.node).toBe(true)
-  })
-
   it('should extend prettier config', () => {
     const prettierEntries = Object.entries(_prettierConfig.rules)
 

@@ -4,10 +4,6 @@ import { defineConfig } from '../utils/define-config.js'
 import _prettierConfig from 'eslint-config-prettier'
 
 export const nodeConfig = defineConfig({
-  env: {
-    es2022: true,
-    node: true,
-  },
   plugins: [...sharedPlugins, securityPlugin],
   extendPlugins: 'rules',
   rules: _prettierConfig.rules,

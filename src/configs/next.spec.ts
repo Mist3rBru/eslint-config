@@ -36,10 +36,10 @@ describe('next', () => {
   })
 
   it('should config next environment', () => {
-    expect(sut.parserOptions.ecmaFeatures?.jsx).toBe(true)
-    expect(sut.settings?.react?.version).toBe('detect')
-    expect(sut.globals?.React).toBe(true)
-    expect(sut.globals?.JSX).toBe(true)
+    expect(sut.languageOptions.parserOptions.ecmaFeatures?.jsx).toBe(true)
+    expect(sut.settings.react?.version).toBe('detect')
+    expect(sut.languageOptions.globals.React).toBe(true)
+    expect(sut.languageOptions.globals.JSX).toBe(true)
   })
 
   it('should disable react conflicted rules', () => {
@@ -50,12 +50,11 @@ describe('next', () => {
       '@typescript-eslint/no-floating-promises',
       '@typescript-eslint/no-empty-function',
     ]
-    expect.assertions(expectedDisabledRules.length + 1)
+    expect.assertions(expectedDisabledRules.length)
 
     for (const rule of expectedDisabledRules) {
       expect(sut.rules).toHaveProperty(rule, 'off')
     }
-    expect(sut.overrides?.[0].rules).toHaveProperty('no-undef', 'off')
   })
 
   it('should extend prettier config', () => {
