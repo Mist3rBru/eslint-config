@@ -12,8 +12,8 @@ export const reactConfig = defineConfig({
     },
   },
   globals: {
-    React: true,
-    JSX: true,
+    JSX: 'readonly',
+    React: 'readonly',
   },
   plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin, jsxA11yPlugin],
   extendPlugins: 'rules',

@@ -11,7 +11,7 @@ describe('react', () => {
     expect.assertions(sharedPluginNames.length)
 
     for (const pluginName of sharedPluginNames) {
-      expect(sut.plugins).toContain(pluginName)
+      expect(sut.plugins).toHaveProperty(pluginName)
     }
   })
 
@@ -20,21 +20,21 @@ describe('react', () => {
   })
 
   it('should include react plugin', () => {
-    expect(sut.plugins).toContain('react')
+    expect(sut.plugins).toHaveProperty('react')
   })
 
   it('should include react-hooks plugin', () => {
-    expect(sut.plugins).toContain('react-hooks')
+    expect(sut.plugins).toHaveProperty('react-hooks')
   })
 
   it('should not include jsx-a11y plugin', () => {
-    expect(sut.plugins).toContain('jsx-a11y')
+    expect(sut.plugins).toHaveProperty('jsx-a11y')
   })
 
   it('should config react environment', () => {
     expect(sut.languageOptions.parserOptions.ecmaFeatures?.jsx).toBe(true)
-    expect(sut.languageOptions.globals.React).toBe(true)
-    expect(sut.languageOptions.globals.JSX).toBe(true)
+    expect(sut.languageOptions.globals.React).toBe('readonly')
+    expect(sut.languageOptions.globals.JSX).toBe('readonly')
     expect(sut.settings.react?.version).toBe('detect')
   })
 

@@ -9,4 +9,9 @@ export default [
     files: ['**/*.spec.ts'],
     ...plugin.configs.jest,
   },
+  {
+    rules: {
+      'security/detect-object-injection': 'off',
+    },
+  },
 ]

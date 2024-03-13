@@ -13,8 +13,8 @@ export const nextConfig = defineConfig({
     },
   },
   globals: {
-    JSX: true,
-    React: true,
+    JSX: 'readonly',
+    React: 'readonly',
   },
   plugins: [
     ...sharedPlugins,
