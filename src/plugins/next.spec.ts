@@ -1,4 +1,4 @@
-import { type EslintRuleMeta } from '../types.js'
+import type { EslintRuleMeta } from '../types.js'
 import { nextPlugin as sut } from './next.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

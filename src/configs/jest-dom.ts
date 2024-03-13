@@ -1,19 +1,10 @@
 import { jestDomPlugin } from '../plugins/jest-dom.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
+import { GLOB_TESTS } from '../utils/globs.js'
 
 export const jestDomConfig = defineConfig({
-  env: {
-    es2022: true,
-    node: true,
-    jest: true,
-    'jest/globals': true,
-  },
-  settings: {
-    jest: {
-      version: 29,
-    },
-  },
+  files: GLOB_TESTS,
   plugins: [...sharedPlugins, jestDomPlugin],
   extendPlugins: 'testRules',
   rules: {},

@@ -11,16 +11,12 @@ describe('node', () => {
     expect.assertions(sharedPluginNames.length)
 
     for (const pluginName of sharedPluginNames) {
-      expect(sut.plugins).toContain(pluginName)
+      expect(sut.plugins).toHaveProperty(pluginName)
     }
   })
 
   it('should include security plugin', () => {
-    expect(sut.plugins).toContain('security')
-  })
-
-  it('should config node environment', () => {
-    expect(sut.env.node).toBe(true)
+    expect(sut.plugins).toHaveProperty('security')
   })
 
   it('should extend prettier config', () => {

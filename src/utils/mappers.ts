@@ -1,4 +1,5 @@
-import { type Linter } from 'eslint'
+import type { EslintGlobals } from '../types.js'
+import type { Linter } from 'eslint'
 
 export function reduceByKey<T, TKey extends keyof T>(
   data: T[],
@@ -9,6 +10,20 @@ export function reduceByKey<T, TKey extends keyof T>(
     // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter, @typescript-eslint/consistent-type-assertions
     {} as T[TKey]
   )
+}
+
+export function updateGlobalValues(
+  globals: unknown,
+  overwrite?: EslintGlobals[keyof EslintGlobals]
+): EslintGlobals {
+  return globals
+    ? Object.fromEntries(
+        Object.entries(globals).map(([key, value]) => [
+          key,
+          overwrite ?? value ? 'readonly' : 'off',
+        ])
+      )
+    : {}
 }
 
 export function extendPluginRules<TPluginName extends string>(

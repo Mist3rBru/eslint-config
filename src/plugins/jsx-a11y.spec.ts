@@ -1,4 +1,4 @@
-import { type EslintRuleMeta } from '../types.js'
+import type { EslintRuleMeta } from '../types.js'
 import { jsxA11yPlugin as sut } from './jsx-a11y.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

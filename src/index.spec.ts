@@ -1,6 +1,6 @@
 import packageJson from '../package.json'
 import plugin from './index.js'
-import { type EslintConfig } from './types.js'
+import type { EslintConfig } from './types.js'
 import { toCamelCase } from './utils/mappers.js'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -37,9 +37,9 @@ describe('exports', () => {
     for (const key of configKeys) {
       // eslint-disable-next-line @typescript-eslint/prefer-destructuring
       const config = plugin.configs[key]
-      expect(config.parser).toBeDefined()
-      expect(config.parserOptions).toBeDefined()
-      expect(config.plugins.length).toBeGreaterThanOrEqual(1)
+      expect(config.languageOptions.parser).toBeDefined()
+      expect(config.languageOptions.parserOptions).toBeDefined()
+      expect(config.plugins).toBeDefined()
       expect(config.rules).toBeDefined()
     }
   })
@@ -53,8 +53,11 @@ describe('exports', () => {
         resolve('src/configs', `${configKey}.ts`)
       )) as Record<string, EslintConfig>
       const config = configModule[`${toCamelCase(configKey)}Config`]
+      const pluginNames = Object.keys(config.plugins).filter(
+        p => !p.startsWith('@')
+      )
 
-      for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
+      for (const pluginName of pluginNames) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)
       }
     }
