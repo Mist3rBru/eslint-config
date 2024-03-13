@@ -3,9 +3,11 @@ import { reactHooksPlugin } from '../plugins/react-hooks.js'
 import { reactPlugin } from '../plugins/react.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
+import { GLOB_TS_TSX } from '../utils/globs.js'
 import _prettierConfig from 'eslint-config-prettier'
 
 export const reactConfig = defineConfig({
+  files: [GLOB_TS_TSX],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

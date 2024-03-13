@@ -6,6 +6,7 @@ const makeConfig = (
   config?: Partial<DefinePartialEslintConfig>
 ): EslintConfig => {
   return defineConfig({
+    files: [],
     plugins: [],
     rules: {},
     extendPlugins: 'rules',

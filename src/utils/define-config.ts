@@ -1,4 +1,5 @@
 import type { EslintConfig, EslintPlugin } from '../types.js'
+import { GLOB_EXCLUDE } from './globs.js'
 import { reduceByKey } from './mappers.js'
 import type { ESLint, Linter } from 'eslint'
 import _tsEslint from 'typescript-eslint'
@@ -6,6 +7,7 @@ import _tsEslint from 'typescript-eslint'
 export interface DefinePartialEslintConfig<
   TPluginName extends string = string,
 > {
+  files: string[]
   parserOptions?: Partial<EslintConfig['languageOptions']['parserOptions']>
   settings?: EslintConfig['settings']
   globals?: EslintConfig['languageOptions']['globals']
@@ -18,6 +20,8 @@ export function defineConfig<TPluginName extends string>(
   config: DefinePartialEslintConfig<TPluginName>
 ): EslintConfig<TPluginName> {
   return {
+    files: config.files,
+    ignores: GLOB_EXCLUDE,
     languageOptions: {
       sourceType: 'module',
       ecmaVersion: 'latest',

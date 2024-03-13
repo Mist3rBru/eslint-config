@@ -1,14 +1,8 @@
 import plugin from './dist/index.js'
 
 export default [
-  {
-    ...plugin.configs.node,
-    files: ['**/*.ts'],
-  },
-  {
-    files: ['**/*.spec.ts'],
-    ...plugin.configs.jest,
-  },
+  plugin.configs.node,
+  plugin.configs.jest,
   {
     rules: {
       'security/detect-object-injection': 'off',

@@ -34,6 +34,7 @@ export interface EslintPlugin<TPluginName extends string = string> {
 
 export interface EslintConfig<TPluginName extends string = string>
   extends Linter.FlatConfig {
+  files: string[]
   languageOptions: {
     sourceType: 'module'
     ecmaVersion: 'latest'
