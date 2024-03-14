@@ -20,7 +20,7 @@ export function updateGlobalValues(
     ? Object.fromEntries(
         Object.entries(globals).map(([key, value]) => [
           key,
-          overwrite ?? value ? 'readonly' : 'off',
+          overwrite ?? (value ? 'readonly' : 'off'),
         ])
       )
     : {}
@@ -40,7 +40,8 @@ export function extendPluginRules<TPluginName extends string>(
 }
 
 export function toCamelCase(input: string): string {
-  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
-    c ? c.toUpperCase() : ''
+  return (
+    input.charAt(0).toLowerCase() +
+    input.slice(1).replaceAll(/[_-]+(.)?/g, (_, c: string) => c.toUpperCase())
   )
 }

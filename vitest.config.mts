@@ -7,6 +7,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     coverage: {
+      include: ['src/**/*'],
       exclude: ['src/@types/*', 'src/types.ts'],
     },
   },
