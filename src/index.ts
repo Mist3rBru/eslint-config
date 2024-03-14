@@ -36,21 +36,18 @@ const configs = {
 type Configs = typeof configs
 
 type LegacyConfigs = {
-  [K in keyof Configs as `${K}-legacy`]: EslintLegacyConfig<
-    // @ts-expect-error It works, but ts server can't handle how deep this goes
-    keyof Configs[K]['plugins']
+  [ConfigKey in keyof Configs as `${ConfigKey}-legacy`]: EslintLegacyConfig<
+    Exclude<keyof Configs[ConfigKey]['plugins'], number | symbol>
   >
 }
 
-function createLegacyConfigs(): LegacyConfigs {
-  return Object.fromEntries(
-    Object.entries(configs).map(([name, config]) => [
-      `${name}-legacy`,
-      // @ts-expect-error It works, but ts server can't handle how deep this goes
-      convertToLegacyConfig(config),
-    ])
-  ) as LegacyConfigs
-}
+const legacyConfigs = Object.fromEntries(
+  Object.entries(configs).map(([name, config]) => [
+    `${name}-legacy`,
+    // @ts-expect-error It works, but ts server can't handle how deep this goes
+    convertToLegacyConfig(config),
+  ])
+) as LegacyConfigs
 
 export = {
   meta: {
@@ -59,6 +56,6 @@ export = {
   },
   configs: {
     ...configs,
-    ...createLegacyConfigs(),
+    ...legacyConfigs,
   },
 }
