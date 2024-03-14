@@ -6,6 +6,15 @@ export interface EslintRuleMeta {
   }
 }
 
+export interface EslintParserOptions {
+  sourceType: 'module'
+  ecmaVersion: 'latest'
+  project: './tsconfig.json'
+  ecmaFeatures?: {
+    jsx?: boolean
+  }
+}
+
 export type EslintRules<TPluginName extends string = string> = Record<
   `${string extends TPluginName ? string : '' extends TPluginName ? string : `${TPluginName}/`}${string}`,
   Linter.RuleEntry
@@ -40,16 +49,23 @@ export interface EslintConfig<TPluginName extends string = string>
     ecmaVersion: 'latest'
     globals: EslintGlobals
     parser: Linter.FlatConfigParserModule
-    parserOptions: {
-      sourceType: 'module'
-      ecmaVersion: 'latest'
-      project: './tsconfig.json'
-      ecmaFeatures?: {
-        jsx?: boolean
-      }
-    }
+    parserOptions: EslintParserOptions
   }
   settings: EslintSettings
   plugins: Record<TPluginName, ESLint.Plugin>
+  rules: EslintRules<TPluginName>
+}
+
+export interface EslintLegacyConfig<TPluginName extends string = string>
+  extends Linter.Config {
+  files: string[]
+  parser: '@typescript-eslint/parser'
+  parserOptions: EslintParserOptions
+  settings: EslintSettings
+  env: {
+    es2022: true
+  }
+  globals: EslintGlobals
+  plugins: string[]
   rules: EslintRules<TPluginName>
 }

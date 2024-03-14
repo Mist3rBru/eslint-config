@@ -26,10 +26,10 @@ describe('exports', () => {
     }
   })
 
-  it('should export min required keys', () => {
-    const configKeys = Object.keys(
-      plugin.configs
-    ) as (keyof typeof plugin.configs)[]
+  it('should export min required keys for flat configs', () => {
+    const configKeys = Object.keys(plugin.configs).filter(
+      name => !name.endsWith('legacy')
+    ) as Exclude<keyof typeof plugin.configs, `${string}-legacy`>[]
 
     const expectedAssertions = 4
     expect.assertions(configKeys.length * expectedAssertions)
@@ -44,9 +44,32 @@ describe('exports', () => {
     }
   })
 
+  it('should export min required keys for legacy configs', () => {
+    const configKeys = Object.keys(plugin.configs).filter(name =>
+      name.endsWith('legacy')
+    ) as Exclude<
+      keyof typeof plugin.configs,
+      Exclude<keyof typeof plugin.configs, `${string}-legacy`>
+    >[]
+
+    const expectedAssertions = 4
+    expect.assertions(configKeys.length * expectedAssertions)
+
+    for (const key of configKeys) {
+      // eslint-disable-next-line @typescript-eslint/prefer-destructuring
+      const config = plugin.configs[key]
+      expect(config.parser).toBeDefined()
+      expect(config.parserOptions).toBeDefined()
+      expect(config.plugins).toBeDefined()
+      expect(config.rules).toBeDefined()
+    }
+  })
+
   it('should include dependency plugins', async () => {
     const dependencyList = Object.keys(packageJson.dependencies)
-    const configKeys = Object.keys(plugin.configs)
+    const configKeys = Object.keys(plugin.configs).filter(
+      name => !name.endsWith('legacy')
+    ) as Exclude<keyof typeof plugin.configs, `${string}-legacy`>[]
 
     for (const configKey of configKeys) {
       const configModule = (await import(
