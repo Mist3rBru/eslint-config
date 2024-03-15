@@ -1,5 +1,16 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.0
+
+### Minor Changes
+
+- fd57ed1: feat(global): add flat config support
+- 354f0cb: feat: add factory method
+
+### Patch Changes
+
+- e560b79: refactor(plugins/import): set import style as separate-type-imports
+
 ## 0.4.4
 
 ### Patch Changes
