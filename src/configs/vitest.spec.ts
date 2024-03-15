@@ -1,5 +1,7 @@
 import { sharedPlugins } from '../utils/constants.js'
-import { vitestConfig as sut } from './vitest.js'
+import { vitestConfig } from './vitest.js'
+
+const sut = await vitestConfig()
 
 describe('vitest', () => {
   it('should include shared plugins', () => {
