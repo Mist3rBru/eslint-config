@@ -12,20 +12,36 @@ pnpm add -D eslint eslint-plugin-mist3rbru
 
 ## Usage
 
-To use the plugin, create a .eslintrc.json file in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
+To use the plugin, create one of these config files in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
+
+```js
+// Recommended
+// eslint.config.mjs
+import mist3rbru from 'eslint-plugin-mist3rbru'
+
+export default [
+  mist3rbru.configs.node,
+  mist3rbru.configs.jest,
+  {
+    // Overwrite rules
+    rules: {},
+  },
+]
+```
 
 ```json
+// .eslintrc.json
 {
   "root": true,
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "extends": ["plugin:mist3rbru/node"],
+  "extends": ["plugin:mist3rbru/node-legacy"],
   "rules": {},
   "overrides": [
     {
-      "files": ["src/**/*.spec.ts"],
-      "extends": ["plugin:mist3rbru/jest"],
+      "files": ["**/*.spec.ts"],
+      "extends": ["plugin:mist3rbru/jest-legacy"],
       "rules": {}
     }
   ]

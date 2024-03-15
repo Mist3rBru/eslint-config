@@ -1,5 +1,5 @@
 import { importPlugin as sut } from '../plugins/import.js'
-import { type EslintRuleMeta } from '../types.js'
+import type { EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as _importPlugin from 'eslint-plugin-import'

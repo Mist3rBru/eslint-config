@@ -1,4 +1,4 @@
-import { type EslintConfig } from '../src/types.js'
+import type { EslintConfig } from '../src/types.js'
 import { toCamelCase } from '../src/utils/mappers.js'
 import { readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'

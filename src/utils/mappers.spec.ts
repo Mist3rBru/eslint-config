@@ -1,4 +1,9 @@
-import { extendPluginRules, reduceByKey } from './mappers.js'
+import {
+  extendPluginRules,
+  reduceByKey,
+  toCamelCase,
+  updateGlobalValues,
+} from './mappers.js'
 
 describe('mappers', () => {
   describe('reduceByKey', () => {
@@ -79,5 +84,51 @@ describe('mappers', () => {
     const result = extendPluginRules('test', data, 'off')
 
     expect(result).toStrictEqual(expected)
+  })
+
+  describe('updateGlobalValues', () => {
+    it('should update globals', () => {
+      const data = {
+        a: true,
+        b: false,
+      }
+      const expected = {
+        a: 'readonly',
+        b: 'off',
+      }
+      const result = updateGlobalValues(data)
+
+      expect(result).toStrictEqual(expected)
+    })
+
+    it('should overwrite globals', () => {
+      const data = {
+        a: true,
+        b: false,
+      }
+      const expected = {
+        a: 'writable',
+        b: 'writable',
+      }
+      const result = updateGlobalValues(data, 'writable')
+
+      expect(result).toStrictEqual(expected)
+    })
+
+    it('should return default globals', () => {
+      // eslint-disable-next-line unicorn/no-useless-undefined
+      const result = updateGlobalValues(undefined)
+
+      expect(result).toStrictEqual({})
+    })
+  })
+
+  describe('toCamelCase', () => {
+    it('should format string to camelCase', () => {
+      expect(toCamelCase('')).toBe('')
+      expect(toCamelCase('PascalCase')).toBe('pascalCase')
+      expect(toCamelCase('snake_case')).toBe('snakeCase')
+      expect(toCamelCase('kebab-case')).toBe('kebabCase')
+    })
   })
 })
