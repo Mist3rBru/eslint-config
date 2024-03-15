@@ -1,13 +1,13 @@
-# `eslint-plugin-mist3rbru`
+# `@mist3rbru/eslint-config`
 
-Is an ESLint plugin that provides comprehensive configurations for various environments, streamlining the linting process for Node.js, React, Jest, Jest-DOM, Vitest, and more. Each environment has its own preset configuration that can be easily applied in your project.
+Is an ESLint config that provides comprehensive configurations for various environments, streamlining the linting process for Node.js, React, Jest, Jest-DOM, Vitest, and more. Each environment has its own preset configuration that can be easily applied in your project.
 
 ## Installation
 
-To install `eslint-plugin-mist3rbru`, use the following command:
+To install `@mist3rbru/eslint-config`, use the following command:
 
 ```bash
-pnpm add -D eslint eslint-plugin-mist3rbru
+pnpm add -D eslint @mist3rbru/eslint-config
 ```
 
 ## Usage
@@ -17,35 +17,12 @@ To use the plugin, create one of these config files in your project and extend t
 ```js
 // Recommended
 // eslint.config.mjs
-import mist3rbru from 'eslint-plugin-mist3rbru'
+import config from '@mist3rbru/eslint-config'
 
-export default [
-  mist3rbru.configs.node,
-  mist3rbru.configs.jest,
-  {
-    // Overwrite rules
-    rules: {},
-  },
-]
-```
-
-```json
-// .eslintrc.json
-{
-  "root": true,
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "extends": ["plugin:mist3rbru/node-legacy"],
-  "rules": {},
-  "overrides": [
-    {
-      "files": ["**/*.spec.ts"],
-      "extends": ["plugin:mist3rbru/jest-legacy"],
-      "rules": {}
-    }
-  ]
-}
+export default config('node', 'jest', {
+  // Overwrite rules
+  rules: {},
+})
 ```
 
 Replace "node" and "jest" with the appropriate preset name for your project.
@@ -61,7 +38,7 @@ Replace "node" and "jest" with the appropriate preset name for your project.
 
 ## Included Configurations and Plugins
 
-`eslint-plugin-mist3rbru` includes opinionated configuration for popular ESLint plugins to enhance your linting experience. The following configurations and plugins are included:
+`@mist3rbru/eslint-config` includes opinionated configuration for popular ESLint plugins to enhance your linting experience. The following configurations and plugins are included:
 
 - [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#readme)
 - [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise?tab=readme-ov-file#readme)

@@ -1,6 +1,8 @@
 import { sharedPlugins } from '../utils/constants.js'
-import { reactConfig as sut } from './react.js'
+import { reactConfig } from './react.js'
 import _prettierConfig from 'eslint-config-prettier'
+
+const sut = await reactConfig()
 
 describe('react', () => {
   it('should include shared plugins', () => {
