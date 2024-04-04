@@ -1,5 +1,16 @@
 # eslint-plugin-mist3rbru
 
+## 0.4.0
+
+### Minor Changes
+
+- 015e9eb: refactor(global): rollback to eslint json config
+
+### Patch Changes
+
+- e560b79: refactor(plugins/import): set import style as separate-type-imports
+- 015e9eb: chore: bump plugins
+
 ## 0.3.6
 
 ### Patch Changes
