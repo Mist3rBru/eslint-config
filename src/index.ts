@@ -1,4 +1,4 @@
-import { name as packageName, version as packageVersion } from '../package.json'
+import { version as packageVersion } from '../package.json'
 import { jestDomConfig } from './configs/jest-dom.js'
 import { jestConfig } from './configs/jest.js'
 import { nextConfig } from './configs/next.js'
@@ -8,7 +8,7 @@ import { vitestConfig } from './configs/vitest.js'
 
 export = {
   meta: {
-    name: packageName,
+    name: 'eslint-plugin-mist3rbru',
     version: packageVersion,
   },
   configs: {
