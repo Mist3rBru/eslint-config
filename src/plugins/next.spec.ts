@@ -1,7 +1,7 @@
 import type { EslintRuleMeta } from '../types.js'
 import { nextPlugin as sut } from './next.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _nextPlugin from '@next/eslint-plugin-next'
 
 describe('next', () => {
@@ -18,7 +18,7 @@ describe('next', () => {
   })
 
   it("should include next rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/next.ts'))
+    const file = await readFile(path.resolve('src/plugins/next.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent

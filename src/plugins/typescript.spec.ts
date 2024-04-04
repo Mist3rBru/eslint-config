@@ -1,7 +1,7 @@
 import { typescriptPlugin as sut } from '../plugins/typescript.js'
 import type { EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
 describe('typescript', () => {
@@ -16,7 +16,7 @@ describe('typescript', () => {
   })
 
   it("should include rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/typescript.ts'))
+    const file = await readFile(path.resolve('src/plugins/typescript.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent
