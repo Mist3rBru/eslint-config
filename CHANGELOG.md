@@ -1,4 +1,4 @@
-# eslint-plugin-mist3rbru
+# @mist3rbru/eslint-config
 
 ## 0.3.6
 

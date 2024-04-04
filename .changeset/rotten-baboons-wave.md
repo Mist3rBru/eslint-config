@@ -1,5 +1,5 @@
 ---
-'eslint-plugin-mist3rbru': patch
+'@mist3rbru/eslint-config': patch
 ---
 
 chore: bump plugins

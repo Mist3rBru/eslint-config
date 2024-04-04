@@ -93,7 +93,7 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      eslint-plugin-mist3rbru:
+      @mist3rbru/eslint-config:
         specifier: workspace:*
         version: 'link:'
       npm-run-all2:
