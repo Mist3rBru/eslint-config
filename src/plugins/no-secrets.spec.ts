@@ -1,6 +1,6 @@
 import { noSecretsPlugin as sut } from '../plugins/no-secrets.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _noSecretsPlugin from 'eslint-plugin-no-secrets'
 
 describe('no-secrets', () => {
@@ -28,7 +28,7 @@ describe('no-secrets', () => {
       ...Object.keys(sut.rules),
       ...Object.keys(sut.testRules),
     ].map(rule => rule.replace('no-secrets/', ''))
-    const file = await readFile(resolve('src/plugins/no-secrets.ts'))
+    const file = await readFile(path.resolve('src/plugins/no-secrets.ts'))
     const fileContent = file.toString()
 
     expect.assertions(expectedReferencedRules.length)

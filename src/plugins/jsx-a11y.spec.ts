@@ -1,7 +1,7 @@
 import type { EslintRuleMeta } from '../types.js'
 import { jsxA11yPlugin as sut } from './jsx-a11y.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 
 describe('jsx-a11y', () => {
@@ -18,7 +18,7 @@ describe('jsx-a11y', () => {
   })
 
   it("should include jsx-a11y rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/jsx-a11y.ts'))
+    const file = await readFile(path.resolve('src/plugins/jsx-a11y.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent

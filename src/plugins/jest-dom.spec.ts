@@ -1,7 +1,7 @@
 import type { EslintRuleMeta } from '../types.js'
 import { jestDomPlugin as sut } from './jest-dom.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _reactPlugin from 'eslint-plugin-jest-dom'
 
 describe('jest-dom', () => {
@@ -18,7 +18,7 @@ describe('jest-dom', () => {
   })
 
   it("should include jest-dom rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/jest-dom.ts'))
+    const file = await readFile(path.resolve('src/plugins/jest-dom.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent

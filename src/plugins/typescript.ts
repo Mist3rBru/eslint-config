@@ -461,5 +461,8 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/no-unused-expressions
     '@typescript-eslint/no-unused-expressions': 'off',
+
+    // https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable
+    '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
   },
 })
