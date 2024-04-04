@@ -8,12 +8,12 @@
     "url": "https://github.com/Mist3rBru"
   },
   "license": "MIT",
-  "homepage": "https://github.com/Mist3rBru/eslint-plugin-mist3rbru#readme",
+  "homepage": "https://github.com/Mist3rBru/eslint-config#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mist3rBru/eslint-plugin-mist3rbru.git"
+    "url": "git+https://github.com/Mist3rBru/eslint-config.git"
   },
-  "bugs": "https://github.com/Mist3rBru/eslint-plugin-mist3rbru/issues",
+  "bugs": "https://github.com/Mist3rBru/eslint-config/issues",
   "sideEffects": false,
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -65,7 +65,7 @@
     "@types/node": "^20.12.4",
     "@vitest/coverage-v8": "^1.4.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-mist3rbru": "workspace:*",
+    "@mist3rbru/eslint-config": "workspace:*",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.3",
