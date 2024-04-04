@@ -11,6 +11,17 @@
 - e560b79: refactor(plugins/import): set import style as separate-type-imports
 - 4019c69: chore: bump plugins
 
+## 0.5.0
+
+### Minor Changes
+
+- 4019c69: refactor(global): rollback to eslint json config
+
+### Patch Changes
+
+- e560b79: refactor(plugins/import): set import style as separate-type-imports
+- 4019c69: chore: bump plugins
+
 ## 0.3.6
 
 ### Patch Changes
