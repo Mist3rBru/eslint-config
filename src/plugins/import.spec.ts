@@ -1,7 +1,7 @@
 import { importPlugin as sut } from '../plugins/import.js'
 import type { EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import * as _importPlugin from 'eslint-plugin-import'
 
 describe('import', () => {
@@ -37,7 +37,7 @@ describe('import', () => {
       ...Object.keys(sut.rules),
       ...Object.keys(sut.testRules),
     ].map(rule => rule.replace('import/', ''))
-    const file = await readFile(resolve('src/plugins/import.ts'))
+    const file = await readFile(path.resolve('src/plugins/import.ts'))
     const fileContent = file.toString()
 
     expect.assertions(expectedReferencedRules.length)

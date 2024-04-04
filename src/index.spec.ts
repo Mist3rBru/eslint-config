@@ -3,7 +3,7 @@ import plugin from './index.js'
 import type { EslintConfig } from './types.js'
 import { toCamelCase } from './utils/mappers.js'
 import { readdir } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 
 describe('exports', () => {
   it('should export plugin meta data', () => {
@@ -14,7 +14,7 @@ describe('exports', () => {
   it('should export plugin configs', async () => {
     const configKeys = Object.keys(plugin.configs)
 
-    const configFiles = await readdir(resolve('src/configs'))
+    const configFiles = await readdir(path.resolve('src/configs'))
     const expectedKeys = configFiles
       .filter(file => !file.endsWith('.spec.ts'))
       .map(file => file.replace(/\.ts/, ''))
@@ -50,7 +50,7 @@ describe('exports', () => {
 
     for (const configKey of configKeys) {
       const configModule = (await import(
-        resolve('src/configs', `${configKey}.ts`)
+        path.resolve('src/configs', `${configKey}.ts`)
       )) as Record<string, EslintConfig>
       const config = configModule[`${toCamelCase(configKey)}Config`]
 

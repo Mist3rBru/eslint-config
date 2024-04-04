@@ -32,9 +32,6 @@ export const vitestPlugin = definePlugin({
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
     'vitest/expect-expect': 'error',
 
-    // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expect.md
-    'vitest/max-expect': 'off',
-
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md
     'vitest/max-expects': ['error', { max: 10 }],
 

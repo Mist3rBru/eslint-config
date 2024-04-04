@@ -1,6 +1,6 @@
 import { promisePlugin as sut } from '../plugins/promise.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _promisePlugin from 'eslint-plugin-promise'
 
 describe('promise', () => {
@@ -17,7 +17,7 @@ describe('promise', () => {
       ...Object.keys(sut.rules),
       ...Object.keys(sut.testRules),
     ].map(rule => rule.replace('promise/', ''))
-    const file = await readFile(resolve('src/plugins/promise.ts'))
+    const file = await readFile(path.resolve('src/plugins/promise.ts'))
     const fileContent = file.toString()
 
     expect.assertions(expectedReferencedRules.length)

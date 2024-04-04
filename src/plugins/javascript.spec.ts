@@ -4,7 +4,7 @@ import {
   tsEquivalentRules,
 } from '../plugins/javascript.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _javascriptPlugin from '@eslint/js'
 
 describe('javascript', () => {
@@ -30,7 +30,7 @@ describe('javascript', () => {
   })
 
   it("should include rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/javascript.ts'))
+    const file = await readFile(path.resolve('src/plugins/javascript.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent
@@ -48,7 +48,7 @@ describe('javascript', () => {
   })
 
   it("should include ignored rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/javascript.ts'))
+    const file = await readFile(path.resolve('src/plugins/javascript.ts'))
     const fileContent = file.toString()
 
     expect.assertions(jsIgnoredRules.length)
@@ -61,7 +61,7 @@ describe('javascript', () => {
   })
 
   it("should include typescript equivalent rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/javascript.ts'))
+    const file = await readFile(path.resolve('src/plugins/javascript.ts'))
     const fileContent = file.toString()
 
     expect.assertions(tsEquivalentRules.length)
