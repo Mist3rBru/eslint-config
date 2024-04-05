@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.1
+
+### Patch Changes
+
+- 17f4fd6: fix(plugins/typescript): move @typescript-eslint/use-unknown-in-catch-callback-variable to base rules setup
+
 ## 0.5.0
 
 ### Minor Changes
