@@ -1,8 +1,6 @@
 import { sharedPlugins } from '../utils/constants.js'
-import { nextConfig } from './next.js'
+import { nextConfig as sut } from './next.js'
 import _prettierConfig from 'eslint-config-prettier'
-
-const sut = await nextConfig()
 
 describe('next', () => {
   it('should include shared plugins', () => {

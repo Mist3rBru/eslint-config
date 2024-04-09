@@ -1,6 +1,6 @@
 import { deprecationPlugin as sut } from '../plugins/deprecation.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _deprecationPlugin from 'eslint-plugin-deprecation'
 
 describe('deprecation', () => {
@@ -17,7 +17,7 @@ describe('deprecation', () => {
       ...Object.keys(sut.rules),
       ...Object.keys(sut.testRules),
     ].map(rule => rule.replace('deprecation/', ''))
-    const file = await readFile(resolve('src/plugins/deprecation.ts'))
+    const file = await readFile(path.resolve('src/plugins/deprecation.ts'))
     const fileContent = file.toString()
 
     expect.assertions(expectedReferencedRules.length)

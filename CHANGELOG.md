@@ -4,8 +4,7 @@
 
 ### Minor Changes
 
-- fd57ed1: feat(global): add flat config support
-- 354f0cb: feat: add factory method
+- 4019c69: refactor(global): rollback to eslint json config
 
 ### Patch Changes
 
@@ -49,6 +48,7 @@
 - b142038: feat(next): add next config
 - 94c570c: feat(react): add jsx-a11y plugin
 - 8ee4afc: feat(react): add all react plugin rules
+- 4019c69: chore: bump plugins
 
 ## 0.3.6
 

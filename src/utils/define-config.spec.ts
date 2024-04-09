@@ -2,16 +2,16 @@ import type { EslintConfig, EslintPlugin } from '../types.js'
 import { defineConfig } from './define-config.js'
 import type { DefinePartialEslintConfig } from './define-config.js'
 
-const makeConfig = async (
+const makeConfig = (
   config?: Partial<DefinePartialEslintConfig>
-): Promise<EslintConfig> => {
+): EslintConfig => {
   return defineConfig({
     files: [],
     plugins: [],
     rules: {},
     extendPlugins: 'rules',
     ...config,
-  })()
+  })
 }
 
 const makePlugin = (plugin?: Partial<EslintPlugin>): EslintPlugin => {
@@ -25,8 +25,8 @@ const makePlugin = (plugin?: Partial<EslintPlugin>): EslintPlugin => {
 }
 
 describe('defineConfig()', () => {
-  it('should include parserOptions', async () => {
-    const config = await makeConfig({
+  it('should include parserOptions', () => {
+    const config = makeConfig({
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -44,8 +44,8 @@ describe('defineConfig()', () => {
     })
   })
 
-  it('should include plugin settings', async () => {
-    const config = await makeConfig({
+  it('should include plugin settings', () => {
+    const config = makeConfig({
       plugins: [
         makePlugin({
           name: 'foo',
@@ -66,8 +66,8 @@ describe('defineConfig()', () => {
     })
   })
 
-  it('should map plugin names', async () => {
-    const config = await makeConfig({
+  it('should map plugin names', () => {
+    const config = makeConfig({
       plugins: [makePlugin({ name: 'foo' }), makePlugin({ name: 'bar' })],
     })
 
@@ -75,16 +75,16 @@ describe('defineConfig()', () => {
     expect(config.plugins).toHaveProperty('bar')
   })
 
-  it('should not include empty plugin name', async () => {
-    const config = await makeConfig({
+  it('should not include empty plugin name', () => {
+    const config = makeConfig({
       plugins: [makePlugin({ name: '' })],
     })
 
     expect(config.plugins).not.toContain('')
   })
 
-  it('should include plugin rules', async () => {
-    const config = await makeConfig({
+  it('should include plugin rules', () => {
+    const config = makeConfig({
       plugins: [
         makePlugin({ name: 'foo', rules: { 'foo/a': 'off', 'foo/b': 'warn' } }),
         makePlugin({ name: 'bar', rules: { 'bar/c': 'error' } }),
@@ -102,8 +102,8 @@ describe('defineConfig()', () => {
     })
   })
 
-  it('should include plugin test rules', async () => {
-    const config = await makeConfig({
+  it('should include plugin test rules', () => {
+    const config = makeConfig({
       plugins: [
         makePlugin({
           name: 'foo',

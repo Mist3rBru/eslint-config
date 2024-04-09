@@ -1,8 +1,6 @@
 import { sharedPlugins } from '../utils/constants.js'
-import { nodeConfig } from './node.js'
+import { nodeConfig as sut } from './node.js'
 import _prettierConfig from 'eslint-config-prettier'
-
-const sut = await nodeConfig()
 
 describe('node', () => {
   it('should include shared plugins', () => {

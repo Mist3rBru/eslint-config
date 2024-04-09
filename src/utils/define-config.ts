@@ -18,9 +18,8 @@ export interface DefinePartialEslintConfig<
 
 export function defineConfig<TPluginName extends string>(
   config: DefinePartialEslintConfig<TPluginName>
-): () => Promise<EslintConfig<TPluginName>> {
-  // eslint-disable-next-line @typescript-eslint/require-await
-  return async () => ({
+): EslintConfig<TPluginName> {
+  return {
     files: config.files,
     ignores: GLOB_EXCLUDE,
     languageOptions: {
@@ -51,5 +50,5 @@ export function defineConfig<TPluginName extends string>(
       ...reduceByKey(config.plugins, config.extendPlugins),
       ...config.rules,
     },
-  })
+  }
 }

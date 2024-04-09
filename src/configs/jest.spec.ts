@@ -1,7 +1,5 @@
 import { sharedPlugins } from '../utils/constants.js'
-import { jestConfig } from './jest.js'
-
-const sut = await jestConfig()
+import { jestConfig as sut } from './jest.js'
 
 describe('jest', () => {
   it('should include shared plugins', () => {

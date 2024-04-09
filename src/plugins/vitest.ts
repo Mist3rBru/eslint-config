@@ -1,11 +1,12 @@
 import { definePlugin } from '../utils/define-plugin.js'
 import { updateGlobalValues } from '../utils/mappers.js'
+import type { ESLint } from 'eslint'
 import _vitestPlugin from 'eslint-plugin-vitest'
 
 // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
 export const vitestPlugin = definePlugin({
   name: 'vitest',
-  source: _vitestPlugin,
+  source: _vitestPlugin as unknown as ESLint.Plugin,
   settings: {
     vitest: {
       typecheck: true,
@@ -38,9 +39,6 @@ export const vitestPlugin = definePlugin({
 
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
     'vitest/expect-expect': 'error',
-
-    // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expect.md
-    'vitest/max-expect': 'off',
 
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md
     'vitest/max-expects': ['error', { max: 10 }],

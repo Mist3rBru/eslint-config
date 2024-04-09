@@ -1,7 +1,7 @@
 import { unicornPlugin as sut } from '../plugins/unicorn.js'
 import type { EslintRuleMeta } from '../types.js'
 import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import path from 'node:path'
 import _unicornPlugin from 'eslint-plugin-unicorn'
 
 describe('unicorn', () => {
@@ -27,7 +27,7 @@ describe('unicorn', () => {
   })
 
   it("should include rule's reference link", async () => {
-    const file = await readFile(resolve('src/plugins/unicorn.ts'))
+    const file = await readFile(path.resolve('src/plugins/unicorn.ts'))
     const fileContent = file.toString()
 
     const expectedReferencedRules = fileContent
