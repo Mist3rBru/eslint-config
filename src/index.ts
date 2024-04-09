@@ -8,7 +8,7 @@ import { vitestConfig } from './configs/vitest.js'
 
 export = {
   meta: {
-    name: 'mist3rbru',
+    name: 'eslint-plugin-mist3rbru',
     version: packageVersion,
   },
   configs: {

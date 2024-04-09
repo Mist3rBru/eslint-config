@@ -1,12 +1,11 @@
 import { definePlugin } from '../utils/define-plugin.js'
 import { updateGlobalValues } from '../utils/mappers.js'
-import type { ESLint } from 'eslint'
 import _vitestPlugin from 'eslint-plugin-vitest'
 
 // https://github.com/veritem/eslint-plugin-vitest?tab=readme-ov-file#readme
 export const vitestPlugin = definePlugin({
   name: 'vitest',
-  source: _vitestPlugin as unknown as ESLint.Plugin,
+  source: _vitestPlugin,
   settings: {
     vitest: {
       typecheck: true,
