@@ -5,7 +5,7 @@ import _jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y?tab=readme-ov-file#readme
 export const jsxA11yPlugin = definePlugin({
   name: 'jsx-a11y',
-  settings: {},
+  source: _jsxA11yPlugin,
   // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/main/docs/rules
   rules: {
     ...extendPluginRules('jsx-a11y', _jsxA11yPlugin.configs.strict),

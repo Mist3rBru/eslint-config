@@ -5,6 +5,7 @@ import _reactPlugin from 'eslint-plugin-react'
 // https://github.com/jsx-eslint/eslint-plugin-react#readme
 export const reactPlugin = definePlugin({
   name: 'react',
+  source: _reactPlugin,
   settings: {
     react: {
       version: 'detect',

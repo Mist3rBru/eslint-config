@@ -5,7 +5,7 @@ import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 // https://typescript-eslint.io/getting-started
 export const typescriptPlugin = definePlugin({
   name: '@typescript-eslint',
-  settings: {},
+  source: _typescriptPlugin,
   // https://typescript-eslint.io/rules
   rules: {
     ...extendPluginRules(
@@ -409,6 +409,12 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable
     '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
+
+    // https://typescript-eslint.io/rules/restrict-plus-operands
+    '@typescript-eslint/restrict-plus-operands': [
+      'error',
+      { allowNumberAndString: true },
+    ],
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any
@@ -464,5 +470,8 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/no-unused-expressions
     '@typescript-eslint/no-unused-expressions': 'off',
+
+    // https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable
+    '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
   },
 })

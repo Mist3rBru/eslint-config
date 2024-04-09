@@ -1,15 +1,20 @@
 import { definePlugin } from '../utils/define-plugin.js'
-import { extendPluginRules } from '../utils/mappers.js'
+import { extendPluginRules, updateGlobalValues } from '../utils/mappers.js'
 import _jestPlugin from 'eslint-plugin-jest'
 
 // https://github.com/jest-community/eslint-plugin-jest?tab=readme-ov-file#readme
 export const jestPlugin = definePlugin({
   name: 'jest',
+  source: _jestPlugin,
   settings: {
     jest: {
       version: 29,
     },
   },
+  globals: updateGlobalValues(
+    _jestPlugin.environments.globals.globals,
+    'readonly'
+  ),
   rules: {},
   // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules
   testRules: {

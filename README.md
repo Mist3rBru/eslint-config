@@ -1,6 +1,6 @@
 # `eslint-plugin-mist3rbru`
 
-Is an ESLint plugin that provides comprehensive configurations for various environments, streamlining the linting process for Node.js, React, Jest, Jest-DOM, Vitest, and more. Each environment has its own preset configuration that can be easily applied in your project.
+Is an ESLint config that provides comprehensive configurations for various environments, streamlining the linting process for Node.js, React, Jest, Jest-DOM, Vitest, and more. Each environment has its own preset configuration that can be easily applied in your project.
 
 ## Installation
 
@@ -12,24 +12,17 @@ pnpm add -D eslint eslint-plugin-mist3rbru
 
 ## Usage
 
-To use the plugin, create a .eslintrc.json file in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
+To use the plugin, create one of these config files in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
 
-```json
-{
-  "root": true,
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "extends": ["plugin:mist3rbru/node"],
-  "rules": {},
-  "overrides": [
-    {
-      "files": ["src/**/*.spec.ts"],
-      "extends": ["plugin:mist3rbru/jest"],
-      "rules": {}
-    }
-  ]
-}
+```js
+// Recommended
+// eslint.config.mjs
+import config from 'eslint-plugin-mist3rbru'
+
+export default config('node', 'jest', {
+  // Overwrite rules
+  rules: {},
+})
 ```
 
 Replace "node" and "jest" with the appropriate preset name for your project.

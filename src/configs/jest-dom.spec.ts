@@ -10,17 +10,11 @@ describe('jest-dom', () => {
     expect.assertions(sharedPluginNames.length)
 
     for (const pluginName of sharedPluginNames) {
-      expect(sut.plugins).toContain(pluginName)
+      expect(sut.plugins).toHaveProperty(pluginName)
     }
   })
 
   it('should include jest-dom plugin', () => {
-    expect(sut.plugins).toContain('jest-dom')
-  })
-
-  it('should config jest-dom environment', () => {
-    expect(sut.env.node).toBe(true)
-    expect(sut.env.jest).toBe(true)
-    expect(sut.env['jest/globals']).toBe(true)
+    expect(sut.plugins).toHaveProperty('jest-dom')
   })
 })

@@ -26,6 +26,45 @@
 ### Patch Changes
 
 - e560b79: refactor(plugins/import): set import style as separate-type-imports
+
+## 0.4.4
+
+### Patch Changes
+
+- a91da87: feat(typescript): add @typescript-eslint/consistent-return rule
+- 9ca22eb: refactor(react): add warn to react/jsx-no-bind rule
+- 7b2c13e: feat(vitest): enable typescheck
+
+## 0.4.3
+
+### Patch Changes
+
+- b94c27b: refactor(plugins): disable no-unsafe-\* typescript rules for test environments
+
+## 0.4.2
+
+### Patch Changes
+
+- f0a0bdd: fix(jest): disable security plugin rules
+- 0ed751b: refactor(plugins): ignore some typescript error cases
+- 35dca91: fix(vitest): disable security plugin rules
+
+## 0.4.1
+
+### Patch Changes
+
+- 2e839bf: fix(react): disable @typescript-eslint/no-empty-function rule
+- 3f34b77: fix(next): disable @typescript-eslint/no-empty-function rule
+- 4c3c3be: fix(plugins): disable @typescript-eslint/no-namespace rule
+
+## 0.4.0
+
+### Minor Changes
+
+- 4ab5a82: feat: manually config all rules
+- b142038: feat(next): add next config
+- 94c570c: feat(react): add jsx-a11y plugin
+- 8ee4afc: feat(react): add all react plugin rules
 - 4019c69: chore: bump plugins
 
 ## 0.3.6

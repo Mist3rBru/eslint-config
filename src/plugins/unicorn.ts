@@ -5,7 +5,7 @@ import _unicornPlugin from 'eslint-plugin-unicorn'
 // https://github.com/sindresorhus/eslint-plugin-unicorn#readme
 export const unicornPlugin = definePlugin({
   name: 'unicorn',
-  settings: {},
+  source: _unicornPlugin,
   // https://github.com/sindresorhus/eslint-plugin-unicorn/tree/main/docs/rules
   rules: {
     ...extendPluginRules('unicorn', _unicornPlugin.configs.all),

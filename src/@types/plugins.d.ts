@@ -73,7 +73,7 @@ declare module 'eslint-plugin-deprecation' {
     }
   }
 
-  export default plugin
+  export = plugin
 }
 
 declare module 'eslint-plugin-jest-dom' {
@@ -106,6 +106,11 @@ declare module 'eslint-plugin-jest' {
       }
       style: {
         rules: Linter.RulesRecord
+      }
+    }
+    environments: {
+      globals: {
+        globals: Record<string, boolean>
       }
     }
   }

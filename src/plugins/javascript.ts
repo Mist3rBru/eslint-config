@@ -462,9 +462,9 @@ export const tsEquivalentRules = [
   'space-infix-ops',
 ]
 
-export const javascriptPlugin = definePlugin<string>({
+export const javascriptPlugin = definePlugin({
   name: '',
-  settings: {},
+  source: eslint,
   // https://eslint.org/docs/latest/rules/
   rules: {
     ...extendPluginRules('', eslint.configs.recommended),

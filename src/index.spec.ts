@@ -7,7 +7,7 @@ import path from 'node:path'
 
 describe('exports', () => {
   it('should export plugin meta data', () => {
-    expect(plugin.meta.name).toMatchInlineSnapshot('"eslint-plugin-mist3rbru"')
+    expect(plugin.meta.name).toMatchInlineSnapshot('"mist3rbru"')
     expect(plugin.meta.version).toMatch(/^\d+\.\d+\.\d+$/)
   })
 
@@ -37,9 +37,9 @@ describe('exports', () => {
     for (const key of configKeys) {
       // eslint-disable-next-line @typescript-eslint/prefer-destructuring
       const config = plugin.configs[key]
-      expect(config.parser).toBeDefined()
-      expect(config.parserOptions).toBeDefined()
-      expect(config.plugins.length).toBeGreaterThanOrEqual(1)
+      expect(config.languageOptions.parser).toBeDefined()
+      expect(config.languageOptions.parserOptions).toBeDefined()
+      expect(Object.keys(config.plugins).length).toBeGreaterThanOrEqual(1)
       expect(config.rules).toBeDefined()
     }
   })
@@ -54,7 +54,9 @@ describe('exports', () => {
       )) as Record<string, EslintConfig>
       const config = configModule[`${toCamelCase(configKey)}Config`]
 
-      for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
+      for (const pluginName of Object.keys(config.plugins).filter(
+        p => !p.startsWith('@')
+      )) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)
       }
     }

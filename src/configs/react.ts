@@ -3,21 +3,19 @@ import { reactHooksPlugin } from '../plugins/react-hooks.js'
 import { reactPlugin } from '../plugins/react.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
+import { GLOB_TS_TSX } from '../utils/globs.js'
 import _prettierConfig from 'eslint-config-prettier'
 
 export const reactConfig = defineConfig({
+  files: [GLOB_TS_TSX],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
   },
-  env: {
-    es2022: true,
-    browser: true,
-  },
   globals: {
-    React: true,
-    JSX: true,
+    JSX: 'readonly',
+    React: 'readonly',
   },
   plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin, jsxA11yPlugin],
   extendPlugins: 'rules',
@@ -51,13 +49,4 @@ export const reactConfig = defineConfig({
     // https://typescript-eslint.io/rules/method-signature-style
     '@typescript-eslint/method-signature-style': ['error', 'property'],
   },
-  overrides: [
-    {
-      files: ['*.tsx'],
-      rules: {
-        // https://eslint.org/docs/latest/rules/no-undef
-        'no-undef': 'off',
-      },
-    },
-  ],
 })
