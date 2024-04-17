@@ -25,6 +25,9 @@
       "default": "./dist/index.js"
     }
   },
+  "bin": {
+    "eslint-plugin-mist3rbru": "./dist/cli.js"
+  },
   "files": [
     "dist"
   ],
