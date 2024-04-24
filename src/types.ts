@@ -43,7 +43,6 @@ export interface EslintConfig {
     es2022: true
     browser?: true
     node?: true
-    vitest?: true
     jest?: true
     'jest/globals'?: true
   }

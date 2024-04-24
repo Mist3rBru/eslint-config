@@ -5,8 +5,10 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     globals: true,
+    bail: 1,
     environment: 'node',
     coverage: {
+      include: ['src/**/*.ts'],
       exclude: ['src/@types/*', 'src/types.ts'],
     },
   },

@@ -7,7 +7,11 @@ export const securityPlugin = definePlugin({
   name: 'security',
   settings: {},
   // https://github.com/eslint-community/eslint-plugin-security/tree/main/rules
-  rules: extendPluginRules('security', _securityPlugin.configs.recommended),
+  rules: extendPluginRules(
+    'security',
+    _securityPlugin.configs.recommended,
+    'warn'
+  ),
   testRules: extendPluginRules(
     'security',
     _securityPlugin.configs.recommended,
