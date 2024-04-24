@@ -86,5 +86,8 @@ export const jestPlugin = definePlugin({
         },
       },
     ],
+
+    // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/prefer-importing-jest-globals.md
+    'jest/prefer-importing-jest-globals': 'off',
   },
 })

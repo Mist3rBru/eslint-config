@@ -24,7 +24,7 @@ export const vitestPlugin = definePlugin({
     'vitest/consistent-test-it': [
       'error',
       {
-        fs: 'it',
+        fn: 'it',
         withinDescribe: 'it',
       },
     ],

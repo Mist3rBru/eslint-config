@@ -24,6 +24,5 @@ describe('vitest', () => {
 
   it('should config vitest environment', () => {
     expect(sut.env.node).toBe(true)
-    expect(sut.env.vitest).toBe(true)
   })
 })

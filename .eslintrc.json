@@ -6,7 +6,7 @@
   "extends": ["plugin:mist3rbru/node"],
   "rules": {
     "no-console": "off",
-    "security/detect-object-injection":"off"
+    "security/detect-object-injection": "off"
   },
   "overrides": [
     {
