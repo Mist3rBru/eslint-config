@@ -1,5 +1,12 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.3
+
+### Patch Changes
+
+- d4a7e3c: feat(plugins/js): enable curly rule
+- eb4d56e: refactor: replace prettier config by unit tests
+
 ## 0.5.2
 
 ### Patch Changes
