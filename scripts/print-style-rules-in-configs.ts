@@ -2,6 +2,7 @@ import type { EslintConfig } from '../src/types.js'
 import { toCamelCase } from '../src/utils/mappers.js'
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
+import _prettierConfig from 'eslint-config-prettier'
 
 void (async (): Promise<void> => {
   const configsPath = path.resolve('src/configs')
@@ -14,8 +15,15 @@ void (async (): Promise<void> => {
     )) as Record<string, EslintConfig>
     const configName = toCamelCase(configFile.replace('.ts', ''))
     const config = configModule[`${configName}Config`]
-    const configRules = Object.keys(config.rules)
 
-    process.stdout.write(`${configName}: ${configRules.length}\n`)
+    process.stdout.write(`${configName}:\n`)
+
+    for (const rule of Object.keys(_prettierConfig.rules)) {
+      const ruleValue = config.rules[rule]
+
+      if (ruleValue && ruleValue !== 'off') {
+        process.stdout.write(`  "${rule}": "off",\n`)
+      }
+    }
   }
 })()

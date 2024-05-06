@@ -24,9 +24,6 @@ export const jsIgnoredRules = [
   // https://eslint.org/docs/latest/rules/consistent-this
   'consistent-this',
 
-  // https://eslint.org/docs/latest/rules/curly
-  'curly',
-
   // https://eslint.org/docs/latest/rules/default-case
   'default-case',
 
@@ -335,6 +332,18 @@ export const jsIgnoredRules = [
 
   // https://eslint.org/docs/latest/rules/no-bitwise
   'no-bitwise',
+
+  // https://eslint.org/docs/latest/rules/no-unexpected-multiline
+  'no-unexpected-multiline',
+
+  // https://eslint.org/docs/latest/rules/jsx-quotes
+  'jsx-quotes',
+
+  // https://eslint.org/docs/latest/rules/no-extra-semi
+  'no-extra-semi',
+
+  // https://eslint.org/docs/latest/rules/no-mixed-spaces-and-tabs
+  'no-mixed-spaces-and-tabs',
 ]
 
 export const tsEquivalentRules = [
@@ -505,6 +514,9 @@ export const javascriptPlugin = definePlugin<string>({
 
     // https://eslint.org/docs/latest/rules/yoda
     yoda: ['error', 'never', { exceptRange: true }],
+
+    // https://eslint.org/docs/latest/rules/curly
+    curly: ['error', 'all'],
 
     ...Object.fromEntries(
       [...tsEquivalentRules, ...jsIgnoredRules].map(rule => [rule, 'off'])

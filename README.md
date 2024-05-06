@@ -47,7 +47,6 @@ Replace "node" and "jest" with the appropriate preset name for your project.
 
 `eslint-plugin-mist3rbru` includes opinionated configuration for popular ESLint plugins to enhance your linting experience. The following configurations and plugins are included:
 
-- [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#readme)
 - [`eslint-plugin-promise`](https://github.com/eslint-community/eslint-plugin-promise?tab=readme-ov-file#readme)
 - [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn?tab=readme-ov-file#readme)
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#readme)

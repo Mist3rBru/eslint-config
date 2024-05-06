@@ -1,6 +1,5 @@
 import { sharedPlugins } from '../utils/constants.js'
 import { nodeConfig as sut } from './node.js'
-import _prettierConfig from 'eslint-config-prettier'
 
 describe('node', () => {
   it('should include shared plugins', () => {
@@ -21,15 +20,5 @@ describe('node', () => {
 
   it('should config node environment', () => {
     expect(sut.env.node).toBe(true)
-  })
-
-  it('should extend prettier config', () => {
-    const prettierEntries = Object.entries(_prettierConfig.rules)
-
-    expect.assertions(prettierEntries.length)
-
-    for (const [rule, options] of prettierEntries) {
-      expect(sut.rules).toHaveProperty(rule, options)
-    }
   })
 })

@@ -1,6 +1,5 @@
 import { sharedPlugins } from '../utils/constants.js'
 import { nextConfig as sut } from './next.js'
-import _prettierConfig from 'eslint-config-prettier'
 
 describe('next', () => {
   it('should include shared plugins', () => {
@@ -56,17 +55,5 @@ describe('next', () => {
       expect(sut.rules).toHaveProperty(rule, 'off')
     }
     expect(sut.overrides?.[0].rules).toHaveProperty('no-undef', 'off')
-  })
-
-  it('should extend prettier config', () => {
-    const prettierEntries = Object.entries(_prettierConfig.rules).filter(
-      ([rule]) => rule !== 'jsx-quotes'
-    )
-
-    expect.assertions(prettierEntries.length)
-
-    for (const [rule, options] of prettierEntries) {
-      expect(sut.rules).toHaveProperty(rule, options)
-    }
   })
 })
