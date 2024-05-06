@@ -10,6 +10,6 @@ src/
 .gitattributes
 .gitignore
 .prettierignore
-.prettierrc.json
+.prettierrc
 pnpm-lock.yaml
 tsconfig.json

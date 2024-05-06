@@ -1,9 +1,8 @@
 import packageJson from '../package.json'
 import plugin from './index.js'
-import type { EslintConfig } from './types.js'
-import { toCamelCase } from './utils/mappers.js'
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
+import _prettierConfig from 'eslint-config-prettier'
 
 describe('exports', () => {
   it('should export plugin meta data', () => {
@@ -49,13 +48,29 @@ describe('exports', () => {
     const configKeys = Object.keys(plugin.configs)
 
     for (const configKey of configKeys) {
-      const configModule = (await import(
-        path.resolve('src/configs', `${configKey}.ts`)
-      )) as Record<string, EslintConfig>
-      const config = configModule[`${toCamelCase(configKey)}Config`]
+      const config = plugin.configs[configKey as keyof typeof plugin.configs]
 
       for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)
+      }
+    }
+  })
+
+  it('should not have style rules', () => {
+    const styleRules = Object.keys(_prettierConfig.rules).filter(
+      rule => !['curly', 'jsx-quotes'].includes(rule)
+    )
+    const configKeys = Object.keys(plugin.configs)
+
+    for (const styleRule of styleRules) {
+      for (const configKey of configKeys) {
+        const config = plugin.configs[configKey as keyof typeof plugin.configs]
+        const ruleValue = config.rules[styleRule]
+
+        expect(
+          !ruleValue || ruleValue === 'off',
+          `${configKey} -> ${styleRule}: ${JSON.stringify(ruleValue)}`
+        ).toBeTruthy()
       }
     }
   })

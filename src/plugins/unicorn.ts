@@ -48,6 +48,18 @@ export const unicornPlugin = definePlugin({
 
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-null.md
     'unicorn/no-null': 'off',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md
+    'unicorn/template-indent': 'off',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/empty-brace-spaces.md
+    'unicorn/empty-brace-spaces': 'off',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-nested-ternary.md
+    'unicorn/no-nested-ternary': 'off',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/number-literal-case.md
+    'unicorn/number-literal-case': 'off',
   },
   testRules: {
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/error-message.md

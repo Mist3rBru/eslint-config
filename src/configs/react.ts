@@ -3,7 +3,6 @@ import { reactHooksPlugin } from '../plugins/react-hooks.js'
 import { reactPlugin } from '../plugins/react.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
-import _prettierConfig from 'eslint-config-prettier'
 
 export const reactConfig = defineConfig({
   parserOptions: {
@@ -22,8 +21,6 @@ export const reactConfig = defineConfig({
   plugins: [...sharedPlugins, reactPlugin, reactHooksPlugin, jsxA11yPlugin],
   extendPlugins: 'rules',
   rules: {
-    ..._prettierConfig.rules,
-
     // https://eslint.org/docs/latest/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
 

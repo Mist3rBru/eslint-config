@@ -76,6 +76,54 @@ export const reactPlugin = definePlugin({
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
     'react/no-danger': 'error',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
+    'react/jsx-space-before-closing': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
+    'react/jsx-child-element-spacing': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
+    'react/jsx-closing-bracket-location': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+    'react/jsx-closing-tag-location': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+    'react/jsx-curly-newline': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
+    'react/jsx-curly-spacing': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+    'react/jsx-equals-spacing': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
+    'react/jsx-first-prop-new-line': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+    'react/jsx-indent': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
+    'react/jsx-indent-props': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
+    'react/jsx-max-props-per-line': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-newline.md
+    'react/jsx-newline': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
+    'react/jsx-one-expression-per-line': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
+    'react/jsx-props-no-multi-spaces': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
+    'react/jsx-tag-spacing': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
+    'react/jsx-wrap-multilines': 'off',
   },
   testRules: {},
 })
