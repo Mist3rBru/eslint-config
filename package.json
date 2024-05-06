@@ -48,7 +48,7 @@
     "@next/eslint-plugin-next": "^14.2.3",
     "eslint-plugin-deprecation": "^2.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^28.3.0",
+    "eslint-plugin-jest": "^28.5.0",
     "eslint-plugin-jest-dom": "^5.4.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-no-secrets": "^0.9.1",
@@ -64,15 +64,15 @@
     "@changesets/cli": "^2.27.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^8.56.10",
-    "@types/node": "^20.12.7",
-    "@vitest/coverage-v8": "^1.5.3",
+    "@types/node": "^20.12.10",
+    "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-mist3rbru": "workspace:*",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.3"
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "eslint": "^8.0.0",
