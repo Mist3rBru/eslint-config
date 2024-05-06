@@ -1,5 +1,12 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.2
+
+### Patch Changes
+
+- 80d2202: feat: add cli
+- c68afdd: chore: bump plugins
+
 ## 0.5.1
 
 ### Patch Changes
