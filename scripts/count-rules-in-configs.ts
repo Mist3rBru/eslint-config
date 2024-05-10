@@ -14,8 +14,20 @@ void (async (): Promise<void> => {
     )) as Record<string, EslintConfig>
     const configName = toCamelCase(configFile.replace('.ts', ''))
     const config = configModule[`${configName}Config`]
-    const configRules = Object.keys(config.rules)
+    const configRules = Object.values(config.rules)
+    let activeCounter = 0
+    let inactiveCounter = 0
 
-    process.stdout.write(`${configName}: ${configRules.length}\n`)
+    for (const value of configRules) {
+      if (value === 'off') {
+        inactiveCounter++
+      } else {
+        activeCounter++
+      }
+    }
+
+    process.stdout.write(
+      `${configName}: ${configRules.length} | +${activeCounter} | -${inactiveCounter}\n`
+    )
   }
 })()
