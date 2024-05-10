@@ -17,7 +17,7 @@ export const vitestPlugin = definePlugin({
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-filename.md
     'vitest/consistent-test-filename': [
       'error',
-      { pattern: '.*\\.spec\\.[tj]sx?$' },
+      { pattern: String.raw`.*\.spec\.[tj]sx?$` },
     ],
 
     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/consistent-test-it.md
