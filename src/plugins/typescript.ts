@@ -194,7 +194,6 @@ export const typescriptPlugin = definePlugin({
           'export',
           'for',
           'function',
-          'if',
           'do',
           'iife',
           'continue',
