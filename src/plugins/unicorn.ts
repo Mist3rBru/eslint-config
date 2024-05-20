@@ -60,6 +60,21 @@ export const unicornPlugin = definePlugin({
 
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/number-literal-case.md
     'unicorn/number-literal-case': 'off',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/consistent-empty-array-spread.md
+    'unicorn/consistent-empty-array-spread': 'error',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-raw.md
+    'unicorn/prefer-string-raw': 'warn',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-invalid-fetch-options.md
+    'unicorn/no-invalid-fetch-options': 'error',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-magic-array-flat-depth.md
+    'unicorn/no-magic-array-flat-depth': 'warn',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-structured-clone.md
+    'unicorn/prefer-structured-clone': 'error',
   },
   testRules: {
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/error-message.md
