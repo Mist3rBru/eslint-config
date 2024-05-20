@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.4
+
+### Patch Changes
+
+- 6e30a5d: refactor(plugins/typescript): remove 'if' from @typescript-eslint/padding-line-between-statements rule
+
 ## 0.5.3
 
 ### Patch Changes
