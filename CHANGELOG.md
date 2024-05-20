@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.5
+
+### Patch Changes
+
+- f37d2b3: refactor(plugins/unicorn): disable `prefer-string-raw` rule
+
 ## 0.5.4
 
 ### Patch Changes
