@@ -65,7 +65,7 @@ export const unicornPlugin = definePlugin({
     'unicorn/consistent-empty-array-spread': 'error',
 
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-raw.md
-    'unicorn/prefer-string-raw': 'warn',
+    'unicorn/prefer-string-raw': 'off',
 
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-invalid-fetch-options.md
     'unicorn/no-invalid-fetch-options': 'error',
