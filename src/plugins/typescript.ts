@@ -414,6 +414,9 @@ export const typescriptPlugin = definePlugin({
       'error',
       { allowNumberAndString: true },
     ],
+
+    // https://typescript-eslint.io/rules/no-empty-object-type
+    '@typescript-eslint/no-empty-object-type': 'error',
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any

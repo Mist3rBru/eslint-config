@@ -75,6 +75,9 @@ export const unicornPlugin = definePlugin({
 
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-structured-clone.md
     'unicorn/prefer-structured-clone': 'error',
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-at.md
+    'unicorn/prefer-at': 'off',
   },
   testRules: {
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/error-message.md
