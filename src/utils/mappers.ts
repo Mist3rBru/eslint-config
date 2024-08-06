@@ -13,11 +13,11 @@ export function reduceByKey<T, TKey extends keyof T>(
 
 export function extendPluginRules<TPluginName extends string>(
   pluginName: TPluginName,
-  plugin: { rules: Linter.RulesRecord },
+  plugin: { rules?: Partial<Linter.RulesRecord> },
   overwrite?: Linter.StringSeverity
 ): Record<`${TPluginName}/${string}`, Linter.RuleEntry> {
   return Object.fromEntries(
-    Object.entries(plugin.rules).map(([rule, options]) => [
+    Object.entries(plugin.rules ?? {}).map(([rule, options]) => [
       rule.startsWith(pluginName) ? rule : `${pluginName}/${rule}`,
       overwrite ?? options,
     ])

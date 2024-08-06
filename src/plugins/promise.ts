@@ -56,6 +56,9 @@ export const promisePlugin = definePlugin({
 
     // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-multiple-resolved.md
     'promise/no-multiple-resolved': 'error',
+
+    // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/spec-only.md
+    'promise/spec-only': 'error',
   },
   testRules: {},
 })

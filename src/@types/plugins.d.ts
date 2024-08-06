@@ -177,29 +177,6 @@ declare module 'eslint-plugin-promise' {
   export default plugin
 }
 
-declare module 'eslint-plugin-unicorn' {
-  import type { ESLint, Linter } from 'eslint'
-
-  declare const plugin: ESLint.Plugin & {
-    configs: {
-      recommended: {
-        rules: Linter.RulesRecord
-      }
-      all: {
-        rules: Linter.RulesRecord
-      }
-      'flat/recommended': {
-        rules: Linter.RulesRecord
-      }
-      'flat/all': {
-        rules: Linter.RulesRecord
-      }
-    }
-  }
-
-  export default plugin
-}
-
 declare module 'eslint-plugin-security' {
   import type { ESLint, Linter } from 'eslint'
 
