@@ -179,33 +179,6 @@ export const typescriptPlugin = definePlugin({
     // https://typescript-eslint.io/rules/switch-exhaustiveness-check
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
-    // https://typescript-eslint.io/rules/padding-line-between-statements
-    '@typescript-eslint/padding-line-between-statements': [
-      'error',
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: [
-          'interface',
-          'type',
-          'block',
-          'block-like',
-          'class',
-          'export',
-          'for',
-          'function',
-          'do',
-          'iife',
-          'continue',
-          'return',
-          'switch',
-          'try',
-          'while',
-          'throw',
-        ],
-      },
-    ],
-
     // https://typescript-eslint.io/rules/no-use-before-define
     '@typescript-eslint/no-use-before-define': [
       'error',
