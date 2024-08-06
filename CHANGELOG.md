@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.5.6
+
+### Patch Changes
+
+- 3735e29: chore: update plugins
+
 ## 0.5.5
 
 ### Patch Changes
