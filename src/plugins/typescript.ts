@@ -352,6 +352,9 @@ export const typescriptPlugin = definePlugin({
 
     // https://typescript-eslint.io/rules/prefer-includes
     '@typescript-eslint/prefer-includes': 'error',
+
+    // https://typescript-eslint.io/rules/no-deprecated
+    '@typescript-eslint/no-deprecated': 'error',
   },
   testRules: {
     // https://typescript-eslint.io/rules/no-explicit-any

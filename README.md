@@ -52,7 +52,6 @@ Replace "node" and "jest" with the appropriate preset name for your project.
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#readme)
 - [`eslint-plugin-security`](https://github.com/eslint-community/eslint-plugin-security?tab=readme-ov-file#readme)
 - [`eslint-plugin-no-secrets`](https://github.com/nickdeis/eslint-plugin-no-secrets?tab=readme-ov-file#readme)
-- [`eslint-plugin-deprecation`](https://github.com/gund/eslint-plugin-deprecation?tab=readme-ov-file#readme)
 - [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#readme)
 - [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#readme)
 - [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y?tab=readme-ov-file#readme)

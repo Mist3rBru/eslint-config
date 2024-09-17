@@ -49,11 +49,13 @@ describe('next', () => {
       '@typescript-eslint/no-floating-promises',
       '@typescript-eslint/no-empty-function',
     ]
+
     expect.assertions(expectedDisabledRules.length + 1)
 
     for (const rule of expectedDisabledRules) {
       expect(sut.rules).toHaveProperty(rule, 'off')
     }
+
     expect(sut.overrides?.[0].rules).toHaveProperty('no-undef', 'off')
   })
 })

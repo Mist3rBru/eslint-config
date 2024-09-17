@@ -31,11 +31,13 @@ describe('exports', () => {
     ) as (keyof typeof plugin.configs)[]
 
     const expectedAssertions = 4
+
     expect.assertions(configKeys.length * expectedAssertions)
 
     for (const key of configKeys) {
       // eslint-disable-next-line @typescript-eslint/prefer-destructuring
       const config = plugin.configs[key]
+
       expect(config.parser).toBeDefined()
       expect(config.parserOptions).toBeDefined()
       expect(config.plugins.length).toBeGreaterThanOrEqual(1)
@@ -43,7 +45,7 @@ describe('exports', () => {
     }
   })
 
-  it('should include dependency plugins', async () => {
+  it('should include dependency plugins', () => {
     const dependencyList = Object.keys(packageJson.dependencies)
     const configKeys = Object.keys(plugin.configs)
 
