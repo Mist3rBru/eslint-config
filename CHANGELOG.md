@@ -1,5 +1,16 @@
 # eslint-plugin-mist3rbru
 
+## 0.6.0
+
+### Minor Changes
+
+- 752814c: feat: add eslint v9 and flat config support
+
+### Patch Changes
+
+- 5966f4c: chore: bump plugins
+- cf67983: feat(plugins): add @stylistic/eslint-plugin plugin
+
 ## 0.5.6
 
 ### Patch Changes
