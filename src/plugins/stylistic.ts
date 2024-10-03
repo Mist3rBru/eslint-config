@@ -4,7 +4,7 @@ import _stylisticPlugin from '@stylistic/eslint-plugin'
 // https://eslint.style/guide/getting-started
 export const stylisticPlugin = definePlugin({
   name: '@stylistic',
-  settings: {},
+  source: _stylisticPlugin,
   // https://eslint.style/packages/default
   rules: {
     ...Object.fromEntries(

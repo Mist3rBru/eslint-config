@@ -1,4 +1,3 @@
-/* eslint-disable no-duplicate-imports */
 /* eslint-disable import/no-default-export */
 
 declare module 'eslint-config-prettier' {

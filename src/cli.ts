@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
+
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import plugin from './index.js'
 import type { EslintConfig } from './types.js'

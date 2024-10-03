@@ -5,7 +5,7 @@ import _typescriptPlugin from '@typescript-eslint/eslint-plugin'
 // https://typescript-eslint.io/getting-started
 export const typescriptPlugin = definePlugin({
   name: '@typescript-eslint',
-  settings: {},
+  source: _typescriptPlugin,
   // https://typescript-eslint.io/rules
   rules: {
     ...extendPluginRules(

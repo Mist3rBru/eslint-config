@@ -35,12 +35,11 @@ describe('exports', () => {
     expect.assertions(configKeys.length * expectedAssertions)
 
     for (const key of configKeys) {
-      // eslint-disable-next-line @typescript-eslint/prefer-destructuring
       const config = plugin.configs[key]
 
-      expect(config.parser).toBeDefined()
-      expect(config.parserOptions).toBeDefined()
-      expect(config.plugins.length).toBeGreaterThanOrEqual(1)
+      expect(config.languageOptions.parser).toBeDefined()
+      expect(config.languageOptions.parserOptions).toBeDefined()
+      expect(Object.keys(config.plugins).length).toBeGreaterThanOrEqual(1)
       expect(config.rules).toBeDefined()
     }
   })
@@ -52,7 +51,9 @@ describe('exports', () => {
     for (const configKey of configKeys) {
       const config = plugin.configs[configKey as keyof typeof plugin.configs]
 
-      for (const pluginName of config.plugins.filter(p => !p.startsWith('@'))) {
+      for (const pluginName of Object.keys(config.plugins).filter(
+        p => !p.startsWith('@')
+      )) {
         expect(dependencyList).toContain(`eslint-plugin-${pluginName}`)
       }
     }

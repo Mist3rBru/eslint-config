@@ -1,4 +1,3 @@
-/* eslint-disable no-duplicate-imports */
 /* eslint-disable import/no-default-export */
 
 declare module '@eslint/js' {
@@ -92,6 +91,11 @@ declare module 'eslint-plugin-jest' {
       }
       style: {
         rules: Linter.RulesRecord
+      }
+    }
+    environments: {
+      globals: {
+        globals: Record<string, boolean>
       }
     }
   }

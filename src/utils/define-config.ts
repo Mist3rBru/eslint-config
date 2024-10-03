@@ -1,36 +1,54 @@
 import type { EslintConfig, EslintPlugin } from '../types.js'
+import { GLOB_EXCLUDE } from './globs.js'
 import { reduceByKey } from './mappers.js'
+import type { ESLint, Linter } from 'eslint'
+import _tsEslint from 'typescript-eslint'
 
-export interface DefinePartialEslintConfig {
-  parserOptions?: Partial<EslintConfig['parserOptions']>
+export interface DefinePartialEslintConfig<
+  TPluginName extends string = string,
+> {
+  files: string[]
+  parserOptions?: Partial<EslintConfig['languageOptions']['parserOptions']>
   settings?: EslintConfig['settings']
-  env: EslintConfig['env']
-  globals?: EslintConfig['globals']
-  plugins: EslintPlugin[]
+  globals?: EslintConfig['languageOptions']['globals']
+  plugins: EslintPlugin<TPluginName>[]
   extendPlugins: 'rules' | 'testRules'
   rules: EslintConfig['rules']
-  overrides?: EslintConfig['overrides']
 }
 
-export function defineConfig(config: DefinePartialEslintConfig): EslintConfig {
+export function defineConfig<TPluginName extends string>(
+  config: DefinePartialEslintConfig<TPluginName>
+): EslintConfig<TPluginName> {
   return {
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-      ecmaVersion: 'latest',
+    files: config.files,
+    ignores: GLOB_EXCLUDE,
+    languageOptions: {
       sourceType: 'module',
-      ...config.parserOptions,
+      ecmaVersion: 'latest',
+      parser: _tsEslint.parser as Linter.Parser,
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 'latest',
+        project: './tsconfig.json',
+        ...config.parserOptions,
+      },
+      globals: {
+        ...reduceByKey(config.plugins, 'globals'),
+        ...config.globals,
+      },
     },
     settings: {
       ...reduceByKey(config.plugins, 'settings'),
       ...config.settings,
     },
-    env: config.env,
-    globals: config.globals ?? {},
-    plugins: config.plugins.map(plugin => plugin.name).filter(Boolean),
+    plugins: Object.fromEntries(
+      config.plugins
+        .filter(plugin => !!plugin.name)
+        .map(plugin => [plugin.name, plugin.source])
+    ) as Record<TPluginName, ESLint.Plugin>,
     rules: {
       ...reduceByKey(config.plugins, config.extendPlugins),
       ...config.rules,
     },
-    overrides: config.overrides ?? [],
   }
 }

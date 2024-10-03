@@ -4,26 +4,18 @@ import { reactHooksPlugin } from '../plugins/react-hooks.js'
 import { reactPlugin } from '../plugins/react.js'
 import { sharedPlugins } from '../utils/constants.js'
 import { defineConfig } from '../utils/define-config.js'
+import { GLOB_TS_TSX } from '../utils/globs.js'
 
 export const nextConfig = defineConfig({
+  files: [GLOB_TS_TSX],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  env: {
-    es2022: true,
-    browser: true,
-    node: true,
-  },
   globals: {
-    JSX: true,
-    React: true,
+    JSX: 'readonly',
+    React: 'readonly',
   },
   plugins: [
     ...sharedPlugins,
@@ -100,13 +92,4 @@ export const nextConfig = defineConfig({
     // https://typescript-eslint.io/rules/method-signature-style
     '@typescript-eslint/method-signature-style': ['error', 'property'],
   },
-  overrides: [
-    {
-      files: ['*.tsx'],
-      rules: {
-        // https://eslint.org/docs/latest/rules/no-undef
-        'no-undef': 'off',
-      },
-    },
-  ],
 })

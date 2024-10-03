@@ -44,35 +44,35 @@
     "publish": "changeset publish"
   },
   "dependencies": {
-    "@eslint/js": "^8.57.0",
-    "@next/eslint-plugin-next": "^14.2.11",
+    "@eslint/js": "^9.11.1",
+    "@next/eslint-plugin-next": "^14.2.14",
     "@stylistic/eslint-plugin": "^2.8.0",
-    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.8.3",
     "eslint-plugin-jest-dom": "^5.4.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-no-secrets": "^1.0.2",
     "eslint-plugin-promise": "^7.1.0",
-    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-unicorn": "^55.0.0",
     "eslint-plugin-vitest": "^0.5.4",
-    "typescript-eslint": "^8.6.0"
+    "typescript-eslint": "^8.8.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.8",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/eslint": "^8.56.12",
-    "@types/node": "^20.16.5",
-    "@vitest/coverage-v8": "^2.1.1",
-    "eslint": "^8.57.1",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.7.4",
+    "@vitest/coverage-v8": "^2.1.2",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-mist3rbru": "workspace:*",
     "npm-run-all2": "^6.2.3",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.2"
   },
   "peerDependencies": {
     "eslint": "^8.0.0",

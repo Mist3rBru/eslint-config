@@ -1,3 +1,4 @@
+import type { EslintGlobals } from '../types.js'
 import type { Linter } from 'eslint'
 
 export function reduceByKey<T, TKey extends keyof T>(
@@ -9,6 +10,20 @@ export function reduceByKey<T, TKey extends keyof T>(
     // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter, @typescript-eslint/consistent-type-assertions
     {} as T[TKey]
   )
+}
+
+export function updateGlobalValues(
+  globals: unknown,
+  overwrite?: EslintGlobals[keyof EslintGlobals]
+): EslintGlobals {
+  return globals
+    ? Object.fromEntries(
+        Object.entries(globals).map(([key, value]) => [
+          key,
+          overwrite ?? (value ? 'readonly' : 'off'),
+        ])
+      )
+    : {}
 }
 
 export function extendPluginRules<TPluginName extends string>(
@@ -25,7 +40,8 @@ export function extendPluginRules<TPluginName extends string>(
 }
 
 export function toCamelCase(input: string): string {
-  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
-    c ? c.toUpperCase() : ''
+  return (
+    input.charAt(0).toLowerCase() +
+    input.slice(1).replaceAll(/[_-]+(.)?/g, (_, c: string) => c.toUpperCase())
   )
 }
