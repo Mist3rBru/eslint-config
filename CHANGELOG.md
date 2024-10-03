@@ -1,5 +1,11 @@
 # eslint-plugin-mist3rbru
 
+## 0.6.1
+
+### Patch Changes
+
+- 360b8f0: chore: bump eslint compat
+
 ## 0.6.0
 
 ### Minor Changes
