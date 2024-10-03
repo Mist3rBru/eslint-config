@@ -1,9 +1,10 @@
 import { definePlugin } from '../utils/define-plugin.js'
+import _promisePlugin from 'eslint-plugin-promise'
 
 // //https://github.com/eslint-community/eslint-plugin-promise#readme
 export const promisePlugin = definePlugin({
   name: 'promise',
-  settings: {},
+  source: _promisePlugin,
   // https://github.com/eslint-community/eslint-plugin-promise/tree/main/docs/rules
   rules: {
     // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/always-return.md
@@ -56,6 +57,9 @@ export const promisePlugin = definePlugin({
 
     // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-multiple-resolved.md
     'promise/no-multiple-resolved': 'error',
+
+    // https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/spec-only.md
+    'promise/spec-only': 'error',
   },
   testRules: {},
 })

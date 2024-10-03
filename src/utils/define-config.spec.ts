@@ -6,9 +6,7 @@ const makeConfig = (
   config?: Partial<DefinePartialEslintConfig>
 ): EslintConfig => {
   return defineConfig({
-    env: {
-      es2022: true,
-    },
+    files: [],
     plugins: [],
     rules: {},
     extendPlugins: 'rules',
@@ -19,6 +17,7 @@ const makeConfig = (
 const makePlugin = (plugin?: Partial<EslintPlugin>): EslintPlugin => {
   return {
     name: '',
+    source: {},
     settings: {},
     rules: {},
     testRules: {},
@@ -36,9 +35,10 @@ describe('defineConfig()', () => {
       },
     })
 
-    expect(config.parserOptions).toStrictEqual({
+    expect(config.languageOptions.parserOptions).toStrictEqual({
       ecmaVersion: 'latest',
       sourceType: 'module',
+      project: './tsconfig.json',
       ecmaFeatures: {
         jsx: true,
       },
@@ -72,7 +72,8 @@ describe('defineConfig()', () => {
       plugins: [makePlugin({ name: 'foo' }), makePlugin({ name: 'bar' })],
     })
 
-    expect(config.plugins).toStrictEqual(['foo', 'bar'])
+    expect(config.plugins).toHaveProperty('foo')
+    expect(config.plugins).toHaveProperty('bar')
   })
 
   it('should not include empty plugin name', () => {

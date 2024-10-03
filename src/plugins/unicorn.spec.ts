@@ -23,6 +23,7 @@ describe('unicorn', () => {
     for (const rule of testRules) {
       expect(sut.testRules).toHaveProperty(rule, 'off')
     }
+
     expect(Object.keys(sut.testRules)).toHaveLength(testRules.length)
   })
 

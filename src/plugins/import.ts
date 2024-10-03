@@ -4,6 +4,7 @@ import * as _importPlugin from 'eslint-plugin-import'
 // https://github.com/import-js/eslint-plugin-import/tree/main#readme
 export const importPlugin = definePlugin({
   name: 'import',
+  source: _importPlugin,
   settings: _importPlugin.configs.typescript.settings,
   // https://github.com/import-js/eslint-plugin-import/tree/main/docs/rules
   rules: {

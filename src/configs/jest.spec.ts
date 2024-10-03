@@ -10,21 +10,19 @@ describe('jest', () => {
     expect.assertions(sharedPluginNames.length)
 
     for (const pluginName of sharedPluginNames) {
-      expect(sut.plugins).toContain(pluginName)
+      expect(sut.plugins).toHaveProperty(pluginName)
     }
   })
 
   it('should include jest plugin', () => {
-    expect(sut.plugins).toContain('jest')
+    expect(sut.plugins).toHaveProperty('jest')
   })
 
   it('should include security plugin', () => {
-    expect(sut.plugins).toContain('security')
+    expect(sut.plugins).toHaveProperty('security')
   })
 
   it('should config jest environment', () => {
-    expect(sut.env.node).toBe(true)
-    expect(sut.env.jest).toBe(true)
-    expect(sut.env['jest/globals']).toBe(true)
+    expect(sut.languageOptions.globals).toHaveProperty('test', 'readonly')
   })
 })

@@ -1,3 +1,4 @@
+import type { EslintGlobals } from '../types.js'
 import type { Linter } from 'eslint'
 
 export function reduceByKey<T, TKey extends keyof T>(
@@ -11,13 +12,27 @@ export function reduceByKey<T, TKey extends keyof T>(
   )
 }
 
+export function updateGlobalValues(
+  globals: unknown,
+  overwrite?: EslintGlobals[keyof EslintGlobals]
+): EslintGlobals {
+  return globals
+    ? Object.fromEntries(
+        Object.entries(globals).map(([key, value]) => [
+          key,
+          overwrite ?? (value ? 'readonly' : 'off'),
+        ])
+      )
+    : {}
+}
+
 export function extendPluginRules<TPluginName extends string>(
   pluginName: TPluginName,
-  plugin: { rules: Linter.RulesRecord },
+  plugin: { rules?: Partial<Linter.RulesRecord> },
   overwrite?: Linter.StringSeverity
 ): Record<`${TPluginName}/${string}`, Linter.RuleEntry> {
   return Object.fromEntries(
-    Object.entries(plugin.rules).map(([rule, options]) => [
+    Object.entries(plugin.rules ?? {}).map(([rule, options]) => [
       rule.startsWith(pluginName) ? rule : `${pluginName}/${rule}`,
       overwrite ?? options,
     ])
@@ -25,7 +40,8 @@ export function extendPluginRules<TPluginName extends string>(
 }
 
 export function toCamelCase(input: string): string {
-  return input.replaceAll(/[_-]+(.)?/g, (_, c: string) =>
-    c ? c.toUpperCase() : ''
+  return (
+    input.charAt(0).toLowerCase() +
+    input.slice(1).replaceAll(/[_-]+(.)?/g, (_, c: string) => c.toUpperCase())
   )
 }

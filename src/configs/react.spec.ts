@@ -10,31 +10,31 @@ describe('react', () => {
     expect.assertions(sharedPluginNames.length)
 
     for (const pluginName of sharedPluginNames) {
-      expect(sut.plugins).toContain(pluginName)
+      expect(sut.plugins).toHaveProperty(pluginName)
     }
   })
 
   it('should not include security plugin', () => {
-    expect(sut.plugins).not.toContain('security')
+    expect(sut.plugins).not.toHaveProperty('security')
   })
 
   it('should include react plugin', () => {
-    expect(sut.plugins).toContain('react')
+    expect(sut.plugins).toHaveProperty('react')
   })
 
   it('should include react-hooks plugin', () => {
-    expect(sut.plugins).toContain('react-hooks')
+    expect(sut.plugins).toHaveProperty('react-hooks')
   })
 
   it('should not include jsx-a11y plugin', () => {
-    expect(sut.plugins).toContain('jsx-a11y')
+    expect(sut.plugins).toHaveProperty('jsx-a11y')
   })
 
   it('should config react environment', () => {
-    expect(sut.parserOptions.ecmaFeatures?.jsx).toBe(true)
-    expect(sut.settings?.react?.version).toBe('detect')
-    expect(sut.globals?.React).toBe(true)
-    expect(sut.globals?.JSX).toBe(true)
+    expect(sut.languageOptions.parserOptions.ecmaFeatures?.jsx).toBe(true)
+    expect(sut.languageOptions.globals.React).toBe('readonly')
+    expect(sut.languageOptions.globals.JSX).toBe('readonly')
+    expect(sut.settings.react?.version).toBe('detect')
   })
 
   it('should disable react conflicted rules', () => {
@@ -45,11 +45,11 @@ describe('react', () => {
       '@typescript-eslint/no-floating-promises',
       '@typescript-eslint/no-empty-function',
     ]
-    expect.assertions(expectedDisabledRules.length + 1)
+
+    expect.assertions(expectedDisabledRules.length)
 
     for (const rule of expectedDisabledRules) {
       expect(sut.rules).toHaveProperty(rule, 'off')
     }
-    expect(sut.overrides?.[0].rules).toHaveProperty('no-undef', 'off')
   })
 })

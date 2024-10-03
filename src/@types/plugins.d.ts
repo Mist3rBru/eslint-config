@@ -1,4 +1,3 @@
-/* eslint-disable no-duplicate-imports */
 /* eslint-disable import/no-default-export */
 
 declare module '@eslint/js' {
@@ -62,20 +61,6 @@ declare module '@typescript-eslint/eslint-plugin' {
   export default plugin
 }
 
-declare module 'eslint-plugin-deprecation' {
-  import type { ESLint, Linter } from 'eslint'
-
-  declare const plugin: ESLint.Plugin & {
-    configs: {
-      recommended: {
-        rules: Linter.RulesRecord
-      }
-    }
-  }
-
-  export default plugin
-}
-
 declare module 'eslint-plugin-jest-dom' {
   import type { ESLint, Linter } from 'eslint'
 
@@ -106,6 +91,11 @@ declare module 'eslint-plugin-jest' {
       }
       style: {
         rules: Linter.RulesRecord
+      }
+    }
+    environments: {
+      globals: {
+        globals: Record<string, boolean>
       }
     }
   }
@@ -169,29 +159,6 @@ declare module 'eslint-plugin-promise' {
   declare const plugin: ESLint.Plugin & {
     configs: {
       recommended: {
-        rules: Linter.RulesRecord
-      }
-    }
-  }
-
-  export default plugin
-}
-
-declare module 'eslint-plugin-unicorn' {
-  import type { ESLint, Linter } from 'eslint'
-
-  declare const plugin: ESLint.Plugin & {
-    configs: {
-      recommended: {
-        rules: Linter.RulesRecord
-      }
-      all: {
-        rules: Linter.RulesRecord
-      }
-      'flat/recommended': {
-        rules: Linter.RulesRecord
-      }
-      'flat/all': {
         rules: Linter.RulesRecord
       }
     }

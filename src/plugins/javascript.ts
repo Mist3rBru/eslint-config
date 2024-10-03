@@ -471,9 +471,9 @@ export const tsEquivalentRules = [
   'space-infix-ops',
 ]
 
-export const javascriptPlugin = definePlugin<string>({
+export const javascriptPlugin = definePlugin({
   name: '',
-  settings: {},
+  source: eslint,
   // https://eslint.org/docs/latest/rules/
   rules: {
     ...extendPluginRules('', eslint.configs.recommended),
@@ -521,6 +521,12 @@ export const javascriptPlugin = definePlugin<string>({
     ...Object.fromEntries(
       [...tsEquivalentRules, ...jsIgnoredRules].map(rule => [rule, 'off'])
     ),
+
+    // https://eslint.org/docs/latest/rules/no-inner-declarations
+    'no-inner-declarations': 'off',
+
+    // https://eslint.org/docs/latest/rules/no-useless-assignment
+    'no-useless-assignment': 'error',
   },
   testRules: {
     // Deprecated and conflicts with jest.Mock infer

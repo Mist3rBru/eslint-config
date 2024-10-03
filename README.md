@@ -12,24 +12,22 @@ pnpm add -D eslint eslint-plugin-mist3rbru
 
 ## Usage
 
-To use the plugin, create a .eslintrc.json file in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
+To use the plugin, create one of these config files in your project and extend the desired environment configuration. For example, to use Node.js with Jest configuration:
 
-```json
-{
-  "root": true,
-  "parserOptions": {
-    "project": "./tsconfig.json"
+```js
+// Recommended
+// eslint.config.mjs
+import plugin from 'eslint-plugin-mist3rbru'
+
+export default [
+  plugin.configs.node,
+  plugin.configs.jest,
+  {
+    rules: {
+      'security/detect-object-injection': 'off',
+    },
   },
-  "extends": ["plugin:mist3rbru/node"],
-  "rules": {},
-  "overrides": [
-    {
-      "files": ["src/**/*.spec.ts"],
-      "extends": ["plugin:mist3rbru/jest"],
-      "rules": {}
-    }
-  ]
-}
+]
 ```
 
 Replace "node" and "jest" with the appropriate preset name for your project.
@@ -52,7 +50,6 @@ Replace "node" and "jest" with the appropriate preset name for your project.
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#readme)
 - [`eslint-plugin-security`](https://github.com/eslint-community/eslint-plugin-security?tab=readme-ov-file#readme)
 - [`eslint-plugin-no-secrets`](https://github.com/nickdeis/eslint-plugin-no-secrets?tab=readme-ov-file#readme)
-- [`eslint-plugin-deprecation`](https://github.com/gund/eslint-plugin-deprecation?tab=readme-ov-file#readme)
 - [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react?tab=readme-ov-file#readme)
 - [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#readme)
 - [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y?tab=readme-ov-file#readme)
