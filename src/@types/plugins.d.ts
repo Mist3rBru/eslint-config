@@ -61,48 +61,6 @@ declare module '@typescript-eslint/eslint-plugin' {
   export default plugin
 }
 
-declare module 'eslint-plugin-jest-dom' {
-  import type { ESLint, Linter } from 'eslint'
-
-  declare const plugin: ESLint.Plugin & {
-    configs: {
-      recommended: {
-        rules: Linter.RulesRecord
-      }
-      all: {
-        rules: Linter.RulesRecord
-      }
-    }
-  }
-
-  export = plugin
-}
-
-declare module 'eslint-plugin-jest' {
-  import type { ESLint, Linter } from 'eslint'
-
-  declare const plugin: ESLint.Plugin & {
-    configs: {
-      all: {
-        rules: Linter.RulesRecord
-      }
-      recommended: {
-        rules: Linter.RulesRecord
-      }
-      style: {
-        rules: Linter.RulesRecord
-      }
-    }
-    environments: {
-      globals: {
-        globals: Record<string, boolean>
-      }
-    }
-  }
-
-  export default plugin
-}
-
 declare module 'eslint-plugin-import' {
   import type { ESLint, Linter } from 'eslint'
 

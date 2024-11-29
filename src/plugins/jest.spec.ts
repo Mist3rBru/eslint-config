@@ -6,7 +6,7 @@ import _jestPlugin from 'eslint-plugin-jest'
 
 describe('jest', () => {
   it('should config jest plugin rules', () => {
-    const jestPluginRules = Object.entries(_jestPlugin.rules!)
+    const jestPluginRules = Object.entries(_jestPlugin.rules)
       .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
 

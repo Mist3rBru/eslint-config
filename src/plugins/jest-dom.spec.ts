@@ -6,7 +6,7 @@ import _reactPlugin from 'eslint-plugin-jest-dom'
 
 describe('jest-dom', () => {
   it('should config jest-dom plugin rules', () => {
-    const reactPluginRules = Object.entries(_reactPlugin.rules!)
+    const reactPluginRules = Object.entries(_reactPlugin.rules)
       .filter(([, ruleMeta]) => !(ruleMeta as EslintRuleMeta).meta.deprecated)
       .map(([rule]) => rule)
 
