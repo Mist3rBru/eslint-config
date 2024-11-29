@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-mist3rbru",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": false,
   "description": "Mist3rBru extended ESLint rules",
   "author": {
